@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+    </head>
+    <body>
+        {% for dkey in G %}
+            <p> group {{dkey}} </p>
+            {% for value in G[dkey] %}
+                <p><a href="{{url_for('monitor_nano', key=key, group_no=dkey, ID=value)}}" style="padding-left:30px"> {{value}}</a> {{connections[value]}} </p>
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>

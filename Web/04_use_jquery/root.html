@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <script src="{{url_for('static', filename='jquery-3.5.1.js')}}">
+            </script>
+    </head>
+    <body>
+        <div> The fruit is <p id='a'>apple</p> </div>
+        <div id='b'> B </div>
+        <div id='c'> C </div>
+        <script>
+            $(function(){ $('#a').html('banana') });
+
+            $(function(){
+                console.log("1");
+                $('#a').load("{{url_for('f1')}}");
+                $('#a').load("{{url_for('f2')}}");
+                $('#a').load("{{url_for('f3')}}");
+            });
+            
+            $(function(){
+                $.get("{{url_for('f2')}}", function(data){
+                    console.log(typeof data);
+                    console.log(data);
+                    var obj = data['apple'];
+                    console.log(typeof obj);
+                    console.log(obj);
+                });
+            });
+            
+            $(setInterval(function(){
+                $.get("{{url_for('status')}}", function(data){
+                    $('#b').html(data['time']);
+                    var hardware = String(data['hardware']);
+                    $('#c').html(hardware);
+                });
+            }, 1000));
+            
+            </script>
+        
+    </body>
+</html>
+

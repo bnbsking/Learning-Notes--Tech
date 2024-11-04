@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+    </head>
+    <body>
+        <p align='center' style="color:blue; font-size:200%"> Nano 後台管理系統 </p>
+        {% if state == "error" %}
+            <p align='center' style="color:red"> Username or Password Error !!! </p>
+        {% endif %}
+        <p align='center'> 請輸入使用者名稱及密碼 </p>
+        <form method="post" action="/login" align='center'>
+            <p align='center'>username: <input type="text" name="username"></p>
+            <p align='center'>password: <input type="password" name="password"></p>
+            <button type="submit">Submit</button>
+            </form>
+    </body>
+</html>

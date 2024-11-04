@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+    </head>
+    <body>
+        <p> 請填寫新nano使用者資料: </p>
+        <form method="post" action="/menu_{{key}}/create_nano_user/processing">
+            <p>ID: <input type="text" name="ID"></p>
+            <p>group no. : <input type="text" name="group_no"></p>
+            <p>account: <input type="text" name="account"></p>
+			<p>password: <input type="password" name="password"></p>
+            <p>IP: <input type="text" name="IP"></p>
+            <button type="submit">Submit</button>
+            </form>
+    </body>
+</html>

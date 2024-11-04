@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+        <style>
+        ul.p300{margin-top: 1em; margin-bottom: 1em; padding-left: 550px}
+        li{margin-top: 0.5em; margin-bottom: 0.5em}
+            </style>
+    </head>
+    <body>
+        <p align='center' style="color:blue; font-size:200%"> 請選擇功能: </p>
+        
+        <ul class="p300">
+            <li>
+                <a href="#top"> Dashboard </a>
+                </li>
+            <li>
+                Configuration
+                <ul>
+                    <li>
+                        <a href="{{url_for('create_web_user', key=key)}}"> create web user </a>
+                        </li>
+                    <li>
+                        <a href="{{url_for('create_nano_user', key=key)}}"> create nano user </a>
+                        </li>
+                    </ul>
+                </li>
+            <li>
+                <a href="{{url_for('monitor', key=key)}}"> Monitor </a>
+                </li>
+            <li>
+                <a href="{{url_for('root')}}"> Logout </a>
+                </li>
+            </ul>
+        
+    </body>
+</html>
+

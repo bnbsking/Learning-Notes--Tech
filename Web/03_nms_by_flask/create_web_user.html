@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+    </head>
+    <body>
+        <p> 請填寫新Web使用者資料: </p>
+        <form method="post" action="/menu_{{key}}/create_web_user/processing">
+            <p>username: <input type="text" name="username"></p>
+			<p>password: <input type="password" name="password"></p>
+            <p><input type="checkbox" name="webuser" value=1> privileges for creating/deleting web user </p>
+            {% if dis == "F" %}
+                <p><input type="checkbox" name="nanouser" value=1> privileges for creating/deleting nano user </p>
+            {% else %}
+                <p><input type="checkbox" name="nanouser" value=1 disabled> privileges for creating/deleting nano user </p>
+            {% endif %}
+            <button type="submit">Submit</button>
+            </form>
+    </body>
+</html>

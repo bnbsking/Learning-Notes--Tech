@@ -1,0 +1,28 @@
+body{background-color: grey; background-image:url("css.png"); background-repeat:no-repeat; background-attachment: fixed}
+p{text-indent: 20px; text-shadow: 2px 2px 2px grey;}
+
+#myid .myclass myem{font-size: 200%; color:blue; background-color:yellow;}
+
+p.monospace{font-family: "Courier New", Courier, monospace;}
+p.example{font-size: x-large; font-style: italic; font-weight: bold; color: red; text-align: center; text-decoration: underline; text-transform: capitalize}
+p.example2{text-transform: uppercase; white-space: pre; padding:10px; border:5px solid green; border-style: outset}
+
+td.top{vertical-align: top;}
+td.middle{vertical-align: middle;}
+td.bottom{vertical-align: bottom;}
+
+span.sub{vertical-align: sub;}
+
+ol.lower-alpha{list-style-type: lower-alpha}
+ul.circle{list-style-type: circle}
+ul.square{list-style-type: square; list-style-image: url("css.png")}
+
+a:hover{color: red}
+
+img{float:left; margin-right: 10px}
+.clean{clear:both}
+
+p.win{width:100px; height:100px; background-color: LightBlue; overflow:scroll;}
+
+//id 只能在html用一次 但class可以很多次
+//

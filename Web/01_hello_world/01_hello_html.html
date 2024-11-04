@@ -1,0 +1,93 @@
+<!DOCKTYPE html>
+<html lang="zh-TW">
+	<head>
+		<title> Bobo cat </title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<p> Bobo loves dogs. </p>
+		<p> This is a <br/> line break. </p>
+		<p> <b>bold</b> <big>big</big> <small>small</small> <i>i</i> <sub>sub</sub> <sup>sup</sup>
+			<ins>ins</ins> <del>del</del> </p>
+		<p> 波波 </p>
+		<h1> This is heading1 (1/6) </h1>
+		<p align='center'> align='center' </p>
+		<hr/> <hr width='50px'/> <hr width='50%' align='left' />
+		
+		<!-- Comment -->
+		<img src='groundhog.jpg' height='200px' width='200px' border='3px' /><br/>
+		<a href="https://www.google.com"> This is a link to Google. </a><br/>
+		<a href="https://www.google.com" target="_blank"> This is a link to Google.(new window) </a><br/>
+
+		<!-- ordered list & unordered list -->
+		<ol>
+			<li> li1 </li>
+			<li> li2 </li>
+		</ol>
+		<ul>
+			<li> li1 </li>
+			<li> li2 </li>
+		</ul>
+
+		<!--table-->
+		<table align='center' border='2px'>
+			<tr>
+				<td bgcolor='red'>Red</td>
+				<td bgcolor='#00009a'>Blue</td>
+				<td>Green</td>
+			</tr>
+			<tr>
+				<td><br/></td>
+				<td colspan='2'></td>
+			</tr>
+		</table>		
+
+		<!--div and span-->
+		<div style='background-color:green; color:white; padding:20px'>
+			<p> A div style </p>		
+		</div>
+		<span style='color:red'>
+			<p> A span style </p>
+		</span>
+
+		<!--form-->		
+		<form>
+			<p> account: <input id='car' type='text' list='colors'/> </p>
+				<datalist id='colors'>
+					<option value = 'red'>
+					<option value = 'green'>
+				</datalist>
+			<p> password: <input type='password'/> </p>
+			<input type='submit'> <br/>
+			<input type='radio' name='gender'> Male <br/>
+			<input type='radio' name='gender'> Female <br/>
+			<input type='checkbox' name='gender'> Male <br/>
+			<input type='checkbox' name='gender'> Female
+		</form>
+
+		<section>
+			<p> This is a section </p>		
+		</section>
+		
+		<audio src='Star Sky.mp3' controls autoplay loop></audio><br/>
+		<video src='groundhog.mp4' controls></video><br/>
+		status:<progress min='0' max='100' value='85'></progress><br/>
+		
+		<svg width='1000' height='250'>
+			<circle cx='80' cy='80' r='30' fill='green'>
+			<animate attributeName='x' from='0' to='300' dur='3s' fill='freeze' repeatCount='2'/>
+			</circle>
+		</svg><br/>
+		
+		<form action='welcome.php' method='post'>
+			Name:<input type='text' name='name'><br>
+			<input type='submit'>
+		</form>	
+	</body>
+</html>
+
+<!--article includes p h1-->
+<!--header includes h1~h6-->
+<!--footer bottom of page, e.g. contact information-->
+<!--nav includes ul/ol-->
+<!--web storage, geolocation, animation, canvas>

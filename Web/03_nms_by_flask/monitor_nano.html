@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Nano 後台管理系統</title>
+        <script src="{{url_for('static', filename='jquery-3.5.1.js')}}">
+            </script>
+    </head>
+    <body>
+        <div> You are monitor group {{group_no}} nano {{ID}} </div>
+        
+        <div> data: <p id='d'> data </p><br/>
+              prediction: <p id='p'> prediction </p><br/>
+              CPU: <p id='c'> CPU </p><br/>
+              time: <p id='t'> time </p><br/>  
+            </div>
+
+        <script>
+            
+            $(setInterval(function(){
+                $.get("{{url_for('monitor_nano_update', group_no=group_no, ID=ID, key=key)}}", function(data){
+                    $('#d').html( String(data['data']) );
+                    $('#p').html( String(data['prediction']) );
+                    $('#c').html( String(data['CPU']) );
+                    $('#t').html( String(data['time']) );
+                });
+            }, 1000));
+            
+            </script>
+        
+    </body>
+</html>

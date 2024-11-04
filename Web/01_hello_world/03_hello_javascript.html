@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Bobo
+		</title>
+		<link rel="stylesheet" href="CSS.css">	
+		<script src='j.js'></script>
+	</head>
+	<body>
+		<div id="myid">
+			<p class="myclass">
+				first paragraph <myem> hello </myem>
+			</p>
+		<p class="example">
+			second paragraph
+			<span class="sub">
+				subscript
+			</span>
+		</p>
+		<p class="example2">
+			third paragraph			
+		</p>
+		<table border="1" cellpadding="2" cellspacing="0" style="height:150px;">
+			<tr>
+				<td class="top">Top</td>
+				<td class="middle">Middle</td>
+				<td class="bottom">Bottom</td>
+			</tr>
+			<tr>
+				<td> CSS </td>
+			</tr>
+		</table>
+		<ol class="lower-alpha">
+			<li>Red</li>
+			<li>Green</li>
+		</ol>
+		<ul class="circle">
+			<li>Red</li>
+			<li>Green</li>
+			<ul class="square">
+				<li>Red</li>
+				<li>Green</li>
+			</ul>
+		</ul>
+		<p><a href="haha"> haha </a></p>
+		<span style="cursor:help"> Do you need help? </span>
+		<img src="groundhog.jpg">
+		<p class="clean"></p>
+		<p> hello </p>
+		<p class="win">
+			Do you need help?Do you need help?Do you need help?Do you need help?Do you need help?Do you need help?Do you need help?
+		</p>
+		<div class="round">
+			round corner
+		</div>
+		<div class="circ">
+		</div>
+		
+		<script src='j.js'></script>
+		<script>
+			document.write('HELLO');
+			alert('土撥鼠貓\n哈囉')
+			var name = prompt('Enter your name')
+			var result = confirm('Are you sure?')
+			if(name=='bobo' && result==true) alert('Welcome')
+			else alert('something wrong')
+			
+			//土撥鼠的註解
+			var x =10;
+			var y ='hi';
+			var z = true
+			document.write(x,'<br>',y,z, 'abc'+'def', 3>5);
+			
+			for (i=0;i<10;i++)
+				{
+					if(i%2==0) document.write(i, '<br>');
+				}
+			
+			function f(x,y)
+				{ return x+y
+				}
+			document.write(f(4,7), '<br>')
+			
+			var D = {'name':'bobo', 'career':'software_engineer'};
+			document.write(D.name.length, D['name'], D.name, '<br>')
+			
+			function person(name, age)
+				{	this.name = name;
+					this.age = age;
+					this.greet = function greet(){document.write('hello bobo')};
+				}
+			var boy = new person('bobo', 26);
+			document.write(boy.name, boy.age, '<br>')
+			boy.greet()
+			
+			var A = new Array('bobo', 'baubau', 'egg');
+			document.write(A, A[0], A.length, '<br>');	
+			var DA = new Array();
+			for(i=0; i<=5; i++)
+				{DA[i]=Math.PI*i + Math.random()*0;
+				}
+			document.write(DA, '<br>');
+			
+			var d = new Date();
+			document.write('hr:', d.getHours(), ' min:', d.getMinutes())
+		</script>
+		
+		<button onclick = 'show()'> click_me </button>
+		<script>
+			function show(){
+				alert('Hi');
+			}
+			
+			//let name = 'bobo';
+			//let msg = 'hello ${name}';
+			//console.log(name);
+			document.write('hi');
+			console.log('hiiiii');
+		</script>
+		
+	</body>
+</html>
+
+<!-- ... 這裡是註解文字 ... 
+<script>
+	var: global
+	let: local
+</script>
+<style>p{color:white; background-color:gray;}</style> internal CSS all
+-->
