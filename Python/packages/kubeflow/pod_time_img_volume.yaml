@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod5
+spec:
+  containers:
+    - name: mytime
+      image: python:3.6
+      command: ["sleep"]
+      args: ["99999"]
+      imagePullPolicy: Never
+      volumeMounts:
+      - name: timevolume
+        mountPath: /etc/localtime
+      - name: myvolume
+        mountPath: /tmp
+      ports:
+        - containerPort: 80
+  hostNetwork: true
+  volumes:
+    - name: timevolume
+      hostPath:
+        path: /usr/share/zoneinfo/Asia/Taipei
+    - name: myvolume
+      hostPath:
+        path: /home/james/Desktop/codeFIH/kf/nfs_pv

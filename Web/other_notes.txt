@@ -1,0 +1,4 @@
+[API]
+gRPC: HTTP2, .proto.
+Restful: HTTP, .json or .xml
+SOAP: HTTP, xml

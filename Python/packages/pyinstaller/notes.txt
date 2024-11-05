@@ -1,0 +1,21 @@
+1. pyinstaller -F example.py
+
+2. 在 example.spec 中加入
+import sys
+sys.setrecursionlimit(9000000)
+其中 hidden_import 加入所有 外部套件名稱
+
+3. pyinstaller example.spec
+
+4. 測試結果
+cd dist
+example.exe
+(若有打包其他圖片、文件 需剪下到同層資料夾)
+
+# 若發生
+# numpy, matplotlib, pandas, opencv, pymysql, sqlalchemy, PyQt5 目前皆成功
+# docx2pdf, tensorflow 尚未成功
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
