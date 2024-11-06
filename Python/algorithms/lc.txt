@@ -1,0 +1,968 @@
+DP 0
+62. Unique Paths
+63. Unique Paths II
+64. Minimum Path Sum
+118. Pascal's Triangle
+119. Pascal's Triangle II
+120. Triangle
+303. Range Sum Query - Immutable
+304. Range Sum Query 2D - Immutable
+931. Minimum Falling Path Sum
+935. Knight Dialer
+
+DP 1d Backward
+45. Jump Game II | i=1. nums[i] = max(nums[i-1], nums[i]+i). Transform array to "farthest index can go"
+55. Jump Game | same as 45
+91. Decode Ways | init 2. 4 cases: 00, 01~09/27~, 10/20, 11~19/21~26
+198. House Robber | init 3. L.append( max(L[-3],L[-2])+nums[i] ), return max(L[-1],L[-2])
+213. House Robber II | same as 198 but exclude first and last respectively, return max(L[-1],M[-1])
+<279.> Perfect Squares | L = [0,1]; for i in range(2,n+1): L.append( min( L[i-x**2]+1 for x in squares if i-x**2 >=0 ) )
+300. Longest Increasing Subsequence | similar to 279
+338. Counting Bits | L=[0]*(n+1), i=1. L[i]=L[i//2]+i%2
+368. Largest Divisible Subset | init1. similar to 300. but each cell stores divisors
+646. Maximum Length of Pair Chain | init 1. similar to 300.
+740. Delete and Earn | C,D=Counter(L),defaultdict(lambda :0). for x,times in sorted(C.items()): D[x]=max(D[y] for y in D if x-y>=2)+x*times. similar to 300.
+764. Largest Plus Sign | for way dp
+823. Binary Trees With Factors | init D[ele]->ans. return sum(D.values()). similar to 300.
+1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
+2707. Extra Characters in a String | init 1. similar to 300.
+
+DP 1d Forward
+139. Word Break | init [True]+[False]*len(s). for i if L[i] for word: if s[i:i+len(word)]==word: L[i+len(word)]=True
+204. Count Primes | Sieve of Eratosthenes: L=[F,F]+[T]*(n-2); for i in range(2,int(n**0.5)+1): if L[i]: for j in range(i*i, n, i): L[j]=F
+264. Ugly Number II | init 2, j=2, i2=i3=i5=1. L.append( min(L[i2]*2,L[i3]*3,L[i5]*5) ); i2, i3, i5 = i2+int(L[-1]==L[i2]*2), i3+int(L[-1]==L[i3]*3), i5+int(L[-1]==L[i5]*5)
+    Any ugly number must depends are previous ugly numbers (3 candidates) so the candidates updated by next least larger. Both co-factor should be updated as well.
+313. Super Ugly Number | same as 264
+<322.> coin change | init [0]+[inf]*amount. for i for coin: if i+c<len(L): L[i+c] = min(L[i+c], L[i]+1)
+377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
+1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
+135*. Candy | for i in range(R): if i is smallest: lr expand (L[r]=max(L[r],L[r-1]+1))
+
+DP Arr2d Backward
+72. Edit Distance | init 1r1c. L[i][j] = 1 + min(L[i-1][j-1], L[i-1][j], L[i][j-1])
+97. Interleaving String | init 1r1c. T[i][j] = (T[i-1][j] and s1[i-1]==s3[i+j-1]) or (T[i][j-1] and s2[j-1]==s3[i+j-1])
+221. Maximal Square  | init 1r1c. L[i][j] = L[i][j] * (min(L[i-1][j-1], L[i-1][j], L[i][j-1]) + 1)
+474. Ones and Zeroes | init all 0s. for s in strs for i in range(m,c0-1,-1) for j in range(n,c1-1,-1): L[i][j] = max(L[i][j], L[i-c0][j-c1]+1). must reverse order filling !!!
+516. Longest Palindromic Subsequence | init diagonal. L[i][j] means f(s[i:j+1]), fill from i-j=0,-1,-2,..., diag0=1 diag1=1 or 2, others: L[i+1][j-1] if s[i]==s[j] else max(L[i+1][j], L[i][j-1])
+583. Delete Operation for Two Strings | same as 1143.
+688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
+712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
+790. Domino and Tromino Tiling | full, up, down.
+799. Champagne Tower | init triangular 0s, L[0][0]=poured. triangular update by excess: if L[i][j]>1: excess=L[i][j]-1, L[i][j]=1 -> if i+1<len(L): L[i+1][j], L[i+1][j+1] = L[i+1][j]+excess/2., L[i+1][j+1]+excess/2.
+<1143.> Longest Common Subsequence | L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
+1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
+2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
+
+DP Arr2d Forward
+576. Out of Boundary Paths | init all 0s one 1. renew matrix per step: inner zeros, outer inherit. update inner by forward dp
+
++ Graph (cycle) traversal, X0 is default
+A record visit by
+    A0 record itself or no cycle - ll, tree
+    A1 for if not in hash -> add -> call | hash means "prepared visit"
+        ("add -> for if not in hash -> call" is good for dfs only, here hash means "is visited". bfs will cause same node in queue more than once)
+    A2 if not in hash -> add -> for if not in hash -> call | hash means "is visited".
+
+B sources
+    B0 single
+    B1 multiple - iteratively dfs or interleavedly bfs
+(the following is for dfs only)
+C memorization (subproblem of main problem)
+    C0 no
+    C1 yes
+D backtracking (get path)
+    D0 no
+    D1 yes
+
+Graph Traversal bfs (shortest distance, unweighted shortest path can be get by parent arr)
+433. Minimum Genetic Mutation | A1 | x,depth=Q.popleft() | memory is for is_neighbor NOT main problem
+498. Diagonal Traverse | x=Q.popleft(). add down when i=0 + add right always, use i+j to judge even or odd
+542. 01 Matrix | B1 | x,depth=Q.popleft(). one queue multi-source BFS start from all 0s (put into Q) update 1s (set -1 as unvisited initially)
+752. Open the Lock | A1 | x,depth=Q.popleft()
+886. Possible Bipartition | A1B1 | while dislike: Q, V = deque([dislikes.pop()]), set(). while Q: a, b = Q.popleft()
+909. Snakes and Ladders | A1 | Q,S=deque([(node=1, depth=0)]), {1}. .... x, depth = Q.popleft()
+994. Rotting Oranges | B1 | x,depth=Q.popleft().
+1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
+1971. Find if Path Exists in Graph | A1
+
+Graph Traversal dfs (achievable, get path by backtracking)
+79. Word Search | A1B1D1 | backtracking. f(x, match, visitS) 
+130. Surrounded Regions | B1 | f(x)
+133. Clone Graph | A1 | f(x) | node2dict, dict2node
+200. Number of Islands | B1 | f(x) | same as 130.
+399. Evaluate Division | A1B1C1 | f(x, target, visitS)->ans. for start, end in queries: ans.append(f(start, end, set()))
+457. Circular Array Loop | A1B1 | self.ans, visitEdgeS = False, set(). def f(i, pathS): nexti=(i+nums[i])%len(nums). if i!=nexti and (i,nexti) not in visitEdgeS:
+529. Minesweeper | f(x)
+547. Number of Provinces | A1B1 | f(x)
+695. Max Area of Island | A1B1 | f(x)
+733. Flood Fill | f(x)
+756. Pyramid Transition Matrix | C1 | f(x)->bool, collect all combinations by functools.pairwise. use itertools.product to search all
+785. Is Graph Bipartite? | B1 | Use parity array (-1: not visited, 0: c0, 1: c1). f(x,parent=-1). P[x]=int(P[parent]==-1 or P[parent]==0). for nei in G[x]: if P[nei]==P[x]: False elif P[nei]==-1: f(nei, x)
+797. All Paths From Source to Target | A1D1 | backtracking. f(x=0, path=[0], S={0})
+802. Find Eventual Safe States | A1B1 | f(x)->bool. recursive call if n not in ans and isSafe and n not in visit
+<841.> Keys and Rooms | A1 | f(x)
+1020. Number of Enclaves | B1 | f(i,j). use for every cell: if not visit land: self.is_bound=False=0. self.land=0. dfs(cell). ans+=int(not self.is_bound) * self.land 
+1219. Path with Maximum Gold | A1B1D1 | f(x, visitS, acc) all source dfs + backtracking
+1905. Count Sub Islands | A1B1 | dfs first island to get "cord2islandidx". dfs second island to check all pixel belongs to same islandidx
+
+Graph Traversal dfs+bfs
+863. All Nodes Distance K in Binary Tree | , | f(T, parent=None). dfs to tree to Graph by add parent link. x, depth = self.Q.popleft()
+934. Shortest Bridge | A1, A1B1 | dfs f(x) to collect all boundary of island1 + multi-source BFS (i, j, depth = Q.popleft())
+2385. Amount of Time for Binary Tree to Be Infected | , | Same as 863.
+
+Graph - Topological sort (Kahn's: init inDegL=[inDeg,...], leaves=[inDeg==0 node, ...])
+<207.> Course Schedule | B1 | DFS, G is constant, while leaves
+210. Course Schedule II | B1 | DFS, G is constant, while leaves
+310. Minimum Height Trees | B1 | BFS, G is varied, while len(G)>2: init leaves
+2192. All Ancestors of a Node in a Directed Acyclic Graph | B1 | parentD const, children const, parentD_topo varied. Q, ans = deque(roots), [set() for i in range(n)]. while Q: add parent to ans from parentD. add new roots to Q by parent_topo.
+
+Graph - Spanning tree (Prim: init H, L, S)
+<1584.> Min Cost to Connect All Points | A2 | Prim. Init graph. Heap(dist2mst,node) init by random 1 node, L=[dist,...], visitS, ans. while heap: pop, if not in visitS: visitS.add, for nei in G[x]: if D[nei]>G[x][nei]: update and push. Very similar to 743. O((v+e)logv)
+  + Kruskal: Union find, E(w,p,q) = decreasingly sort edges, while len(mst)<len(nodes)-1: E.pop, merge 2 point if U.union(p,q). O(eloge). same complexity.
+
+Graph - Weighted shortest path (Dijkstra: init H, L, S)
+<743.> Network Delay Time | A2 | Dijkstra. Init graph. Heap(accum,node), L=[dist, ...], visitS. while H: pop, if not in visitS: visitS.add, for nei in G[x]: if L[nei]>accum+G[x][nei]: update and push if not in visitS. (No relaxation, Heap O((v+e)log(v)), Queue can get correct answer but O(v^2))
+   + Bellman-Ford: for _ in range(1,n): for l,r,w in times: L[r] = min(L[r], L[l]+w). O(ve)
+787. Cheapest Flights Within K Stops | Dijkstra but MUST use Queue instead of Heap since relaxation cause error for heap, NO visitS. Q(accum,node,depth), L=[dist, ...]. while Q: pop, if depth<k+1: for nei in G[x]: if shorter: update and push.
+1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance | Floyd-WarShall O(v^3). for mid for vi for vj: relaxation. cannot modify the loop order. Becuase previous optimization results may not hold if mid changes.
+1514. Path with Maximum Probability | A2 | same as 743 Heap(-prob,node)
+1631. Path With Minimum Effort | A2 | same as 743. Heap(accum_delta,node)
+
+Hash 0
+1. Two Sum
+15. 3Sum
+18. 4Sum
+49. Group Anagrams
+141. Linked List Cycle
+142. Linked List Cycle II
+160. Intersection of Two Linked Lists
+187. Repeated DNA Sequences
+202. Happy Number
+205. Isomorphic Strings
+217. Contains Duplicate
+219. Contains Duplicate II
+260. Single Number III
+290. Word Pattern | same as 205
+299. Bulls and Cows | same as 205 and 290
+347. Top K Frequent Elements
+349. Intersection of Two Arrays
+350. Intersection of Two Arrays II
+383. Ransom Note
+387. First Unique Character in a String
+389. Find the Difference
+398. Random Pick Index
+409. Longest Palindrome
+451. Sort Characters By Frequency
+423. Reconstruct Original Digits from English | order: 0246813579
+500. Keyboard Row
+519. Random Flip Matrix | while 1: pick not selected
+575. Distribute Candies
+594. Longest Harmonious Subsequence
+609. Find Duplicate File in System | re, (.*?), \s, \(, \)
+692. Top K Frequent Words
+697. Degree of an Array
+705. Design HashSet
+706. Design HashMap
+748. Shortest Completing Word
+771. Jewels and Stones
+791. Custom Sort String
+804. Unique Morse Code Words
+811. Subdomain Visit Count
+812. Largest Triangle Area
+819. Most Common Word
+822. Card Flipping Game
+833. Find And Replace in String
+859. Buddy Strings
+874. Walking Robot Simulation
+884. Uncommon Words from Two Sentences
+890. Find and Replace Pattern
+929. Unique Email Addresses
+970. Powerful Integers
+997. Find the Town Judge
+1002. Find Common Characters | ans &= Counter(word)
+1010. Pairs of Songs With Total Durations Divisible by 60
+1160. Find Words That Can Be Formed by Characters
+1207. Unique Number of Occurrences
+1347. Minimum Number of Steps to Make Two Strings Anagram | sum((Counter-Counter).values())
+1436. Destination City
+1481. Least Number of Unique Integers after K Removals
+1657. Determine if Two Strings Are Close | set(word1)==set(word2) and sorted(Counter(word1).values()) == sorted(Counter(word2).values())
+2053. Kth Distinct String in an Array
+2196. Create Binary Tree From Descriptions
+2285. Maximum Total Importance of Roads
+2352. Equal Row and Column Pairs | Counter, sum(D[key]*E[key] for key in D.keys()&E.keys()
+2373. Largest Local Values in a Matrix
+2441. Largest Positive Integer That Exists With Its Negative
+2501. Longest Square Streak in an Array | D[next]->cnt
+2610. Convert an Array Into a 2D Array With Conditions
+5. Count Elements With Maximum Frequency
+3016. Minimum Number of Pushes to Type Word II
+3217. Delete Nodes From Linked List Present in Array | ll.
+
+Hash
+3. Longest Substring Without Repeating Character | if s[i] not in D or accum<D[s[i]]: accum+=1, else accum=i-D[s[i]]
+36. Valid Sudoku | check (i,ele), (ele,j), (i//3,j//3,ele) in S
+128. Longest Consecutive Sequence | S=set(L); while S: while x-l in S, while x+r in S
+138. Copy List with Random Pointer | ll. D[id(p)]=idx for raw ll, L=[Node(p.val)] for new ll
+380. Insert Delete GetRandom O(1) | dict+list, remove do nothing for list, remove from list while getRandom if needed
+438. Find All Anagrams in a String | sliding window Counter
+447. Number of Boomerangs | for x1,y1 in points: defaultdict for x2,y2 in points: D[dist]+=1 ans += sum( cnt*(cnt-1) for dist,cnt in D.items() if cnt>1 )
+454. 4Sum II | O(n^2) Counter collect -x-y, O(n^2) find +x+y
+467. Unique Substrings in Wraparound String | D={c:1 for c in s}, cont=1. D substr end with char -> numbers. for i in range(1,len(s)): cont = cont+1 if (ord(s[i])-ord(s[i-1]))%26==1 else 1. D[s[i]]=max(D[s[i]],cont)
+532. K-diff Pairs in an Array | S, ans = set(nums), 0. for x in sorted(list(S)): if x+k in S: ans+=1
+554. Brick Wall | spaces=Counter(). for row in wall: for x in accumulate(row[-1]): spaces[x]+=1
+781. Rabbits in Forest | C,ans=Counter(x+1 for x in answers),0. for k,v in C.items(): ans += k if k>=v else v//k*k + (k if v%k else 0). return ans
+792. Number of Matching Subsequences | D=defaultdict(lambda:[]) (start_char -> [[word, match], ...]). for c in s: raw_words=D[c], D[c]=[]. for word,match in raw_words: if else....
+825. Friends Of Appropriate Ages | C, req = Counter(ages), lambda x, y: int(y>0.5*x+7 and y<=x and (y<=100 or x>=100))....
+846. Hand of Straights
+888. Fair Candy Swap | # suma-x+y=avg # y=x+avg-suma
+898. Bitwise ORs of Subarrays | acc, ors = set(), set(). for x in arr: acc = {x} | { x | y for y in acc }. ors |= acc. return len(ors)
+916. Word Subsets | return [w1 for w1 in words1 if Counter(w1)&C==C]
+923. 3Sum With Multiplicity | consider (3,) or (1,1,1) or (1,2) or (2,1)
+939. Minimum Area Rectangle | collect X (sorted by tup), Y (sorted by tup[::-1]). iterate down_left, find up_left, find do_right, find up_right in set.
+945. Minimum Increment to Make Array Unique | start = key+1 if start<key else start
+954. Array of Doubled Pairs | arr.sort(key=lambda x: abs(x)). for i, x in enumerate(arr): indices[x].add(i). in_arr_c = Counter(arr). iterate and update indices and in_arr_c
+962. Maximum Width Ramp | D val->idx, D_min, ans.
+1027. Longest Arithmetic Subsequence | O(n) * "set(O(n-1))/2"
+1915. Number of Wonderful Substrings | D,acc,ans={0:1},0,0. for c in word: acc^=2**(ord(c)-ord("a")). ans+=D.get(acc,0) diff0. ans+=D.get(acc^(1<<i),0) diff1. D[acc]=D.get(acc,0)+1. 
+1218. Longest Arithmetic Subsequence of Given Difference | D[x] = 1 if x-difference not in D else D[x-difference]+1
+1282. Group the People Given the Group Size They Belong To | D, ans = defaultdict(lambda :[]), []. for i,size in enumerate(groupSizes): D[size].append(i) if len(D[size])==size: ans.append(D[size]). D[size]=[]
+1647. Minimum Deletions to Make Character Frequencies Unique | Counter, ans, freqS
+1814. Count Nice Pairs in an Array | remember to move terms first
+1887. Reduction Operations to Make the Array Elements Equal | Counter -> sort -> sum
+1930. Unique Length-3 Palindromic Subsequences | for c in set(s): l=s.find(c), r=s.rfind(c) -> ans += len(set(s[l+1:r]))
+2133. Check if Every Row and Column Contains All Numbers | same as 36.
+2225. Find Players With Zero or One Losses | defaultdict count lose times. loseD[win]+=0, loseD[win]+=1
+2370. Longest Ideal Subsequence | O(2kn) D[c]->ans. for c in s: new = D.get(c,0) for i in range(-k,k+1): if ord('a') <= ord(c)+i <= ord('z'): ...
+2870. Minimum Number of Operations to Make Array Empty | C,ans=Counter(L),0. for x in C.values(): if x==1: return -1. ans+=(x+2)//3
+
+Hash subarray sum all -> for sum if (else)
+<523.> Continuous Subarray Sum | Bool -> not in D update | D,sumv={0:-1},0. (sumv%k->first_occur_idx). for x: sumv=(sumv+x)%k. if sumv in D: if index_diff>1:return True, else: D[sumv]=i
+525. Contiguous Array | Max -> not in D update | Similar to 523. D,sumv,ans={0:-1},0,0. for x: sumv+=(-1)**(1+x). if sumv in D: ans=max(ans,i-D[sumv]) else D[sumv]=i 
+560. Subarray Sum Equals K | Counts -> all update | D,sumv,ans={0:1},0,0 (sumv->counts). for x: sumv=sumv+x, if sumv-k in D: sumv+=D[sumv-k], D[sumv]+=1
+930. Binary Subarrays With Sum | Counts -> all update | same as 560
+974. Subarray Sums Divisible by K | D,acc,ans={0:1},0,0 | same as 560
+1171. Remove Zero Sum Consecutive Nodes from Linked List | Cut all -> all update | D,sumv,L={0:-1},0,[]. while head: L.append(x), sumv+=x, if sumv in D: for i in range(len(L)-D[sumv]-1): sumv-=L.pop(), D.pop(sumv). D[sumv]=len(L)-1.
+1371. Find the Longest Substring Containing Vowels in Even Counts | D,V,acc,ans={0:-1},"aeiou",0,0. for i in range(len(s)): flip ith bit if is vowel. if acc in D: ans=max(ans,i-D[acc]) else: D[acc]=i
+1590. Make Sum Divisible by P | target=sum(L)%p. if target==0: return 0. acc,D,ans=0,{0:-1},float('inf'). for i,x in enumerate(L): acc+=x. if (acc-target)%p in D: ans=min(ans,i-D[(acc-target)%p]). D[acc%p]=i
+
+Heap0
+23*. Merge k Sorted Lists
+703. Kth Largest Element in a Stream
+767. Reorganize String
+1845. Seat Reservation Manager
+1921. Eliminate Maximum Number of Monsters
+1962. Remove Stones to Minimize the Total
+2530. Maximal Score After Applying K Operations
+3075. Maximize Happiness of Selected Children
+
+Heap
+355. Design Twitter | {userId:follower set}, {userId: queue(time,tweetID)}, heapq.heapify((time,posts)) while calling getNewsFeed
+373. Find K Pairs with Smallest Sums | heap(sumv,i,j), inH(i,j)
+659. Split Array into Consecutive Subsequences | H=[[1,nums[0]]] #(len, max). for i in range(1,len(nums)): L,find=[],False. while not find and H: length,maxv=heapq.heappop(H). if nums[i]-maxv>1:check, elif nums[i]-maxv==1:extend, else:collect L
+1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
+1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
+2406. Divide Intervals Into Minimum Number of Groups | heap(end).
+2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
+
+Iteration or naive 0
+7. Reverse Integer
+8. String to Integer (atoi)
+9. Palindrome Number
+12. Integer to Roman
+13. Roman to Integer
+14. Longest Common Prefix
+19. Remove Nth Node From End of List
+43. Multiply Strings
+50. Pow(x, n)
+54. Spiral Matrix
+58. Length of Last Word
+59. Spiral Matrix II
+61. Rotate List | ll.
+66. Plus One
+67. Add Binary
+69. Sqrt(x)
+70. Climbing Stairs
+73. Set Matrix Zeroes | O(1) space: let 1 change to 0.5
+88. Merge Sorted Array
+125. Valid Palindrome
+143. Reorder List
+147. Insertion Sort List
+148. Sort List
+151. Reverse Words in a String
+189. Rotate Array | reverse 3 times O(1) space
+190. Reverse Bits
+191. Number of 1 Bits
+228. Summary Ranges | general splitting
+231. Power of Two | bin
+237. Delete Node in a Linked List
+242. Valid Anagram
+258. Add Digits
+263. Ugly Number
+284. Peeking Iterator
+289. Game of Life | binary_encode=(next)(prev)
+292. Nim Game
+318. Maximum Product of Word Lengths
+319. Bulb Switcher
+342. Power of Four | bin
+344. Reverse String
+345. Reverse Vowels of a String
+367. Valid Perfect Square
+382. Linked List Random Node | ll.
+384. Shuffle an Array
+392. Is Subsequence
+412. Fizz Buzz
+414. Third Maximum Number
+415. Add Strings
+443. String Compression | general splitting
+453. Minimum Moves to Equal Array Elements
+455. Assign Cookies
+459. Repeated Substring Pattern
+461. Hamming Distance
+463. Island Perimeter
+468. Validate IP Address
+476. Number Complement
+478. Generate Random Point in a Circle | parameter r=sqrt(rand)*self.r
+485. Max Consecutive Ones
+495. Teemo Attacking
+497. Random Point in Non-overlapping Rectangles | random.choices(L, weights, k=1)[0]
+506. Relative Ranks
+507. Perfect Number
+509. Fibonacci Number
+520. Detect Capital
+528. Random Pick with Weight
+537. Complex Number Multiplication
+539. Minimum Time Difference | ans=min(ans,abs(diff),1440-abs(diff))
+551. Student Attendance Record I
+557. Reverse Words in a String III
+561. Array Partition
+566. Reshape the Matrix
+593. Valid Square
+598. Range Addition II
+599. Minimum Index Sum of Two Lists
+605. Can Place Flowers
+633. Sum of Square Numbers | int(round(x**0.5,10))**2==x
+640. Solve the Equation | general splitting
+643. Maximum Average Subarray I
+657. Robot Return to Origin
+661. Image Smoother
+693. Binary Number with Alternating Bits
+707. Design Linked List | ll.
+709. To Lower Case
+717. 1-bit and 2-bit Characters
+724. Find Pivot Index
+725. Split Linked List in Parts | ll.
+728. Self Dividing Numbers
+744. Find Smallest Letter Greater Than Target
+747. Largest Number At Least Twice of Others
+762. Prime Number of Set Bits in Binary Representation
+766. Toeplitz Matrix
+784. Letter Case Permutation | same as 43.
+788. Rotated Digits
+789. Escape The Ghosts
+796. Rotate String | a*2
+806. Number of Lines To Write String
+807. Max Increase to Keep City Skyline
+809. Expressive Words | general splitting
+821. Shortest Distance to a Character
+824. Goat Latin
+830. Positions of Large Groups | general splitting
+832. Flipping an Image
+848. Shifting Letters
+860. Lemonade Change
+868. Binary Gap
+873. Length of Longest Fibonacci Subsequence
+876. Middle of the Linked List
+883. Projection Area of 3D Shapes
+917. Reverse Only Letters | negative idx practice
+925. Long Pressed Name | general splitting
+941. Valid Mountain Array | remember all increase or all decrease
+942. DI String Match | l r greedy
+944. Delete Columns to Make Sorted
+946. Validate Stack Sequences
+949. Largest Time for Given Digits | remember 20:66 failed but 06:26 succeed
+973. K Closest Points to Origin
+984. String Without AAA or BBB
+985. Sum of Even Numbers After Queries
+989. Add to Array-Form of Integer | pad to same length
+999. Available Captures for Rook
+1002. Find Common Characters
+1003. Check If Word Is Valid After Substitutions
+1009. Complement of Base 10 Integer
+1016. Binary String With Substrings Representing 1 To N | brute force
+1051. Height Checker
+1122. Relative Sort Array
+1137. N-th Tribonacci Number
+1220*. Count Vowels Permutation
+1266. Minimum Time Visiting All Points
+1310. XOR Queries of a Subarray | like 303.
+1318. Minimum Flips to Make a OR b Equal to c
+1331. Rank Transform of an Array
+1351. Count Negative Numbers in a Sorted Matrix
+1380. Lucky Numbers in a Matrix
+1405. Longest Happy String | like 984.
+1441. Build an Array With Stack Operations
+1460. Make Two Arrays Equal by Reversing Subarrays | find same value at index j and reverse L[i:j+1]
+1464. Maximum Product of Two Elements in an Array
+1502. Can Make Arithmetic Progression From Sequence
+1518. Water Bottles
+1550. Three Consecutive Odds
+1572. Matrix Diagonal Sum
+1582. Special Positions in a Binary Matrix
+1614. Maximum Nesting Depth of the Parentheses
+1636. Sort Array by Increasing Frequency
+1662. Check If Two String Arrays are Equivalent
+1669. Merge In Between Linked Lists | ll.
+1684. Count the Number of Consistent Strings
+1688. Count of Matches in Tournament
+1704. Determine if String Halves Are Alike
+1743. Restore the Array From Adjacent Pairs | ll. create graph, find indegree==1, traversal. delete instead of visitS
+1877. Minimize Maximum Pair Sum in Array | sort, max of head-tail pair
+1894. Find the Student that Will Replace the Chalk
+1945. Sum of Digits of String After Convert
+1903. Largest Odd Number in String
+1957. Delete Characters to Make Fancy String
+2000. Reverse Prefix of Word
+2022. Convert 1D Array Into 2D Array
+2037. Minimum Number of Moves to Seat Everyone
+2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
+2108. Find First Palindromic String in the Array
+2125. Number of Laser Beams in a Bank
+2148. Count Elements With Strictly Smaller and Greater Elements
+2149. Rearrange Array Elements by Sign
+2191. Sort the Jumbled Numbers
+2220. Minimum Bit Flips to Convert Number
+2264. Largest 3-Same-Digit Number in String
+2279. Maximum Bags With Full Capacity of Rocks
+2326. Spiral Matrix IV | ll.
+2482. Difference Between Ones and Zeros in Row and Column | record row1s & col1s
+2486. Append Characters to String to Make Subsequence
+2490. Circular Sentence
+2491. Divide Players Into Teams of Equal Skill
+2540. Minimum Common Value
+2582. Pass the Pillow | time %= (n-1)*2. return time + 1 if time <= n-1 else n - time % (n-1)
+2678. Number of Senior Citizens
+2696. Minimum String Length After Removing Substrings | similar as 1003.
+2816. Double a Number Represented as a Linked List | reverse twice ll.
+2864. Maximum Odd Binary Number
+2971. Find Polygon With the Largest Perimeter
+3163. String Compression III | general split
+
+Iteration i with accum (additional accumulation not ans)
+53. Maximum Subarray | ans=L[0], acc=0. for x in L: acc=max(acc+x,x), ans=max(ans,acc)
+<121.> Best Time to Buy and Sell Stock | ans=0, lowest=L[0]. for x in L: lowest=min(lowest,x), ans=max(ans, x-lowest)
+134. Gas Station | ans=0, acc=0. for i in range(len(gas)): acc+=gas[i]-cost[i], if acc<0: ans=i+1, acc=0
+152. Maximum Product Subarray | ans=nums[0], minv=1, maxv=1. for x in L: minv=min(x,minv*x,maxv*x), maxv=max(x,minv*x,maxv*x), ans=max(ans,maxv)
+238. Product of Array Except Self | left_accum, right_accum
+331. Verify Preorder Serialization of a Binary Tree | slot=1 if slot-=1 else slot+=1, slot must >0 during iteration and =0 finally
+376. Wiggle Subsequence | similar to 152. up, down = 1, 1 (first wiggle is up or down). for i in range(1,len(nums)): if nums[i]>nums[i-1]: up = down+1 elif nums[i]<nums[i-1]: down = up+1. return max(up, down)
+334. Increasing Triplet Subsequence | min1, min2 = float('inf'), float('inf'). for x in nums: if x<=min1: min1 = x elif x<=min2: min2 = x else: return True
+396. Rotate Function | init ans=current, sumv. current += sumv - nums[-1-i]*len(nums). consider rotate difference only
+581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
+624. Maximum Distance in Arrays | curr_min, curr_max, ans
+746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
+845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
+915. Partition Array into Disjoint Intervals | like 238. mins arr append, while lmax<mins[-1]: ...
+918. Maximum Sum Circular Subarray | use 53. to find max_arr and min_arr. return max(max_arr,sum-min_arr)
+921. Minimum Add to Make Parentheses Valid | diff, ans = 0, 0. simpler than 53.
+926. Flip String to Monotone Increasing | like 238. all0, all1 = s.count(0), s.count(1). l0, l1, ans = 0, 0, all1, iterate from 11..11 -> 00..11 -> 00..00.
+1013. Partition Array Into Three Parts With Equal Sum | target, acc, cnt = sumv // 3, 0, 0. for x in arr: acc += x. cnt += acc==target*(cnt+1)
+1014. Best Sightseeing Pair | maxvi,ans=L[0], -inf. for j in range(1,len(L)): ans=max(ans,maxvi+L[j]-j). maxvi = max(maxvi,L[j]+j)
+1018. Binary Prefix Divisible By 5
+1052. Grumpy Bookstore Owner | constant sliding window
+1249. Minimum Remove to Make Valid Parentheses
+1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
+1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
+1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
+1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
+2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
+2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
+
+Iteration i with start (passed ptr not current) -> for if else
+26. Remove Duplicates from Sorted Array
+80. Remove Duplicates from Sorted Array II | same as 26 but add dup=1or2
+<283.> Move Zeroes | start = 0. for i in range(len(L)): if L[i]: L[start], L[i] = L[i], L[start]. start += 1.
+413. Arithmetic Slices | similar to 674 but ans+=i-start-1
+<674.> Longest Continuous Increasing Subsequence | start, ans = 0, 1 for if else (compare to 300. which is not continuous)
+826. Most Profit Assigning Work | sort(zip(diff,prof)) -> change prof to curr_max_prof -> start=0. for loading in sorted(workers): if L[start][0]<=loading:...
+904. Fruit Into Baskets | a, b, start_a, ans = None, None, None, 0
+905. Sort Array By Parity | like 283.
+1021. Remove Outermost Parentheses | acc,start,ans=0,0,[]. for i in range(len(s)): acc+=(-1)**(s[i]==")"). if acc == 0:...
+1024. Video Stitching | ans,start,curr_end=1,1,L[0][1]. while curr_end<time: idx = next((idx for idx in range(start, len(L)) if L[idx][0]>curr_end), len(clips)). # next search start index
+    next_end = max([clips[i][1] for i in range(start, idx)] + [-1]). if next_end == -1: return -1. ans, start, curr_end = ans+1, idx, next_end.
+2938. Separate Black and White Balls
+
+Iteration i with start and accum: sliding window -> for sum while
+<209.> Minimum Size Subarray Sum | start,acc,ans=0,0,len(L). for i in range(len(L)): acc+=L[i], while acc>=target: ans=min(ans,end-start+1), sumv-=nums[start], start+=1.
+424. Longest Repeating Character Replacement | # window_max_cnt_char is the char in window that has the most cnt. # assume window_max_cnt_char is x, change all chars in window to x
+    start, window, window_max_cnt, ans = 0, defaultdict(int), 0, 0.
+567. Permutation in String | start,accum,match=0,Counter(),Counter(s1). for i,c in enumerate(s2): if c in match: while match[c]==0:update, update. else: start+=1,restore match%count.
+713. Subarray Product Less Than K | if k<2: return 0. start,acc,ans=0,1,0. for i in range(len(L)): acc*=L[i]. while acc>=k: acc,start=acc//L[start],start+1. ans+=i-start+1. (while inclusive, update ans at last)
+795. Number of Subarrays with Bounded Maximum | start,larger_left_idx,ans=0,None,0. for i in range(len(L)): if L[i]>right: start,larger_left_idx=i+1,None. else: if nums[i]>=left:larger_left_idx=i. if larger_left_idx: ans+=larger_left_idx-start+1
+1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
+1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
+1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
+2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
+
+Iteration
+17. Letter Combinations of a Phone Number
+31. Next Permutation | e.g. 246531. from right to left: i at peak. if i>0: from right to left: L[j]>L[i-1], swap(L[i-1],L[j]). swap all ele >=i
+48. Rotate Image
+56. Merge Intervals | sort and greedy merge
+78. Subsets | ans=[[]]. for x in nums: ans = ans + [ l+[x] for l in ans  ]
+90. Subsets II | ans = {tuple()}. for x in sorted(nums): ans = ans | { t+(x,) for t in ans }
+93. Restore IP Addresses | cut i,j,k four pieces, each piece: non-empty, <255, no leading 0
+122. Best Time to Buy and Sell Stock II | ans += max(0,num[i]-num[i-1])
+165. Compare Version Numbers | split each and fill zeros to align length
+168. Excel Sheet Column Title  | L=[]. while x>0: x-=1, r=x%26, L.append(chr(r+ord('A'))), x=(x-r)//26
+171. Excel Sheet Column Number | for i,c in enumerate(s[::-1]): ans += (ord(c)-ord("A")+1) * 26**i
+172. Factorial Trailing Zeroes | ans, factor = 0, 5. while factor<=n: ans+=n//factor, factor*=5
+179. Largest Number | L=[str(x) for x in L]. L.sort(key=cmp_to_key(lambda x,y:int(x+y)-int(y+x)), reverse=True)
+201. Bitwise AND of Numbers Range | a=bin(l)[2:], b=bin(r)[2:]. if len(a)!=len(b): return 0. same_leading_bits = next((i for i in range(len(a)) if a[i]!=b[i]), len(a)).
+    return int(a[:same_leading_bits]+'0'*(len(a)-same_leading_bits), 2) 
+328. Odd Even Linked List | ll. interleaving points
+386. Lexicographical Numbers | sort in str or key=cmp_to_key(lex). def lex(x,y): compare if len(x)==len(y) else fill samllest element " " after the shorter one and compare (different from 179)
+405. Convert a Number to Hexadecimal | find -x of binary: get +x binary -> reverse bits -> +1 || get +x+1 binary -> reverse bits
+406. Queue Reconstruction by Height | sort by (-p[0],p[1]). then L.insert(p[1],p). (if all p[1]=0, tall first; if all p[0]=h, small p[1] first)
+435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1
+442. Find All Duplicates in an Array | Use negative sign to save visited. ans = []. for i in range(len(L)): store_idx = abs(nums[i])-1 if nums[store_idx]<0: ans.append(abs(nums[i])). nums[store_idx]*=-1
+452. Minimum Number of Arrows to Burst Balloons | similar to 56, but apply intersection instead of union.
+470. Implement Rand10() Using Rand7() | 7-carry while x>=40
+491. Non-decreasing Subsequences | similar as 78.
+524. Longest Word in Dictionary through Deleting | find longest issubsequence
+556. Next Greater Element III | same as 31.
+621. Task Scheduler | idleBound = (n+1)*(maxv-1) + maxvCount. tasksBound = len(tasks). return max(idleBound, tasksBound)
+628. Maximum Product of Three Numbers | sort and sliding window at border
+650. 2 Keys Keyboard | i,copy,ans=1,0,0. while i<n: if n%i==0: i,copy,ans=i*2,i,ans+2 else: i,ans=i+copy,ans+1
+665. Non-decreasing Array | for i in range(len(nums)-1): if nums[i]>nums[i+1]: tmp = nums[i+1]. do irregular depends right or depends left respeectively. O(3n)
+670. Maximum Swap | compare to sort, find first diff idx i. find max idx from len(L)-1 to i, swap, break return
+686. Repeated String Match | i = b.find(a). if i==-1: check a.find(b) and 2a.find(b). else return left-right times.
+763. Partition Labels | similar as 56.
+769. Max Chunks To Make Sorted | enumerate(L). similar as 56.
+775. Global and Local Inversions | for i in range(len(L)): if i!=L[i]: if L[i]!=i+1 or i!=L[L[i]]: return False. swap. return True
+777. Swap Adjacent in LR String | check non-X str consistent. L index smaller, R index larger.
+786. K-th Smallest Prime Fraction | O(n^2)
+794. Valid Tic-Tac-Toe State | count 1 and -1. sum of 8 lines.
+817. Linked List Components | Compare 2 arr find "components"
+835. Image Overlap | O(n^4). 1 left up conv. 2 right down conv. 3 horizontal flip of 1. 4 horizontal flip of 2.
+838. Push Dominoes
+840. Magic Squares In Grid
+842. Split Array into Fibonacci Sequence | brute force
+849. Maximize Distance to Closest Person | G,prev,ans=(i for i in range(len(L)) if L[i]), -inf, L.index(1)
+853. Car Fleet | like 56. for p1, s1 in sorted(zip(position, speed), reverse=True): if fleet and s1 > s2 and p1 + s1 * (p2-p1)/(s1-s2) <= target: continue # p1 + s1*t = p2 + s2*t --> t = (p2-p1)/(s1-s2). fleet.append([p1,s1])
+855. Exam Room | O(n) insert and remove
+885. Spiral Matrix III
+910. Smallest Range II | up,..,up,down,...,down (scan all boundary), like 238. sort, for i in range(len(L)): ans=min(ans, max(nums[i-1]+k, nums[-1]-k) - min(nums[i]-k, nums[0]+k)).
+953. Verifying an Alien Dictionary | similar as 386.
+957. Prison Cells After N Days | L=[]. nextT. while n>0: if L and nextT==L[0]: return L[(n-1)%len(L)] else ...
+962. Maximum Width Ramp | L=sort index by nums, ans=0, min_idx=L[0]. update ans ans min_idx.
+967. Numbers With Same Consecutive Differences | like 78.
+969. Pancake Sorting | len(ans)=2N
+976. Largest Perimeter Triangle | naive reverse iteration
+978. Longest Turbulent Subarray | ans, acc_up, acc_do, next_act = 1, 1, 1, "". for i in range(1, len(arr)): if larger/smaller/equal x next_act=down/up/"".
+986. Interval List Intersections | ans, startj = [], 0. for fs, fe in fL: for j in range(startj, len(sL)): ss, se = sL[j]. if fs > se: startj+=1 elif fe >= ss: .... (like 223.)
+991. Broken Calculator | like 650 but backward (end to start, x to / and - to +). ans=0. while startValue<target: if target%2: target += 1 else: target //= 2. ans += 1
+1005. Maximize Sum Of Array After K Negations | L.sort(). idx=bisect.bisect_left(L,0). flip first min(idx,k) elements. if k remains sort again.
+1007. Minimum Domino Rotations For Equal Row | for a, b in zip(tops, bottoms): S &= {a, b}. for ele in S: ans = min(ans, sum(x!=ele for x in tops), sum(x!=ele for x in bottoms))
+1017. Convert to Base -2 | S = set() # digit_one_indices. while n!=0: power=get_pow(n). n-=(-2)**power. S.add(power). get_power consider positive and negative for abs(n).
+1023. Camelcase Matching | if same capital -> general splitting -> true if all is_subsequence
+1232. Check If It Is a Straight Line | use determinants instead of slopes
+1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
+1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
+1497. Check If Array Pairs Are Divisible by k | L=[0]*k. for x in arr: L[x%k] += 1.
+1503. Last Moment Before All Ants Fall Out of a Plank | max( max(left) if left else 0, n-min(right) if right else 0 ). (don't trace ant-i but switch id while collision)
+1509. Minimum Difference Between Largest and Smallest Value in Three Moves | bubble sort. min(max4-min0, max3-min1, max2-min2, max1-min3)
+1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
+1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
+1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
+149*. Max Points on a Line | use determinant, O(n^3)
+S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
+
+Iteration - Arithmetic sort
+<268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
+287. Find the Duplicate Number
+448. Find All Numbers Disappeared in an Array
+565. Array Nesting | i, accum, start = 0, 1, 1
+645. Set Mismatch
+41*. First Missing Positive
+
+Iteration - Bit operations
+<136.> Single Number | return ^:all
+137. Single Number II | tenary, add_mod3:all
+268. Missing Number | reduce(lambda x, y: x^y, nums+list(range(len(nums)+1)))
+477. Total Hamming Distance | ans=0. for i in range(32): b=sum(x>>&i for x in nums). ans+=b*(len(nums)-b). return ans
+    # consider n numbers 1 bit only # b 0s, n-b 1s # total dist = b*(n-b) # consider bipartite only
+    # check whether the i-th bit of a number x is 1: "x>>i&1" # shift is always prior than and
+958. Check Completeness of a Binary Tree | Q(tree, depth, path). L=[[path for nodes] for layer]
+1863. Sum of All Subset XOR Totals | complex than 477. for i in range(32): count 0s and 1s. for get_all in range(1,len(L)+1): for get_1 in range(1, get_all+1, 2): ....
+2433. Find The Original Array of Prefix Xor | ^ has association
+2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
+
+Iteration - FSM
+<309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
+714. Best Time to Buy and Sell Stock with Transaction Fee | empty,hold=0,-prices[0]. for p in prices: empty,hold=max(empty,hold+p-fee), max(hold,empty-p).
+123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
+
+Iteration - Left-Right 0
+34. Find First and Last Position of Element in Sorted Array | while l<=r
+35. Search Insert Position | while l<=r. return l.
+74. Search a 2D Matrix | while l<=r twice
+240. Search a 2D Matrix II | while l<=r once+for
+278. First Bad Version | while l<=r.
+374. Guess Number Higher or Lower | while l<=r.
+436. Find Right Interval | for while l<=r.
+704. Binary Search | while l<=r.
+981. Time Based Key-Value Store | while l<=r.
+1750. Minimum Length of String After Deleting Similar Ends | while len(s)>1 and s[0]==s[-1]
+2485. Find the Pivot Integer | while l<=r.
+
+Iteration - Left-Right m-1,m,m+1
+<153.> Find Minimum in Rotated Sorted Array | while l<=r. min(L[m-1],L[m],L[m+1]). elif nums[l]<=nums[m]: if nums[l]<nums[r]: return nums[l] else l=m+1. else r=m-1
+162. Find Peak Element | while l<=r. max(L[m-1],L[m],L[m+1]). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
+462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while l<=r:
+540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while l<=r: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
+
+Iteration - Left-Right
+11. Container With Most Water | ans=0. while l<=r: ans=max(ans,(r-l)*min(L[l],L[r])). if height[l]<=height[r]: l+=1 else: r-=1
+16. 3Sum Closest | L.sort(). ans_dist, ans = float('inf'), sum(nums[:3]). for i in range(len(L)-2): l=i+1, r=len(L)-1. while l<r:...
+33. Search in Rotated Sorted Array | while l<=r -> judge pivot left or right (nums[l]<=nums[m]) -> judge whether target value is between the other side
+81. Search in Rotated Sorted Array II | based on 33. add if nums[l]==nums[m]==nums[r]: l, r = l+1, r-1.
+167. Two Sum II - Input Array Is Sorted | while l<r
+274. H-Index | L.sort(). ans=0. while ans<len(L) and L[-1-ans]>=ans+1: ans+=1
+275. H-Index II | while l<=r: m = (l+r)//2. if L[m]==len(L)-m: return len(L)-m. .... return len(L)-l
+475. Heaters | ans=0. for x in house: while l<=r: l=closest heater. if l==0: ans=max(ans,heaters[l]-x) elif l==len(heaters):ans=max(ans,x-heaters[l-1]) else: ans=max(ans,min(x-heaters[l-1],heaters[l]-x))
+611. Valid Triangle Number
+658. Find K Closest Elements | find insertion l. c=l-int(l==len(arr) or l>0 and x-arr[l-1]<=arr[l]-x). l, r expand
+667. Beautiful Arrangement II | L, l, r = [1], 2, n. for i in range(k-1): if i%2==0:.... left right alternate. return L+list(range(l,r+1))[::(-1)**parity]
+680. Valid Palindrome II | while l<r and s[l]==s[r]: l, r = l+1, r-1. if odd, even, remove_left, remove_right, ....
+875. Koko Eating Bananas | finish_time=sum(math.ceil(p/m) for p in piles). if finish_time ""<="" h: r=m-1, ...
+881. Boats to Save People
+911. Online Election | D:person->[votes,latest], self.L saves [(time, winner)]. l = l - int(l==len(self.L) or self.L[l][0]!=t)
+948. Bag of Tokens | _, ans, l, r = tokens.sort(), 0, 0, len(tokens)-1. while l<=r:...
+1011. Capacity To Ship Packages Within D Days | def isValid(capacity). l,r=max(weights),sum(weights). while l<=r.
+1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
+1552. Magnetic Force Between Two Balls
+1963. Minimum Number of Swaps to Make the String Balanced | L,l,r,ldiff,rdiff,ans=list(s),0,len(s)-1,0,0,0. while l<r: while l<r:... while l<r:...
+2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r: if trip==totalTrips: return m-min(m%t for t in time).
+
+Iteration - Left-Right spread
+5. Longest Palindromic Substring | while c-e>=0 and c+e<len(s) and s[c-e]==s[c+e]: if 2*e+1>ar-al+1: al, ar = c-e, c+e
+647. Palindromic Substrings | same as 5.
+696. Count Binary Substrings | match.start(0) for match in re.finditer(pattern,s)
+*214. Shortest Palindrome | similar as 5.
+
+Iteration - Monte Carlo
+169. Majority Element | sample x, L.count(x)
+229. Majority Element II
+961. N-Repeated Element in Size 2N Array
+
+Math
+223. Rectangle Area | max(0,min()-max())
+357. Count Numbers with Unique Digits | 10, 10+9*9, 10+9*9+9*9*8, ...
+441. Arranging Coins | x*(x+1)/2=n, x^2+x-2n=0, x=(-1+sqrt(1+8n))/2.
+492. Construct the Rectangle | edge = int(area**0.5). while area%edge: edge-=1
+836. Rectangle Overlap | similar to 223
+858. Mirror Reflection | geometry optic, gcd, lcm
+1015. Smallest Integer Divisible by K | for i in range(k)
+1025. Divisor Game | return n%2==0. since f(x)=not f(x-1) is always true.
+1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
+
+OrderedDict
+146. LRU Cache | dict+double linked list OR OrderedDict with O.popitem(last=False)
+
+Queue 0
+622. Design Circular Queue
+641. Design Circular Deque
+796. Rotate String
+933. Number of Recent Calls
+950. Reveal Cards In Increasing Order
+1823. Find the Winner of the Circular Game
+2073. Time Needed to Buy Tickets
+
+Queue
+649. Dota2 Senate | C,Q=Counter(senate),deque(senate). while C["R"]*C["D"]: ego,chance,max_chance=Q.popleft(),1,1. rival="D" if ego=="R" else "R". while chance*C[rival]:...
+--
+127*. Word Ladder
+239*. Sliding Window Maximum | (val,idx) in queue, length is not const, always desc sorted
+
+Recursion 0 (bottom-up or top-down)
+2. Add Two Numbers | ll
+21. Merge Two Sorted Lists | ll
+24. Swap Nodes in Pairs | ll
+82. Remove Duplicates from Sorted List II | ll
+83. Remove Duplicates from Sorted List | ll
+89. Gray Code
+92. Reverse Linked List II | ll
+94. Binary Tree Inorder Traversal
+98. Validate Binary Search Tree | LDR pairwise
+99. Recover Binary Search Tree | LDR collect, sort, traversal
+102. Binary Tree Level Order Traversal
+103. Binary Tree Zigzag Level Order Traversal
+104. Maximum Depth of Binary Tree
+107. Binary Tree Level Order Traversal II
+108. Convert Sorted Array to Binary Search Tree
+109. Convert Sorted List to Binary Search Tree
+114. Flatten Binary Tree to Linked List
+116. Populating Next Right Pointers in Each Node
+117. Populating Next Right Pointers in Each Node II
+144. Binary Tree Preorder Traversal
+145. Binary Tree Postorder Traversal
+173. Binary Search Tree Iterator
+199. Binary Tree Right Side View
+203. Remove Linked List Elements
+222. Count Complete Tree Nodes
+226. Invert Binary Tree
+230. Kth Smallest Element in a BST
+234. Palindrome Linked List
+404. Sum of Left Leaves | f(T,isLeft)
+429. N-ary Tree Level Order Traversal
+430. Flatten a Multilevel Doubly Linked List | D-child-next traversal
+445. Add Two Numbers II | reverse list and same as 2.
+501. Find Mode in Binary Search Tree
+508. Most Frequent Subtree Sum
+513. Find Bottom Left Tree Value
+515. Find Largest Value in Each Tree Row
+538. Convert BST to Greater Tree
+559. Maximum Depth of N-ary Tree
+563. Binary Tree Tilt
+589. N-ary Tree Preorder Traversal
+590. N-ary Tree Postorder Traversal
+617. Merge Two Binary Trees
+623. Add One Row to Tree
+637. Average of Levels in Binary Tree
+653. Two Sum IV - Input is a BST
+654. Maximum Binary Tree
+690. Employee Importance
+700. Search in a Binary Search Tree
+783. Minimum Distance Between BST Nodes
+872. Leaf-Similar Trees
+897. Increasing Order Search Tree
+951. Flip Equivalent Binary Trees
+965. Univalued Binary Tree
+988. Smallest String Starting From Leaf
+1022. Sum of Root To Leaf Binary Numbers
+1026. Maximum Difference Between Node and Ancestor | return min, max
+1038. Binary Search Tree to Greater Sum Tree
+1239. Maximum Length of a Concatenated String with Unique Characters | O(2^n)
+1382. Balance a Binary Search Tree
+1457. Pseudo-Palindromic Paths in a Binary Tree
+1609. Even Odd Tree
+2331. Evaluate Boolean Binary Tree
+2583. Kth Largest Sum in a Binary Tree
+
++ non-return (global easier) / return (local hard but concise)
+C memorization: C0 no, C1 yes
+D backtracking: D0 no, D1 yes
+E accum or index args: E0 no, E1 yes
+
+Recursion non-return
+39. Combination Sum | E1 | f(path={},start=0,target=target), simpler than 40. for t in range(targer//can+1)
+40. Combination Sum II | E1 | C,ans=sorted(Counter(candidates).items()), []. f(path=[],start=0,target=target), for t in range(times+1)
+46. Permutations | D1 | def f(start=0): if start==len(nums): ans.append(L) else: for i in range(start,len(L)): swap, f(start+1),swap
+47. Permutations II | D1 | same as 46, but add tuple instead of list
+77. Combinations | E1 | f(path=[], start=0) simpler than 40. skip L[start] or add L[start]
+112. Path Sum | E1 | def f(T=root, x=targetSum) if not self.ans and T: if not T.left and not T.right: else ...
+113. Path Sum II | E1 | def f(T=root, x=targetSum, L=[]) similar as 112.
+131. Palindrome Partitioning | C1 | f(tuple(s)). for loop check if can odd or even merge + add memory
+216. Combination Sum III | E1 | f(path=[],start=1,sumv=n), similar as 77.
+341. Flatten Nested List Iterator | | f(ll).
+416. Partition Equal Subset Sum | E1 | Similar to 40. visitS((start,val)). def f(start=0, val=sumv//2)
+437. Path Sum III | E1 | def f(T=root, accum=0, D={0:1}). similar as 112. + 560.
+473. Matchsticks to Square | E1 | Similar to 40. + 416.
+494. Target Sum | E1 | C, self.ans = sorted(Counter(nums).items()), 0. def f(methods={0:1}, start=0): for i in range(times+1) for key,val in methods
+518. Coin Change II | C1E1 | f(start=0,x=amount) and memorization
+526. Beautiful Arrangement | E1 | f(path=[], L=list(range(1,1+n)))
+530. Minimum Absolute Difference in BST | | f(T). self.ans, self.prev = 10**5, 10**5. def f(T): if T: f(T.left), self.ans, self.prev, f(T.right)
+638. Shopping Offers | E1 | f(start=0,accum=0,N=needs)
+655. Print Binary Tree | E1 | get height first and create matrix. f(T=root, i=0, j=len(ans[0])//2): ...
+662. Maximum Width of Binary Tree | E1 | f(T, level=0, path=""). collect each level leftest and rightest binary path
+669. Trim a Binary Search Tree | | while root not in [lo,hi]:.... def f(T): if T: while T.left and T.left.val<lo:... f(T.left). f(T.left). ...
+678. Valid Parenthesis String | C1E1 | f(start=0, l=0, r=0) + mem
+698. Partition to K Equal Sum Subsets | | nums.sort(reverse=True). trim ele>each and ele+min>each. L=[0]*k. f(start=0)
+861. Score After Flipping Matrix | D1 | f(start=1). 1st col greedy, >=2nd col backtracking (1rate >0.5, =0.5, <0.5)
+869. Reordered Power of 2 | D1 | f(start=0) like 46.
+993. Cousins in Binary Tree | E1 | f(target, T, depth, parent)
+1361. Validate Binary Tree Nodes | | if all(ele<2 for ele in inL) and inL.count(0)==1: root, visitS = inL.index(0), set(range(n)). def g(i=root).
+1367. Linked List in Binary Tree | C1 | f(T=root,i=0). self.ans=False. if i == len(L): self.ans = True. ... f(T.left, i+1), f(T.right, i+1), f(T.left, 0), f(T.right, 0)
+1530. Number of Good Leaf Nodes Pairs | E1 | f(T,path=[]). (LCA like 235.)
+<1593.> Split a String Into the Max Number of Unique Substrings | E1 | f(s=s,U=None) if s not in U: self.ans = max(self.ans, len(U)+1). for...
+2044. Count Number of Maximum Bitwise-OR Subsets | E1 | f(i=0, acc=0)
+2096. Step-By-Step Directions From a Binary Tree Node to Another | E1 | f(T,path=[]). (LCA like 235.)
+2305. Fair Distribution of Cookies | C1D1E1 | backtracking and memorization. self.ans,visitS,_=float('inf'),set(),cookies.sort(). def f(L=[0]*k, start=0): key=(tuple(sorted(L)),start) if key not in visitS: ...
+2597. The Number of Beautiful Subsets | E1 | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
+2641. Cousins in Binary Tree II | | f(T=root, level=0). g(p=root, sec_deg_val=0, level=0).
+--
+30*. Substring with Concatenation of All Words
+37*. Sudoku Solver | use L but not S to prevent unorder traversal, just pop and try 1-9, backtracking + must copy L since has L.pop
+51*. N-Queens | backtracking + no need copy B since B is invariant
+52*. N-Queens II
+140*. Word Break II | similar as 40
+
+Recursion return
+22. Generate Parentheses | | f(L=['('],l=1,r=0)->ans. if r==self.n: return L elif l==r: call l elif l<self.n: call l call r elif l==self.n: call r
+95. Unique Binary Search Trees II | f(L=list(range(1,1+n))) -> List[Tree]
+96. Unique Binary Search Trees | same as 95. or Catalan number
+100. Same Tree | | f(T)->bool 
+101. Symmetric Tree | | f(T)->bool
+105. Construct Binary Tree from Inorder and Preorder Traversal | | f(preorder,inorder)->Tree
+106. Construct Binary Tree from Inorder and Postorder Traversal | | f(inorder, postorder)->Tree
+110. Balanced Binary Tree | | self.ans=True. def f(T): if not self.ans: ... return left_tree_height, right_tree_height
+111. Minimum Depth of Binary Tree | | f(T) -> height
+129. Sum Root to Leaf Numbers | | f(T)->List[path]
+<206.> Reverse Linked List | | ll. f(L)->Node. if not head or not head.next: return head. reverse=self.reverseList(head.next). head.next.next=head. head.next=None. return reverse.
+235. Lowest Common Ancestor of a Binary Search Tree | | f(T, target) -> find, path.
+236. Lowest Common Ancestor of a Binary Tree | (LCA)
+  + Naive recursion (good at balanced) as 235.
+  + (Too complex) Change to Range min query (good at general): euler path, depth path, D: T.val->"first occurence index in euler path". Build segment tree each node (T.val,index) then query(D[p.val],D[q.val])
+  + (Too complex) binary lifting
+241. Different Ways to Add Parentheses | | split + similar to 95.
+257. Binary Tree Paths | | f(T)->path
+306. Additive Number | | f(a,b,c)->bool. cut all possibilities of 3 parts, each do recursive call
+337. House Robber III | C1 | add memory D:id->best_val. f(T) -> ans
+343. Integer Break | C1 | if n==2 or n==3: return n-1. self.D={1:1,2:2,3:3}. def f(n=n): self.D[n] = self.D[n] if n in self.D else max(f(n-2)*2, f(n-3)*3). return self.D[n]
+    # (x-i)*i = -i^2 + ix -> i=x/2 # split 2 or 3 (odd number) only
+365. Water and Jug Problem | C1 | visitS=set(). def f(x=0): if x==tc: return True, elif x in visitS or x<0 or x>j1+j2: return False, else: visitS.add(x) return f(x+j1) or f(x-j1) or f(x+j2) or f(x-j2)
+<394>. Decode String | | f(s)->ans. l=s.find(']'). r=s[:r].rfind(']'). m = next(m for m in range(l-1, -1, -1) if not s[m-1].isnumeric()). return f(s[:m]+s[l+1:r]*int(s[m:l])+s[r+1:])
+395. Longest Substring with At Least K Repeating Characters | | f(s,k)->ans. c is split token. for c in set(s): if s.count(c)<k: return max( f(substr,k) for substr in s.split(c) ). return len(s)
+397. Integer Replacement | C1 | f(n)->ans. self.D={1:0}. def f(n=n): if n not in self.D: self.D[n] = 1+f(n//2) if n%2==0 else 1+min(f(n-1), f(n+1)). return self.D[n]
+427. Construct Quad Tree | E1 | f(i=0,j=0,ref=len(grid)//2) -> (Node, val if all same else -1); ref==0 or allsame is leaf otherwise non-leaf
+449. Serialize and Deserialize BST | | f(T)->inorder. f(inorder)->T.
+450. Delete Node in a BST | | f(T)->tree. if not left: elif not right: else find rightest node in left subtree -> copy its value and delete such node
+543. Diameter of Binary Tree | | f(T)->height. self.ans=0. insert "self.ans=max(self.ans, l+r)" in "get treeheight recursion function"
+572. Subtree of Another Tree | | f(T)->preoder,inorder. check issubstr of "ldr_include_out_nodes" and "dlr_include_out_nodes"
+592. Fraction Addition and Subtraction | | def gcd(a,b): sort. return a if b==0 else gcd(b,a%b)
+606. Construct String from Binary Tree | | f(T)->ans. l="("+f(T.left)+")" if T.left or T.right else "". r="("+f(T.right)+")" if T.right else "". return str(T.val)+l+r
+652. Find Duplicate Subtrees | | D:tuple(*dlr,-2,*ldr)->int; f(T=root)->DLR tuple(int), LDR tuple(int); if not T: return (-1,), (-1,)
+687. Longest Univalue Path | E1 | self.ans = 0. def f(T=root, prev=-0.5). similar to 543, but return max tree height that has same value (self.ans=max(self.ans, l+r))
+701. Insert into a Binary Search Tree | | f(x,val)->tree. if can insert left elif can insert right else recursion
+779. K-th Symbol in Grammar | | f(n,k)->ans. if n<3: return k-1. prev = self.kthGrammar(n-1, (k+1)//2). return k%2 if prev==1 else (k+1)%2
+813. Largest Sum of Averages | C1E1 | f(start=0,k=k) with memeory
+814. Binary Tree Pruning | | f(T) -> return prunedTree, isEmpty
+865. Smallest Subtree with all the Deepest Nodes | | Collect deepest node id by f(T)->None. self.ans=None. g(T)->count_deepest_nodes_in_subtree (first acheive collection node is ans)
+889. Construct Binary Tree from Preorder and Postorder Traversal | | f(preorder,postorder)->tree. preorder[0] is root, DLR LRD find the cut.
+894. All Possible Full Binary Trees | | f(n)->List[Tree]. similar to 95.
+900. RLE Iterator | | f(n)->ans
+914. X of a Kind in a Deck of Cards | | f(a,b)->gcd. whether gcd of all C.values() must > 1
+919. Complete Binary Tree Inserter | | f(T)->num_nodes. count nodes. nodes_idx->depth->level_idx->path by bin.
+955. Delete Columns to Make Sorted II | | irregular_idx(s1,s2)->idx. f(L)->None. for if idx!=-1: f([s[:idx]+s[idx+1:] for s in L])
+979. Distribute Coins in Binary Tree | | self.ans=0. f(T) -> exceed_or_lack coins. def f(T=root): if T: l,r=f(T.left),f(T.right). self.ans+=abs(l)+abs(r). return T.val-1+l+r. else: return 0.
+983. Minimum Cost For Tickets | C1 | f(i=0)->ans.
+1008. Construct Binary Search Tree from Preorder Traversal | | Same as 105. 
+1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
+1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
+2807. Insert Greatest Common Divisors in Linked List | | gcd(a,b)->x. ll.
+25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
+60*. Permutation Sequence | | def f(L=[], M=list(range(1,1+n)), k=k-1, each=fac(n-1)) if not M: return "".join(L) else: i = k//each, L.append( M.pop(i) ), return f(L,M,k-i*each,each/len(M) if len(M) else 0)
+124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
+
+Recursion gaming
+464. Can I Win | C1E1 | f(cards,cards_sum,total)->bool. if total<=0: lose, elif max_card>=total: win, else bool(any of one strategy let opponent lose). # get ith bit: cards>>i&1 # flip ith bit from 1 to 0: mask=~(1<<i)
+486. Predict the Winner | C1 | f(l,r)->score. L=L[l]+min(f(l+2,r),f(l+1,r-1)). R=L[r]+min(f(l+1,r-1),f(l,r-2)). D[(l,r)] = max(L,R).
+877. Stone Game | C1E1 | same as 464.
+1140. Stone Game II | C1E1 | f(i,m)->score. A=arr-for-fast-compute-sum(L[i:]). if i+m*2 >= len(piles): D[(i,m)] = A[i] else: opponent_min = float('inf'). for x in range(1, m*2+1): .... D[(i,m)] = A[i] - opponent_min 
+
+Segment tree
+<307.> Range Sum Query - Mutable | 2N Segment tree. build from tail to front. 1-indexed definition of left right node. collect result if left/right is right/left child and move to next/prev sibling.
+
+Sort
+<75.> Sort Colors | Dutch Flag Algorithm. l=m=0, r=len(L)-1. while m<=r: if nums[m]==0: swap(L[l],[m]), l+=1, m+=1 elif nums[m]==1: m+=1, else: swap(L[m],L[r]), r-=1
+    + while m<=r, m+=1 only if L[m]=0or1
+<215.> Kth Largest Element in an Array | Quick select. if l<r: random pivot + Dutch flag. Exclusive: if k<lo: f(l,lo-1) elif k>hi: f(hi+1,r)
+324. Wiggle Sort II | find median=pivot=L[len(L)//2]. rewinding index function e.g. (even) 0 1 2 3 -> 1 3 0 2, (odd) 0 1 2 3 4 -> 2 4 1 3 0
+<912.> Sort an Array | Quick sort. if l<r. random pivot + Dutch flag. f(l,lo-1), f(hi+1,r)
+922. Sort Array By Parity II | ev,od,i=0,1,0. while i<len(L): if not true-pos: swap and update ev or od, else i+=1
+977. Squares of a Sorted Array
+
+Stack 0
+20. Valid Parentheses | dict + lr matching
+71. Simplify Path
+225. Implement Stack using Queues
+232. Implement Queue using Stacks
+735. Asteroid Collision | L=[]. for x in asteroids: if L and L[-1]>0 and x<0: addx=True. while L and addx:..., else: L.append(x)
+844. Backspace String Compare
+1544. Make The String Great
+
+Stack
+150. Evaluate Reverse Polish Notation | complete version 227. 224.
+155. Min Stack | a stack store (val,min)
+224*. Basic Calculator
+227. Basic Calculator II | same as 224. totally 3 steps
+316. Remove Duplicate Letters | stack is final answer, (not-strict) increasing is regular. lastIdx, stack, stackS. while stack and stack[-1]>c and appears_later:
+402. Remove K Digits | stack is final answer, increasing as possible is regular. stack=[]. while stack and k and stack[-1]>x. Exceptions: leading 0s, k>0, empty str
+456. 132 Pattern | stack,secondmax=[],-inf. (reverse iter 2->3 needs to update secondmax, so decreasing is regular). for x in reversed(nums): if x<secondmax: return True. while stack and stack[-1]<x: secondmax = stack.pop()
+496. Next Greater Element I | decrease is regular. nextD, stack = {}, [nums2[0]]. for i in range(1,len(nums2)): while stack and stack[-1]<nums2[i]: nextD[stack.pop()]=nums2[i]
+503. Next Greater Element II | decrease is regular. similar to 739 but iterate 2n times
+739. Daily Temperatures | decrease is regular. stack=[ith_day]. while stack and tmp[stack[-1]]<tmp[i]: prev_i=stack.pop(). ans[prev_i]=i-prev_i
+856. Score of Parentheses | append if c="(" else (stack[-1]="1" if stack[-1]=="(" else merge. while can merge: merge)
+901. Online Stock Span | eaten = 1. while self.stack and self.stack[-1][0]<=price: eaten += self.stack.pop()[1]. self.stack.append([price, eaten])
+1006. Clumsy Factorial | same as 224.
+1019. Next Greater Node In Linked List | same as 739.
+1081. Smallest Subsequence of Distinct Characters | same as 316.
+1190. Reverse Substrings Between Each Pair of Parentheses | multilevel stack
+1381. Design a Stack With Increment Operation | stack[val, acc_bias]
+2487. Remove Nodes From Linked List | doubly LL
+
+SortedContainers
+729. My Calendar I | O(qlogn). idx=L.bisect_left(x)
+731. My Calendar II | O(qn). similar as S1. L.add((start,1)). L.add((end,-1)). count=0. for _,state in L.irange(): if count>2: remove and return False.
+732*. My Calendar III | O(qn). similar as 731.
+1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
+2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
+
+Trie
+208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
+211. Design Add and Search Words Data Structure | Trie + recursion
+648. Replace Words
+676. Implement Magic Dictionary | Build Trie. def f(c=0,p=self.T,err=0): if c==len(word): return "end" in p and err==1. if word[c] in p and find(c+1, p[word[c]], err): return True. if err==0 and (len(p)>1 or "end" not in p): .... # if "end" be the unique key, not traversal. # call both match and unmatch even c is match (err must be 0)
+677. Map Sum Pairs | self.D[key]->val, self.T:trie
+720. Longest Word in Dictionary
+820. Short Encoding of Words | Trie by reversed words. Use top-down recusion: def f(T=T, depth=0): if len(T)==1 and "end" in T: return depth+1 else: return sum(f(T[child], depth+1) for child in T if child!="end")
+    (each node has unknown contributions, bottom-up recursion needs to return list instead of int)
+1233. Remove Sub-Folders from the Filesystem
+3043. Find the Length of the Longest Common Prefix
+*2416. Sum of Prefix Scores of Strings
+
+UnionFind
+  self.forest = {i:i for ...}
+  find(node) -> root  # find parent
+  union(root1, root2) -> None  # merge one to another
+684. Redundant Connection
+721. Accounts Merge | output final forest
+990. Satisfiability of Equality Equations | build by eqs, test by neqs
+1584. Min Cost to Connect All Points
+
+----------
+
+Pending diffiuclt
+611. Valid Triangle Number
+673. Number of Longest Increasing Subsequence | 2d dp
+718. Maximum Length of Repeated Subarray | 2d dp reversed
+907. Sum of Subarray Minimums | stack+DP | pop while smaller, dp[stack[-1]] + arr[i]*(i-stack[-1]) if stack else arr[i]*(i+1) [difficult]
+1802. Maximum Value at a Given Index in a Bounded Array | reach l/r -> reach r/l -> go up
+28. Find the Index of the First Occurrence in a String | lcps + KMP
+880. Decoded String at Index | f(k=k-1) cnt=0 for c in s: if c.isalpha(): ( if cnt==k: return char else cnt+=1 ) else: ( if cnt*int(char)>k: return f( k%cnt ) else cnt*=int(char) ).
+--
+*1483. Kth Ancestor of a Tree Node | Binary lifting. self.D[i][j]=i-th node's 2**j ancestor. Column major filling since it may not have ancestor before filling parent. To fill self.D[i][j-1], parent=self.D[i][j-1] 
+
+Bad
+6. Zigzag Conversion
+27. Remove Element
+29. Divide Two Integers
+38. Count and Say | like general spliting
+65*. Valid Number | points<=1; +/-<=1+bool(has e/E); letters=0; e,E<=1 -> has or not e/E, digit>=1 and .index(+/-)>=0
+166. Fraction to Recurring Decimal
+371. Sum of Two Integers
+372. Super Pow
+400. Nth Digit
+481. Magical String
+521. Longest Uncommon Subsequence I
+522. Longest Uncommon Subsequence II
+535. Encode and Decode TinyURL
+541. Reverse String II
+553. Optimal Division
+558. Logical OR of Two Binary Grids Represented as Quad-Trees
+636. Exclusive Time of Functions
+672. Bulb Switcher II
+
+Unknown
+86. Partition List

@@ -1,9 +1,13 @@
 ### Introduction to packages
++ cryptography: A practice
+
 + docx: Edit word (.docx) documents.
 
 + jtop: Jetson Nano devices monitoring tool.
 
-+ kubeflow: ML workflows model within Kubernetes clusters.
++ kfp_kubeflow: ML workflows model within Kubernetes clusters.
+
++ list_file_structure_by_tree: A tool for visualization of file structure.
 
 + pyautogui: Automation of mouse and keyboard actions in Python, especially for GUI.
 
