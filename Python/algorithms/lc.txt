@@ -503,6 +503,7 @@ Iteration i with start and accum: sliding window -> for sum while
 1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
 1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
 2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
+3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
 
 Iteration
 17. Letter Combinations of a Phone Number
@@ -643,7 +644,10 @@ Iteration - Left-Right
 1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
 1552. Magnetic Force Between Two Balls
 1963. Minimum Number of Swaps to Make the String Balanced | L,l,r,ldiff,rdiff,ans=list(s),0,len(s)-1,0,0,0. while l<r: while l<r:... while l<r:...
+2070. Most Beautiful Item for Each Query | sort+search. target=query+0.1
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r: if trip==totalTrips: return m-min(m%t for t in time).
+2563. Count the Number of Fair Pairs | sort+search. l=f(L, lower-L[j]-0.1, r=j-1). r=f(L, upper-L[j]+0.1, r=j-1)
+2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 
 Iteration - Left-Right spread
 5. Longest Palindromic Substring | while c-e>=0 and c+e<len(s) and s[c-e]==s[c+e]: if 2*e+1>ar-al+1: al, ar = c-e, c+e
