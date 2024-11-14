@@ -446,6 +446,7 @@ Iteration or naive 0
 2816. Double a Number Represented as a Linked List | reverse twice ll.
 2864. Maximum Odd Binary Number
 2971. Find Polygon With the Largest Perimeter
+3011. Find if Array Can Be Sorted | general split
 3163. String Compression III | general split
 
 Iteration i with accum (additional accumulation not ans)
@@ -576,6 +577,7 @@ Iteration
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
+2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 149*. Max Points on a Line | use determinant, O(n^3)
 S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
 
@@ -595,9 +597,12 @@ Iteration - Bit operations
     # consider n numbers 1 bit only # b 0s, n-b 1s # total dist = b*(n-b) # consider bipartite only
     # check whether the i-th bit of a number x is 1: "x>>i&1" # shift is always prior than and
 958. Check Completeness of a Binary Tree | Q(tree, depth, path). L=[[path for nodes] for layer]
+1829. Maximum XOR for Each Query | change 0-th ~ maximumBit-th bit to 1 for each query
 1863. Sum of All Subset XOR Totals | complex than 477. for i in range(32): count 0s and 1s. for get_all in range(1,len(L)+1): for get_1 in range(1, get_all+1, 2): ....
 2433. Find The Original Array of Prefix Xor | ^ has association
+2275. Largest Combination With Bitwise AND Greater Than Zero | return max count of certain digit
 2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
+3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x) 
 
 Iteration - FSM
 <309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
@@ -644,6 +649,7 @@ Iteration - Left-Right
 1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
 1552. Magnetic Force Between Two Balls
 1963. Minimum Number of Swaps to Make the String Balanced | L,l,r,ldiff,rdiff,ans=list(s),0,len(s)-1,0,0,0. while l<r: while l<r:... while l<r:...
+2064. Minimized Maximum of Products Distributed to Any Store | binary search insertion
 2070. Most Beautiful Item for Each Query | sort+search. target=query+0.1
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r: if trip==totalTrips: return m-min(m%t for t in time).
 2563. Count the Number of Fair Pairs | sort+search. l=f(L, lower-L[j]-0.1, r=j-1). r=f(L, upper-L[j]+0.1, r=j-1)
