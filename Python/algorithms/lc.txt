@@ -263,6 +263,7 @@ Heap
 1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
 1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
 2406. Divide Intervals Into Minimum Number of Groups | heap(end).
+2461. Maximum Sum of Distinct Subarrays With Length K | win_dict, acc = Counter(L[:k]), sum(L[:k]). H = [(-times, val) for val, times in win_dict.items()]. heapq.heapify(H). ans = (-H[0][0]<2) * acc. for i in range(k, len(nums)): ... while heap[0] unmatch win_dict: pop and push true time.
 2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
 
 Iteration or naive 0
@@ -474,10 +475,12 @@ Iteration i with accum (additional accumulation not ans)
 1249. Minimum Remove to Make Valid Parentheses
 1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
 1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
+1652. Defuse the Bomb | if k<0: k=abs(k), code.reverse(). ... . return ans if raw k > 0 else ans[::-1] 
 1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
 1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
 2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
 2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
+3254. Find the Power of K-Size Subarrays I | ans, acc = [L[0] if k==1 else -1], 1. for i in range(1, len(L)): acc = acc + 1 if L[i-1]+1==L[i] else 1. ans.append(L[i] if acc>=k else -1).
 
 Iteration i with start (passed ptr not current) -> for if else
 26. Remove Duplicates from Sorted Array
