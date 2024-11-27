@@ -1,0 +1,10 @@
++ IOU
++ precision and recall:
+  + TP: conf>=confThreshold and IOU>=iouThreshold
+  + TN: repeat detect or conf<confThreshold and IOU>=iouThreshold
+  + FN: IOU<iouThreshold
++ AP = area under "smooth" PR-curve e.g. 1 if precision=recall=1
++ f = 2/(1/precision+1/recall) if precision*recall!=0 else 0. Pick best threshold from largest f if precision is as valued as recall
++ mAP = average AP among categories
+  + mAP50: (default) iouThreshold=0.5
+  + mAP75: iouThreshold=0.75
