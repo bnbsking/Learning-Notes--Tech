@@ -255,6 +255,8 @@ Heap0
 1921. Eliminate Maximum Number of Monsters
 1962. Remove Stones to Minimize the Total
 2530. Maximal Score After Applying K Operations
+2558. Take Gifts From the Richest Pile
+2593. Find Score of an Array After Marking All Elements
 3075. Maximize Happiness of Selected Children
 3264. Final Array State After K Multiplication Operations I
 
