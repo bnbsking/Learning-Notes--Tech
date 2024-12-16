@@ -250,11 +250,13 @@ Heap0
 23*. Merge k Sorted Lists
 703. Kth Largest Element in a Stream
 767. Reorganize String
+1792. Maximum Average Pass Ratio
 1845. Seat Reservation Manager
 1921. Eliminate Maximum Number of Monsters
 1962. Remove Stones to Minimize the Total
 2530. Maximal Score After Applying K Operations
 3075. Maximize Happiness of Selected Children
+3264. Final Array State After K Multiplication Operations I
 
 Heap
 355. Design Twitter | {userId:follower set}, {userId: queue(time,tweetID)}, heapq.heapify((time,posts)) while calling getNewsFeed
@@ -506,6 +508,7 @@ Iteration i with start and accum: sliding window -> for sum while
 1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
 1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
 1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
+2762. Continuous Subarrays
 2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
 3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
 
