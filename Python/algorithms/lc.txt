@@ -618,10 +618,14 @@ Iteration - FSM
 123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
 
 Iteration - Left-Right 0
+l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
++ if L[m] < target: l is bisect left when found
++ if L[m] <= target: l is bisect right when found
++ when not found: l is insertion index
 34. Find First and Last Position of Element in Sorted Array | while l<=r
 35. Search Insert Position | while l<=r. return l.
 74. Search a 2D Matrix | while l<=r twice
-240. Search a 2D Matrix II | while l<=r once+for
+240. Search a 2D Matrix II | while l<=r once + for i in range(l, -1, -1): bin search
 278. First Bad Version | while l<=r.
 374. Guess Number Higher or Lower | while l<=r.
 436. Find Right Interval | for while l<=r.
