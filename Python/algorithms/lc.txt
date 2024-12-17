@@ -255,6 +255,7 @@ Heap0
 1845. Seat Reservation Manager
 1921. Eliminate Maximum Number of Monsters
 1962. Remove Stones to Minimize the Total
+2182. Construct String With Repeat Limit | general splitting
 2530. Maximal Score After Applying K Operations
 2558. Take Gifts From the Richest Pile
 2593. Find Score of an Array After Marking All Elements
@@ -535,7 +536,6 @@ Iteration
 386. Lexicographical Numbers | sort in str or key=cmp_to_key(lex). def lex(x,y): compare if len(x)==len(y) else fill samllest element " " after the shorter one and compare (different from 179)
 405. Convert a Number to Hexadecimal | find -x of binary: get +x binary -> reverse bits -> +1 || get +x+1 binary -> reverse bits
 406. Queue Reconstruction by Height | sort by (-p[0],p[1]). then L.insert(p[1],p). (if all p[1]=0, tall first; if all p[0]=h, small p[1] first)
-435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1
 442. Find All Duplicates in an Array | Use negative sign to save visited. ans = []. for i in range(len(L)): store_idx = abs(nums[i])-1 if nums[store_idx]<0: ans.append(abs(nums[i])). nums[store_idx]*=-1
 452. Minimum Number of Arrows to Burst Balloons | similar to 56, but apply intersection instead of union.
 470. Implement Rand10() Using Rand7() | 7-carry while x>=40
@@ -588,7 +588,6 @@ Iteration
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 149*. Max Points on a Line | use determinant, O(n^3)
-S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
 
 Iteration - Arithmetic sort
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
@@ -670,7 +669,9 @@ Iteration - Left-Right spread
 696. Count Binary Substrings | match.start(0) for match in re.finditer(pattern,s)
 *214. Shortest Palindrome | similar as 5.
 
-Iteration - Max interval
+Iteration - Max overlapped interval
+S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
+435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1
 2779. Maximum Beauty of an Array After Applying Operation
 
 Iteration - Monte Carlo
