@@ -411,6 +411,7 @@ Iteration or naive 0
 1441. Build an Array With Stack Operations
 1460. Make Two Arrays Equal by Reversing Subarrays | find same value at index j and reverse L[i:j+1]
 1464. Maximum Product of Two Elements in an Array
+1475. Final Prices With a Special Discount in a Shop
 1502. Can Make Arithmetic Progression From Sequence
 1518. Water Bottles
 1550. Three Consecutive Odds
@@ -597,21 +598,6 @@ Iteration - Arithmetic sort
 645. Set Mismatch
 41*. First Missing Positive
 
-Iteration - Bit operations
-<136.> Single Number | return ^:all
-137. Single Number II | tenary, add_mod3:all
-268. Missing Number | reduce(lambda x, y: x^y, nums+list(range(len(nums)+1)))
-477. Total Hamming Distance | ans=0. for i in range(32): b=sum(x>>&i for x in nums). ans+=b*(len(nums)-b). return ans
-    # consider n numbers 1 bit only # b 0s, n-b 1s # total dist = b*(n-b) # consider bipartite only
-    # check whether the i-th bit of a number x is 1: "x>>i&1" # shift is always prior than and
-958. Check Completeness of a Binary Tree | Q(tree, depth, path). L=[[path for nodes] for layer]
-1829. Maximum XOR for Each Query | change 0-th ~ maximumBit-th bit to 1 for each query
-1863. Sum of All Subset XOR Totals | complex than 477. for i in range(32): count 0s and 1s. for get_all in range(1,len(L)+1): for get_1 in range(1, get_all+1, 2): ....
-2433. Find The Original Array of Prefix Xor | ^ has association
-2275. Largest Combination With Bitwise AND Greater Than Zero | return max count of certain digit
-2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
-3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x) 
-
 Iteration - Binary search
 l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
 + if L[m] < target: l is bisect left when found
@@ -659,6 +645,21 @@ Iteration - Binary search m-1,m,m+1
 162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
 462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while l<=r:
 540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while l<=r: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
+
+Iteration - Bit operations
+<136.> Single Number | return ^:all
+137. Single Number II | tenary, add_mod3:all
+268. Missing Number | reduce(lambda x, y: x^y, nums+list(range(len(nums)+1)))
+477. Total Hamming Distance | ans=0. for i in range(32): b=sum(x>>&i for x in nums). ans+=b*(len(nums)-b). return ans
+    # consider n numbers 1 bit only # b 0s, n-b 1s # total dist = b*(n-b) # consider bipartite only
+    # check whether the i-th bit of a number x is 1: "x>>i&1" # shift is always prior than and
+958. Check Completeness of a Binary Tree | Q(tree, depth, path). L=[[path for nodes] for layer]
+1829. Maximum XOR for Each Query | change 0-th ~ maximumBit-th bit to 1 for each query
+1863. Sum of All Subset XOR Totals | complex than 477. for i in range(32): count 0s and 1s. for get_all in range(1,len(L)+1): for get_1 in range(1, get_all+1, 2): ....
+2433. Find The Original Array of Prefix Xor | ^ has association
+2275. Largest Combination With Bitwise AND Greater Than Zero | return max count of certain digit
+2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
+3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x) 
 
 Iteration - FSM
 <309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
