@@ -603,6 +603,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 + if L[m] < target: l is bisect left when found
 + if L[m] <= target: l is bisect right when found
 + when not found: l is insertion index
++ tags: None - l<=r, A - l < r
 34. Find First and Last Position of Element in Sorted Array
 35. Search Insert Position
 74. Search a 2D Matrix | twice
@@ -643,8 +644,8 @@ Iteration - Binary search
 Iteration - Binary search m-1,m,m+1
 <153.> Find Minimum in Rotated Sorted Array | while 1: v1, v2, v3, v4 = L[l], L[m-1], L[m], L[r]. minv = min(v1, v2, v3, v4). if minv in (v1, v3): return minv. elif minv == v4: l = m + 1. else: r = m - 1. consider 5 cases: pivot at l, m, r, left, right.
 162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
-462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while l<=r:
-540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while l<=r: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
+462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while 1:
+540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while 1: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
