@@ -612,12 +612,7 @@ Iteration - Bit operations
 2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
 3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x) 
 
-Iteration - FSM
-<309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
-714. Best Time to Buy and Sell Stock with Transaction Fee | empty,hold=0,-prices[0]. for p in prices: empty,hold=max(empty,hold+p-fee), max(hold,empty-p).
-123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
-
-Iteration - Left-Right
+Iteration - Binary search
 l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
 + if L[m] < target: l is bisect left when found
 + if L[m] <= target: l is bisect right when found
@@ -633,14 +628,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 981. Time Based Key-Value Store
 2485. Find the Pivot Integer
 
-Iteration - Left-Right m-1,m,m+1
-<153.> Find Minimum in Rotated Sorted Array | while l<=r. min(L[m-1],L[m],L[m+1]). elif nums[l]<=nums[m]: if nums[l]<nums[r]: return nums[l] else l=m+1. else r=m-1
-162. Find Peak Element | while l<=r. max(L[m-1],L[m],L[m+1]). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
-462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while l<=r:
-540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while l<=r: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
-
-Iteration - Left-Right
-11. Container With Most Water | ans=0. while l<=r: ans=max(ans,(r-l)*min(L[l],L[r])). if height[l]<=height[r]: l+=1 else: r-=1
+Iteration - Binary search
 16. 3Sum Closest | L.sort(). ans_dist, ans = float('inf'), sum(nums[:3]). for i in range(len(L)-2): l=i+1, r=len(L)-1. while l<r:...
 33. Search in Rotated Sorted Array | while l<=r -> judge pivot left or right (nums[l]<=nums[m]) -> judge whether target value is between the other side
 81. Search in Rotated Sorted Array II | based on 33. add if nums[l]==nums[m]==nums[r]: l, r = l+1, r-1.
@@ -666,10 +654,22 @@ Iteration - Left-Right
 2563. Count the Number of Fair Pairs | sort+search. l=f(L, lower-L[j]-0.1, r=j-1). r=f(L, upper-L[j]+0.1, r=j-1)
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 
-Iteration - Left-Right shrink
+Iteration - Binary search m-1,m,m+1
+<153.> Find Minimum in Rotated Sorted Array | while 1: v1, v2, v3, v4 = L[l], L[m-1], L[m], L[r]. minv = min(v1, v2, v3, v4). if minv in (v1, v3): return minv. elif minv == v4: l = m + 1. else: r = m - 1. consider 5 cases: pivot at l, m, r, left, right.
+162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
+462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while l<=r:
+540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while l<=r: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
+
+Iteration - FSM
+<309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
+714. Best Time to Buy and Sell Stock with Transaction Fee | empty,hold=0,-prices[0]. for p in prices: empty,hold=max(empty,hold+p-fee), max(hold,empty-p).
+123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
+
+Iteration - Left-Right ->|<-
+11. Container With Most Water | ans=0. while l<=r: ans=max(ans,(r-l)*min(L[l],L[r])). if height[l]<=height[r]: l+=1 else: r-=1
 1750. Minimum Length of String After Deleting Similar Ends
 
-Iteration - Left-Right spread
+Iteration - Left-Right <-|->
 5. Longest Palindromic Substring | while c-e>=0 and c+e<len(s) and s[c-e]==s[c+e]: if 2*e+1>ar-al+1: al, ar = c-e, c+e
 647. Palindromic Substrings | same as 5.
 696. Count Binary Substrings | match.start(0) for match in re.finditer(pattern,s)
