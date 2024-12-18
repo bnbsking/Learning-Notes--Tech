@@ -617,22 +617,21 @@ Iteration - FSM
 714. Best Time to Buy and Sell Stock with Transaction Fee | empty,hold=0,-prices[0]. for p in prices: empty,hold=max(empty,hold+p-fee), max(hold,empty-p).
 123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
 
-Iteration - Left-Right 0
+Iteration - Left-Right
 l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
 + if L[m] < target: l is bisect left when found
 + if L[m] <= target: l is bisect right when found
 + when not found: l is insertion index
-34. Find First and Last Position of Element in Sorted Array | while l<=r
-35. Search Insert Position | while l<=r. return l.
-74. Search a 2D Matrix | while l<=r twice
-240. Search a 2D Matrix II | while l<=r once + for i in range(l, -1, -1): bin search
-278. First Bad Version | while l<=r.
-374. Guess Number Higher or Lower | while l<=r.
-436. Find Right Interval | for while l<=r.
-704. Binary Search | while l<=r.
-981. Time Based Key-Value Store | while l<=r.
-1750. Minimum Length of String After Deleting Similar Ends | while len(s)>1 and s[0]==s[-1]
-2485. Find the Pivot Integer | while l<=r.
+34. Find First and Last Position of Element in Sorted Array
+35. Search Insert Position
+74. Search a 2D Matrix | twice
+240. Search a 2D Matrix II | once + for i in range(l, -1, -1): bin search
+278. First Bad Version
+374. Guess Number Higher or Lower
+436. Find Right Interval | for while
+704. Binary Search
+981. Time Based Key-Value Store
+2485. Find the Pivot Integer
 
 Iteration - Left-Right m-1,m,m+1
 <153.> Find Minimum in Rotated Sorted Array | while l<=r. min(L[m-1],L[m],L[m+1]). elif nums[l]<=nums[m]: if nums[l]<nums[r]: return nums[l] else l=m+1. else r=m-1
@@ -666,6 +665,9 @@ Iteration - Left-Right
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r: if trip==totalTrips: return m-min(m%t for t in time).
 2563. Count the Number of Fair Pairs | sort+search. l=f(L, lower-L[j]-0.1, r=j-1). r=f(L, upper-L[j]+0.1, r=j-1)
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
+
+Iteration - Left-Right shrink
+1750. Minimum Length of String After Deleting Similar Ends
 
 Iteration - Left-Right spread
 5. Longest Palindromic Substring | while c-e>=0 and c+e<len(s) and s[c-e]==s[c+e]: if 2*e+1>ar-al+1: al, ar = c-e, c+e
