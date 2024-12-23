@@ -467,9 +467,11 @@ Iteration i with accum (additional accumulation not ans)
 376. Wiggle Subsequence | similar to 152. up, down = 1, 1 (first wiggle is up or down). for i in range(1,len(nums)): if nums[i]>nums[i-1]: up = down+1 elif nums[i]<nums[i-1]: down = up+1. return max(up, down)
 334. Increasing Triplet Subsequence | min1, min2 = float('inf'), float('inf'). for x in nums: if x<=min1: min1 = x elif x<=min2: min2 = x else: return True
 396. Rotate Function | init ans=current, sumv. current += sumv - nums[-1-i]*len(nums). consider rotate difference only
+452. Minimum Number of Arrows to Burst Balloons | similar to 56. minv, maxv, ans = -inf, -inf, 0. for start, end in sorted(L): if maxv < start: ... else: ...
 581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
 624. Maximum Distance in Arrays | curr_min, curr_max, ans
 746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
+769. Max Chunks To Make Sorted | curr_chunk_max, ans = -1, 0. for i in range(len(L)): if curr_chunk_mask < idx: ... else ... 
 845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
 915. Partition Array into Disjoint Intervals | like 238. mins arr append, while lmax<mins[-1]: ...
 918. Maximum Sum Circular Subarray | use 53. to find max_arr and min_arr. return max(max_arr,sum-min_arr)
@@ -538,7 +540,6 @@ Iteration
 405. Convert a Number to Hexadecimal | find -x of binary: get +x binary -> reverse bits -> +1 || get +x+1 binary -> reverse bits
 406. Queue Reconstruction by Height | sort by (-p[0],p[1]). then L.insert(p[1],p). (if all p[1]=0, tall first; if all p[0]=h, small p[1] first)
 442. Find All Duplicates in an Array | Use negative sign to save visited. ans = []. for i in range(len(L)): store_idx = abs(nums[i])-1 if nums[store_idx]<0: ans.append(abs(nums[i])). nums[store_idx]*=-1
-452. Minimum Number of Arrows to Burst Balloons | similar to 56, but apply intersection instead of union.
 470. Implement Rand10() Using Rand7() | 7-carry while x>=40
 491. Non-decreasing Subsequences | similar as 78.
 524. Longest Word in Dictionary through Deleting | find longest issubsequence
@@ -550,7 +551,6 @@ Iteration
 670. Maximum Swap | compare to sort, find first diff idx i. find max idx from len(L)-1 to i, swap, break return
 686. Repeated String Match | i = b.find(a). if i==-1: check a.find(b) and 2a.find(b). else return left-right times.
 763. Partition Labels | similar as 56.
-769. Max Chunks To Make Sorted | enumerate(L). similar as 56.
 775. Global and Local Inversions | for i in range(len(L)): if i!=L[i]: if L[i]!=i+1 or i!=L[L[i]]: return False. swap. return True
 777. Swap Adjacent in LR String | check non-X str consistent. L index smaller, R index larger.
 786. K-th Smallest Prime Fraction | O(n^2)
@@ -590,12 +590,13 @@ Iteration
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 149*. Max Points on a Line | use determinant, O(n^3)
 
-Iteration - Arithmetic sort
+Iteration - Arithmetic sort or Minimum swaps sort
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
 287. Find the Duplicate Number
 448. Find All Numbers Disappeared in an Array
 565. Array Nesting | i, accum, start = 0, 1, 1
 645. Set Mismatch
+2471. Minimum Number of Operations to Sort a Binary Tree by Level
 41*. First Missing Positive
 
 Iteration - Binary search
@@ -820,6 +821,7 @@ Recursion non-return
 2044. Count Number of Maximum Bitwise-OR Subsets | E1 | f(i=0, acc=0)
 2096. Step-By-Step Directions From a Binary Tree Node to Another | E1 | f(T,path=[]). (LCA like 235.)
 2305. Fair Distribution of Cookies | C1D1E1 | backtracking and memorization. self.ans,visitS,_=float('inf'),set(),cookies.sort(). def f(L=[0]*k, start=0): key=(tuple(sorted(L)),start) if key not in visitS: ...
+2415. Reverse Odd Levels of Binary Tree | | Level-order. D[path] -> Tree.
 2597. The Number of Beautiful Subsets | E1 | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
 2641. Cousins in Binary Tree II | | f(T=root, level=0). g(p=root, sec_deg_val=0, level=0).
 --
