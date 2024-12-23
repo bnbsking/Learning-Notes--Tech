@@ -535,6 +535,7 @@ Iteration
 179. Largest Number | L=[str(x) for x in L]. L.sort(key=cmp_to_key(lambda x,y:int(x+y)-int(y+x)), reverse=True)
 201. Bitwise AND of Numbers Range | a=bin(l)[2:], b=bin(r)[2:]. if len(a)!=len(b): return 0. same_leading_bits = next((i for i in range(len(a)) if a[i]!=b[i]), len(a)).
     return int(a[:same_leading_bits]+'0'*(len(a)-same_leading_bits), 2) 
+274. H-Index | L.sort(). next((i for i in range(len(L)) if L[-1-i] < i+1), len(L)).
 328. Odd Even Linked List | ll. interleaving points
 386. Lexicographical Numbers | sort in str or key=cmp_to_key(lex). def lex(x,y): compare if len(x)==len(y) else fill samllest element " " after the shorter one and compare (different from 179)
 405. Convert a Number to Hexadecimal | find -x of binary: get +x binary -> reverse bits -> +1 || get +x+1 binary -> reverse bits
@@ -599,12 +600,12 @@ Iteration - Arithmetic sort or Minimum swaps sort
 2471. Minimum Number of Operations to Sort a Binary Tree by Level
 41*. First Missing Positive
 
-Iteration - Binary search
+Iteration - Binary search 0
 l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
 + if L[m] < target: l is bisect left when found
 + if L[m] <= target: l is bisect right when found
 + when not found: l is insertion index. l can be 0 ~ len(L)
-+ tags:
++ tags for binay search and lr -><-:
     + None: while l<=r
     + A: while l < r
 34. Find First and Last Position of Element in Sorted Array
@@ -619,14 +620,13 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 2485. Find the Pivot Integer
 
 Iteration - Binary search
-16. 3Sum Closest | L.sort(). ans_dist, ans = float('inf'), sum(nums[:3]). for i in range(len(L)-2): l=i+1, r=len(L)-1. while l<r:...
 33. Search in Rotated Sorted Array | while l<=r -> judge pivot left or right (nums[l]<=nums[m]) -> judge whether target value is between the other side
 81. Search in Rotated Sorted Array II | based on 33. add if nums[l]==nums[m]==nums[r]: l, r = l+1, r-1.
-167. Two Sum II - Input Array Is Sorted | while l<r
-274. H-Index | L.sort(). ans=0. while ans<len(L) and L[-1-ans]>=ans+1: ans+=1
-275. H-Index II | while l<=r: m = (l+r)//2. if L[m]==len(L)-m: return len(L)-m. .... return len(L)-l
+167. Two Sum II - Input Array Is Sorted | A |
+275. H-Index II | while l<=r: m = (l+r)//2. if L[m] < len(L)-m: l=m+1 else r=m-1. ... return len(L)-l
 475. Heaters | ans=0. for x in house: while l<=r: l=closest heater. if l==0: ans=max(ans,heaters[l]-x) elif l==len(heaters):ans=max(ans,x-heaters[l-1]) else: ans=max(ans,min(x-heaters[l-1],heaters[l]-x))
 611. Valid Triangle Number
+-
 658. Find K Closest Elements | find insertion l. c=l-int(l==len(arr) or l>0 and x-arr[l-1]<=arr[l]-x). l, r expand
 667. Beautiful Arrangement II | L, l, r = [1], 2, n. for i in range(k-1): if i%2==0:.... left right alternate. return L+list(range(l,r+1))[::(-1)**parity]
 680. Valid Palindrome II | while l<r and s[l]==s[r]: l, r = l+1, r-1. if odd, even, remove_left, remove_right, ....
@@ -672,7 +672,8 @@ Iteration - FSM
 
 Iteration - Left-Right ->|<-
 11. Container With Most Water | ans=0. while l<=r: ans=max(ans,(r-l)*min(L[l],L[r])). if height[l]<=height[r]: l+=1 else: r-=1
-1750. Minimum Length of String After Deleting Similar Ends
+16. 3Sum Closest | A | L.sort(). ans_dist, ans = float('inf'), sum(nums[:3]). for i in range(len(L)-2): l=i+1, r=len(L)-1. while l<r:...
+1750. Minimum Length of String After Deleting Similar Ends | while len(s)>1 and L[0]==L[-1]
 
 Iteration - Left-Right <-|->
 5. Longest Palindromic Substring | while c-e>=0 and c+e<len(s) and s[c-e]==s[c+e]: if 2*e+1>ar-al+1: al, ar = c-e, c+e
