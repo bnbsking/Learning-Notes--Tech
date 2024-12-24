@@ -183,6 +183,7 @@ Hash 0
 1010. Pairs of Songs With Total Durations Divisible by 60
 1160. Find Words That Can Be Formed by Characters
 1207. Unique Number of Occurrences
+1346. Check If N and Its Double Exist
 1347. Minimum Number of Steps to Make Two Strings Anagram | sum((Counter-Counter).values())
 1436. Destination City
 1481. Least Number of Unique Integers after K Removals
@@ -409,6 +410,7 @@ Iteration or naive 0
 1380. Lucky Numbers in a Matrix
 1405. Longest Happy String | like 984.
 1441. Build an Array With Stack Operations
+1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
 1460. Make Two Arrays Equal by Reversing Subarrays | find same value at index j and reverse L[i:j+1]
 1464. Maximum Product of Two Elements in an Array
 1475. Final Prices With a Special Discount in a Shop
@@ -435,6 +437,7 @@ Iteration or naive 0
 2037. Minimum Number of Moves to Seat Everyone
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
 2108. Find First Palindromic String in the Array
+2109. Adding Spaces to a String
 2125. Number of Laser Beams in a Bank
 2148. Count Elements With Strictly Smaller and Greater Elements
 2149. Rearrange Array Elements by Sign
@@ -443,6 +446,7 @@ Iteration or naive 0
 2264. Largest 3-Same-Digit Number in String
 2279. Maximum Bags With Full Capacity of Rocks
 2326. Spiral Matrix IV | ll.
+2337. Move Pieces to Obtain a String
 2482. Difference Between Ones and Zeros in Row and Column | record row1s & col1s
 2486. Append Characters to String to Make Subsequence
 2490. Circular Sentence
@@ -452,6 +456,7 @@ Iteration or naive 0
 2678. Number of Senior Citizens
 2696. Minimum String Length After Removing Substrings | similar as 1003.
 2816. Double a Number Represented as a Linked List | reverse twice ll.
+2825. Make String a Subsequence Using Cyclic Increments | similar as 392.
 2864. Maximum Odd Binary Number
 2971. Find Polygon With the Largest Perimeter
 3011. Find if Array Can Be Sorted | general split
@@ -488,6 +493,7 @@ Iteration i with accum (additional accumulation not ans)
 1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
 1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
 2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
+2554. Maximum Number of Integers to Choose From a Range I
 2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
 3254. Find the Power of K-Size Subarrays I | ans, acc = [L[0] if k==1 else -1], 1. for i in range(1, len(L)): acc = acc + 1 if L[i-1]+1==L[i] else 1. ans.append(L[i] if acc>=k else -1).
 
@@ -634,6 +640,7 @@ Iteration - Binary search
 1011. Capacity To Ship Packages Within D Days | def isValid(capacity). l,r=max(weights),sum(weights). while l<=r.
 1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
 1552. Magnetic Force Between Two Balls
+1760. Minimum Limit of Balls in a Bag
 2064. Minimized Maximum of Products Distributed to Any Store | binary search insertion
 2070. Most Beautiful Item for Each Query | sort+search.
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
