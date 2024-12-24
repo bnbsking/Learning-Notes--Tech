@@ -639,6 +639,7 @@ Iteration - Binary search
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
 2563. Count the Number of Fair Pairs | B | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
+3152. Special Array II | general splitting + binary search
 
 Iteration - Binary search m-1,m,m+1
 <153.> Find Minimum in Rotated Sorted Array | while 1: v1, v2, v3, v4 = L[l], L[m-1], L[m], L[r]. minv = min(v1, v2, v3, v4). if minv in (v1, v3): return minv. elif minv == v4: l = m + 1. else: r = m - 1. consider 5 cases: pivot at l, m, r, left, right.
@@ -684,6 +685,7 @@ Iteration - Left-Right <-|->
 Iteration - Max overlapped interval
 S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
 435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1
+2054. Two Best Non-Overlapping Events | sort by (time, is_start, val). ans, finished_val_max = max(tup[2] for tup in events), 0. ...
 2779. Maximum Beauty of an Array After Applying Operation
 
 Iteration - Monte Carlo
