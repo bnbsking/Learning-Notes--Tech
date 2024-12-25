@@ -1,3 +1,5 @@
+# Deep learning processed
+
 ### 1. Data preprocessing
 + 1.1 observation and cleaning
 + 1.2 splitting
@@ -19,3 +21,9 @@
 + 4.1 testset
 + 4.2 (optional) metrics
 + 4.3 (optional) data improvement
+
+
+# Supported models
++ regression_dnn_boston_house
++ regression_rnn_stock_price
++ classification_cnn_mnist
