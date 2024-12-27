@@ -54,6 +54,7 @@ DP Arr2d Backward
 2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
 
 DP Arr2d Forward
+494. Target Sum | i: nums, j: -sum~sum, dp[i][j]: possibilities. dp = [[0] * (sumv * 2 + 1) for _ in range(len(L) + 1)]. dp[0][len(dp[0]) // 2] = 1
 576. Out of Boundary Paths | init all 0s one 1. renew matrix per step: inner zeros, outer inherit. update inner by forward dp
 
 + Graph (cycle) traversal, X0 is default
@@ -813,7 +814,6 @@ Recursion non-return
 416. Partition Equal Subset Sum | E1 | Similar to 40. visitS((start,val)). def f(start=0, val=sumv//2)
 437. Path Sum III | E1 | def f(T=root, accum=0, D={0:1}). similar as 112. + 560.
 473. Matchsticks to Square | E1 | Similar to 40. + 416.
-494. Target Sum | E1 | C, self.ans = sorted(Counter(nums).items()), 0. def f(methods={0:1}, start=0): for i in range(times+1) for key,val in methods
 518. Coin Change II | C1E1 | f(start=0,x=amount) and memorization
 526. Beautiful Arrangement | E1 | f(path=[], L=list(range(1,1+n)))
 530. Minimum Absolute Difference in BST | | f(T). self.ans, self.prev = 10**5, 10**5. def f(T): if T: f(T.left), self.ans, self.prev, f(T.right)
