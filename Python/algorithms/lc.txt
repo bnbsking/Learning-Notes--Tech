@@ -412,6 +412,7 @@ Iteration or naive 0
 1351. Count Negative Numbers in a Sorted Matrix
 1380. Lucky Numbers in a Matrix
 1405. Longest Happy String | like 984.
+1422. Maximum Score After Splitting a String
 1441. Build an Array With Stack Operations
 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
 1460. Make Two Arrays Equal by Reversing Subarrays | find same value at index j and reverse L[i:j+1]
@@ -893,7 +894,6 @@ Recursion return
 919. Complete Binary Tree Inserter | | f(T)->num_nodes. count nodes. nodes_idx->depth->level_idx->path by bin.
 955. Delete Columns to Make Sorted II | | irregular_idx(s1,s2)->idx. f(L)->None. for if idx!=-1: f([s[:idx]+s[idx+1:] for s in L])
 979. Distribute Coins in Binary Tree | | self.ans=0. f(T) -> exceed_or_lack coins. def f(T=root): if T: l,r=f(T.left),f(T.right). self.ans+=abs(l)+abs(r). return T.val-1+l+r. else: return 0.
-983. Minimum Cost For Tickets | C1 | f(i=0)->ans.
 1008. Construct Binary Search Tree from Preorder Traversal | | Same as 105. 
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
