@@ -24,6 +24,7 @@ DP 1d Backward
 740. Delete and Earn | C,D=Counter(L),defaultdict(lambda :0). for x,times in sorted(C.items()): D[x]=max(D[y] for y in D if x-y>=2)+x*times. similar to 300.
 764. Largest Plus Sign | for way dp
 823. Binary Trees With Factors | init D[ele]->ans. return sum(D.values()). similar to 300.
+983. Minimum Cost For Tickets | if i not in days: L[i] = L[i - 1] else: L[i] = min(L[i - 1] + costs[0], L[max(0, i - 7)] + costs[1], L[max(0, i - 30)] + costs[2])
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 2707. Extra Characters in a String | init 1. similar to 300.
 
@@ -36,6 +37,7 @@ DP 1d Forward
 <322.> coin change | init [0]+[inf]*amount. for i for coin: if i+c<len(L): L[i+c] = min(L[i+c], L[i]+1)
 377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
 1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
+2466. Count Ways To Build Good Strings | L[i + zero] += L[i]; L[i + ones] += L[i]
 135*. Candy | for i in range(R): if i is smallest: lr expand (L[r]=max(L[r],L[r-1]+1))
 
 DP Arr2d Backward
