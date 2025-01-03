@@ -6,7 +6,9 @@ Most of them are for short-term requirement.
 
 
 # Recently maintained
-+ `AI/deep_learning/pytorch/*`
++ `AI/machine_learning/base/*`
++ `AI/deep_learning/pytorch/toy_models/*`
+    + The code has been modularized to [here](https://github.com/bnbsking/Deep-Learning-Playground/tree/main)
 + `Cpp/Readme.md`
 + `DesignPatterns/*`
 + `Python/algorithms/lc.txt`
