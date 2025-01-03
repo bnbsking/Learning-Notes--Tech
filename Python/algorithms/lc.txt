@@ -9,6 +9,8 @@ DP 0
 304. Range Sum Query 2D - Immutable
 931. Minimum Falling Path Sum
 935. Knight Dialer
+1310. XOR Queries of a Subarray | like 303.
+2559. Count Vowel Strings in Ranges | like 303.
 
 DP 1d Backward
 45. Jump Game II | i=1. nums[i] = max(nums[i-1], nums[i]+i). Transform array to "farthest index can go"
@@ -406,7 +408,6 @@ Iteration or naive 0
 1137. N-th Tribonacci Number
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
-1310. XOR Queries of a Subarray | like 303.
 1318. Minimum Flips to Make a OR b Equal to c
 1331. Rank Transform of an Array
 1351. Count Negative Numbers in a Sorted Matrix
@@ -448,6 +449,7 @@ Iteration or naive 0
 2191. Sort the Jumbled Numbers
 2220. Minimum Bit Flips to Convert Number
 2264. Largest 3-Same-Digit Number in String
+2270. Number of Ways to Split Array
 2279. Maximum Bags With Full Capacity of Rocks
 2326. Spiral Matrix IV | ll.
 2337. Move Pieces to Obtain a String
