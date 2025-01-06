@@ -498,6 +498,7 @@ Iteration i with accum (additional accumulation not ans)
 1652. Defuse the Bomb | if k<0: k=abs(k), code.reverse(). ... . return ans if raw k > 0 else ans[::-1] 
 1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
 1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
+1769. Minimum Number of Operations to Move All Balls to Each Box | rsum, r1s = sum(indices), len(indices). lsum, l1s, ans = 0, 0, []. for i in range(len(L)): ...
 2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
 2554. Maximum Number of Integers to Choose From a Range I
 2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
