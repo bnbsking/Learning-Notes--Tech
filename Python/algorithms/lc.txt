@@ -413,6 +413,7 @@ Iteration or naive 0
 1351. Count Negative Numbers in a Sorted Matrix
 1380. Lucky Numbers in a Matrix
 1405. Longest Happy String | like 984.
+1408. String Matching in an Array
 1422. Maximum Score After Splitting a String
 1441. Build an Array With Stack Operations
 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
