@@ -467,6 +467,7 @@ Iteration or naive 0
 2864. Maximum Odd Binary Number
 2971. Find Polygon With the Largest Perimeter
 3011. Find if Array Can Be Sorted | general split
+3042. Count Prefix and Suffix Pairs I
 3163. String Compression III | general split
 
 Iteration i with accum (additional accumulation not ans)
