@@ -190,6 +190,7 @@ Hash 0
 1207. Unique Number of Occurrences
 1346. Check If N and Its Double Exist
 1347. Minimum Number of Steps to Make Two Strings Anagram | sum((Counter-Counter).values())
+1400. Construct K Palindrome Strings | len(s) >= k and sum(v%2 for v in Counter(s).values()) <= k
 1436. Destination City
 1481. Least Number of Unique Integers after K Removals
 1657. Determine if Two Strings Are Close | set(word1)==set(word2) and sorted(Counter(word1).values()) == sorted(Counter(word2).values())
@@ -204,6 +205,7 @@ Hash 0
 5. Count Elements With Maximum Frequency
 3016. Minimum Number of Pushes to Type Word II
 3217. Delete Nodes From Linked List Present in Array | ll.
+3223. Minimum Length of String After Operations | sum((times + 1) % 2 + 1 for times in Counter(s).values())
 
 Hash
 3. Longest Substring Without Repeating Character | if s[i] not in D or accum<D[s[i]]: accum+=1, else accum=i-D[s[i]]
@@ -223,7 +225,7 @@ Hash
 846. Hand of Straights
 888. Fair Candy Swap | # suma-x+y=avg # y=x+avg-suma
 898. Bitwise ORs of Subarrays | acc, ors = set(), set(). for x in arr: acc = {x} | { x | y for y in acc }. ors |= acc. return len(ors)
-916. Word Subsets | return [w1 for w1 in words1 if Counter(w1)&C==C]
+916. Word Subsets | C|= Counter(w2) .return [w1 for w1 in words1 if Counter(w1)&C==C]
 923. 3Sum With Multiplicity | consider (3,) or (1,1,1) or (1,2) or (2,1)
 939. Minimum Area Rectangle | collect X (sorted by tup), Y (sorted by tup[::-1]). iterate down_left, find up_left, find do_right, find up_right in set.
 945. Minimum Increment to Make Array Unique | start = key+1 if start<key else start
