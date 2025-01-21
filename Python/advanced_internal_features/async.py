@@ -64,8 +64,9 @@ async def main4():  # coroutine: pause and resume
         for _ in range(0, 10):
             tasks.append(do_requests3(session))
 
-        results = await asyncio.gather(*tasks)  # object must has __await__ method, e.g. async def, Task, Future  # vital in async def
-                                                # gather is similar as wait and join
+        results = await asyncio.gather(*tasks)  # object must has __await__ method (generator), e.g. async def, Task, Future  # vital in async def
+                                                # switch to do the other things after touches await and switch back when yield !
+                                                # asyncio.gather.gather is similar as wait and join
         for r in results:
             print('example.com =>', r.status)
 
@@ -90,3 +91,29 @@ if __name__ == '__main__':
     start = time.time()
     asyncio.run(main4())  # ayncio.run() execute coroutine by "event loop"
     print("asyncio", 'Elapsed time:', time.time() - start)
+
+
+"""
+# Another simplest asyncio
+
+import asyncio
+
+class CustomAwaitable:
+    def __init__(self, value):
+        self.value = value
+
+    def __await__(self):
+        # Simulate asynchronous behavior
+        print("Start awaiting...")
+        yield  # This allows control to return to the event loop
+        print("Finished awaiting.")
+        return self.value  # Final result
+
+
+async def main():
+    obj = CustomAwaitable(42)
+    result = await obj
+    print(f"Result: {result}")
+
+asyncio.run(main())
+"""
