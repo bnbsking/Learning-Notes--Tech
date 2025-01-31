@@ -117,3 +117,50 @@ async def main():
 
 asyncio.run(main())
 """
+
+
+"""
+# Another more more simple,
+# usually awaitable object (asyncio.sleep) is already the api interface (don't need to implement)
+
+import asyncio
+import time
+from typing import List
+
+
+def add1_sync(a: int):  # cost heavy operation
+    time.sleep(1)
+    return a + 1
+
+
+def main1(n: int) -> List[int]:
+    results = [add1_sync(i) for i in range(n)]
+    return results
+
+
+async def add1_async(a: int):  # cost heavy operation
+    await asyncio.sleep(1)  # awaitable object usually be a api call
+    return a + 1
+
+
+async def main2(n: int):
+    tasks = [
+        asyncio.create_task(add1_async(i))
+        for i in range(n)
+    ]
+    results = await asyncio.gather(*tasks)
+    return results
+
+
+if __name__ == "__main__":
+    start = time.time()
+    res = main1(5)
+    print(time.time() - start)  # 5 seconds
+    print(res)
+    
+    start = time.time()
+    res = asyncio.run(main2(5))
+    print(time.time() - start)  # 1 second
+    print(res)
+"""
+
