@@ -280,6 +280,7 @@ Heap
 2406. Divide Intervals Into Minimum Number of Groups | heap(end).
 2461. Maximum Sum of Distinct Subarrays With Length K | win_dict, acc = Counter(L[:k]), sum(L[:k]). H = [(-times, val) for val, times in win_dict.items()]. heapq.heapify(H). ans = (-H[0][0]<2) * acc. for i in range(k, len(nums)): ... while heap[0] unmatch win_dict: pop and push true time.
 2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
+2594. Minimum Time to Repair Cars | H = [[r, r, 0] for r in ranks]  # [r * (n + 1) ** 2, r, n] = [next_time, r, curr_n]
 
 Iteration or naive 0
 7. Reverse Integer
@@ -536,6 +537,10 @@ Iteration i with start and accum: sliding window -> for sum while
 2762. Continuous Subarrays
 2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
 3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
+3306. Count of Substrings Containing Every Vowel and K Consonants II | start, window = 0, {v: deque() for v in vowels} | {"cons": deque()}. add to queue -> while remove queues -> update ans
+    + min_vowel_idx = min(window[v][-1] for v in vowels)
+    + min_conso_idx = float('inf') if k == 0 else window["cons"][0]
+    + ans += min(min_vowel_idx, min_conso_idx) - start + 1
 
 Iteration
 17. Letter Combinations of a Phone Number
