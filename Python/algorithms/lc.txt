@@ -453,6 +453,7 @@ Iteration or naive 0
 2149. Rearrange Array Elements by Sign
 2185. Counting Words With a Given Prefix2220. Minimum Bit Flips to Convert Number
 2191. Sort the Jumbled Numbers
+2206. Divide Array Into Equal Pairs
 2264. Largest 3-Same-Digit Number in String
 2270. Number of Ways to Split Array
 2279. Maximum Bags With Full Capacity of Rocks
@@ -661,6 +662,7 @@ Iteration - Binary search
 2064. Minimized Maximum of Products Distributed to Any Store | binary search insertion
 2070. Most Beautiful Item for Each Query | sort+search.
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
+2226. Maximum Candies Allocated to K Children | l, r = 1, int(sum(candies) / k)
 2563. Count the Number of Fair Pairs | B | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 3152. Special Array II | general splitting + binary search
