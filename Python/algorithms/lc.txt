@@ -474,6 +474,7 @@ Iteration or naive 0
 3011. Find if Array Can Be Sorted | general split
 3042. Count Prefix and Suffix Pairs I
 3163. String Compression III | general split
+3191. Minimum Operations to Make Binary Array Elements Equal to One I
 
 Iteration i with accum (additional accumulation not ans)
 53. Maximum Subarray | ans=L[0], acc=0. for x in L: acc=max(acc+x,x), ans=max(ans,acc)
@@ -534,6 +535,7 @@ Iteration i with start and accum: sliding window -> for sum while
 1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
 1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
 1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
+2401. Longest Nice Subarray | start, ans, acc, acc_len = 0, 0, 0, 0. for, while acc -= nums[start], acc |= nums[i]
 2516. Take K of Each Character From Left and Right | max_win = 0. start, win_cnt, limit_cnt = 0, [0, 0, 0], [s.count(x)-k for x in "abc"]
 2762. Continuous Subarrays
 2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
