@@ -937,6 +937,14 @@ Sort
 922. Sort Array By Parity II | ev,od,i=0,1,0. while i<len(L): if not true-pos: swap and update ev or od, else i+=1
 977. Squares of a Sorted Array
 
+SortedContainers
+729. My Calendar I | O(qlogn). idx=L.bisect_left(x)
+731. My Calendar II | O(qn). similar as S1. L.add((start,1)). L.add((end,-1)). count=0. for _,state in L.irange(): if count>2: remove and return False.
+732*. My Calendar III | O(qn). similar as 731.
+1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
+2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
+2563. Count the Number of Fair Pairs | L, ans = SortedList(), 0. for x in nums: l = L.bisect_left(lower - x). r = L.bisect_right(upper - x). ans += r - l. L.add(x)
+
 Stack 0
 20. Valid Parentheses | dict + lr matching
 71. Simplify Path
@@ -965,13 +973,6 @@ Stack
 1190. Reverse Substrings Between Each Pair of Parentheses | multilevel stack
 1381. Design a Stack With Increment Operation | stack[val, acc_bias]
 2487. Remove Nodes From Linked List | doubly LL
-
-SortedContainers
-729. My Calendar I | O(qlogn). idx=L.bisect_left(x)
-731. My Calendar II | O(qn). similar as S1. L.add((start,1)). L.add((end,-1)). count=0. for _,state in L.irange(): if count>2: remove and return False.
-732*. My Calendar III | O(qn). similar as 731.
-1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
-2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
 
 Trie
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
