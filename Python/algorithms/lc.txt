@@ -219,7 +219,7 @@ Hash
 467. Unique Substrings in Wraparound String | D={c:1 for c in s}, cont=1. D substr end with char -> numbers. for i in range(1,len(s)): cont = cont+1 if (ord(s[i])-ord(s[i-1]))%26==1 else 1. D[s[i]]=max(D[s[i]],cont)
 532. K-diff Pairs in an Array | S, ans = set(nums), 0. for x in sorted(list(S)): if x+k in S: ans+=1
 554. Brick Wall | spaces=Counter(). for row in wall: for x in accumulate(row[-1]): spaces[x]+=1
-781. Rabbits in Forest | C,ans=Counter(x+1 for x in answers),0. for k,v in C.items(): ans += k if k>=v else v//k*k + (k if v%k else 0). return ans
+781. Rabbits in Forest | C, ans = Counter(answers), 0. for k, v in C.items(): ans += math.ceil(v / (k + 1)) * (k + 1). return ans
 792. Number of Matching Subsequences | D=defaultdict(lambda:[]) (start_char -> [[word, match], ...]). for c in s: raw_words=D[c], D[c]=[]. for word,match in raw_words: if else....
 825. Friends Of Appropriate Ages | C, req = Counter(ages), lambda x, y: int(y>0.5*x+7 and y<=x and (y<=100 or x>=100))....
 846. Hand of Straights
