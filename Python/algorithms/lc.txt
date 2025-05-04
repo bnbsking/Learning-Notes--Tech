@@ -64,8 +64,7 @@ DP Arr2d Forward
 + Graph (cycle) traversal, X0 is default
 A record visit by
     A0 record itself or no cycle - ll, tree
-    A1 for if not in hash -> add -> call | hash means "prepared visit"
-        ("add -> for if not in hash -> call" is good for dfs only, here hash means "is visited". bfs will cause same node in queue more than once)
+    A1 for if not in hash -> add -> call | hash in dfs means "is visited" but in bfs means "inQ". bfs use "is visited" cause duplicate nodes in queue
     A2 if not in hash -> add -> for if not in hash -> call | hash means "is visited".
 
 B sources
