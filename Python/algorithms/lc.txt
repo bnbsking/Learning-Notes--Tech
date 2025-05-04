@@ -83,7 +83,6 @@ Graph Traversal bfs (shortest distance, unweighted shortest path can be get by p
 498. Diagonal Traverse | x=Q.popleft(). add down when i=0 + add right always, use i+j to judge even or odd
 542. 01 Matrix | B1 | x,depth=Q.popleft(). one queue multi-source BFS start from all 0s (put into Q) update 1s (set -1 as unvisited initially)
 752. Open the Lock | A1 | x,depth=Q.popleft()
-886. Possible Bipartition | A1B1 | while dislike: Q, V = deque([dislikes.pop()]), set(). while Q: a, b = Q.popleft()
 909. Snakes and Ladders | A1 | Q,S=deque([(node=1, depth=0)]), {1}. .... x, depth = Q.popleft()
 994. Rotting Oranges | B1 | x,depth=Q.popleft().
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
@@ -105,6 +104,7 @@ Graph Traversal dfs (achievable, get path by backtracking)
 797. All Paths From Source to Target | A1D1 | backtracking. f(x=0, path=[0], S={0})
 802. Find Eventual Safe States | A1B1 | f(x)->bool. recursive call if n not in ans and isSafe and n not in visit
 <841.> Keys and Rooms | A1 | f(x)
+886. Possible Bipartition | A1 | build graph by dislike + dfs. need global_unvisied: Set[int], local_visited: Set[int], colors: List[int]
 1020. Number of Enclaves | B1 | f(i,j). use for every cell: if not visit land: self.is_bound=False=0. self.land=0. dfs(cell). ans+=int(not self.is_bound) * self.land 
 1219. Path with Maximum Gold | A1B1D1 | f(x, visitS, acc) all source dfs + backtracking
 1905. Count Sub Islands | A1B1 | dfs first island to get "cord2islandidx". dfs second island to check all pixel belongs to same islandidx
