@@ -83,7 +83,7 @@ Graph Traversal bfs (shortest distance, unweighted shortest path can be get by p
 498. Diagonal Traverse | x=Q.popleft(). add down when i=0 + add right always, use i+j to judge even or odd
 542. 01 Matrix | B1 | x,depth=Q.popleft(). one queue multi-source BFS start from all 0s (put into Q) update 1s (set -1 as unvisited initially)
 752. Open the Lock | A1 | x,depth=Q.popleft()
-909. Snakes and Ladders | A1 | Q,S=deque([(node=1, depth=0)]), {1}. .... x, depth = Q.popleft()
+909. Snakes and Ladders | A1 | Q, inQ=deque([(node=1, depth=0)]), {1}. ... for nextx in range(x+1, min(x+6, n*n)+1): a, b = idx2cor(nextx). finalx = nextx if board[a][b] == -1 else board[a][b]. if finalx not in inQ:
 994. Rotting Oranges | B1 | x,depth=Q.popleft().
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1
