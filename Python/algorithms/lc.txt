@@ -193,6 +193,7 @@ Hash 0
 1436. Destination City
 1481. Least Number of Unique Integers after K Removals
 1657. Determine if Two Strings Are Close | set(word1)==set(word2) and sorted(Counter(word1).values()) == sorted(Counter(word2).values())
+1920. Build Array from Permutation
 2053. Kth Distinct String in an Array
 2196. Create Binary Tree From Descriptions
 2285. Maximum Total Importance of Roads
