@@ -65,7 +65,7 @@ DP Arr2d Forward
 A record visit by
     A0 record itself or no cycle - ll, tree
     A1 for if not in hash -> add -> call | hash in dfs means "is visited" but in bfs means "inQ". bfs use "is visited" cause duplicate nodes in queue
-    A2 if not in hash -> add -> for if not in hash -> call | hash means "is visited".
+    A2 if not in hash -> add -> for if nei not in hash -> heappush | hash means "complete visited".
 
 B sources
     B0 single
@@ -125,12 +125,14 @@ Graph - Spanning tree (Prim: init H, L, S)
   + Kruskal: Union find, E(w,p,q) = decreasingly sort edges, while len(mst)<len(nodes)-1: E.pop, merge 2 point if U.union(p,q). O(eloge). same complexity.
 
 Graph - Weighted shortest path (Dijkstra: init H, L, S)
-<743.> Network Delay Time | A2 | Dijkstra. Init graph. Heap(accum,node), L=[dist, ...], visitS. while H: pop, if not in visitS: visitS.add, for nei in G[x]: if L[nei]>accum+G[x][nei]: update and push if not in visitS. (No relaxation, Heap O((v+e)log(v)), Queue can get correct answer but O(v^2))
-   + Bellman-Ford: for _ in range(1,n): for l,r,w in times: L[r] = min(L[r], L[l]+w). O(ve)
+<743.> Network Delay Time | A2 | Dijkstra. Init graph. Heap(accum,node), L=[dist, ...], visitS. while H: pop, if not in visitS: visitS.add, for nei in G[x]: if nei not in visitS: L[nei]=min(L[nei], accum+G[x][nei]). heappush(nei)
+    + Heap O((v+e)log(v)), Queue can get correct answer but O(v^2))
+    + Bellman-Ford: for _ in range(1,n): for l,r,w in times: L[r] = min(L[r], L[l]+w). O(ve)
 787. Cheapest Flights Within K Stops | Dijkstra but MUST use Queue instead of Heap since relaxation cause error for heap, NO visitS. Q(accum,node,depth), L=[dist, ...]. while Q: pop, if depth<k+1: for nei in G[x]: if shorter: update and push.
 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance | Floyd-WarShall O(v^3). for mid for vi for vj: relaxation. cannot modify the loop order. Becuase previous optimization results may not hold if mid changes.
 1514. Path with Maximum Probability | A2 | same as 743 Heap(-prob,node)
 1631. Path With Minimum Effort | A2 | same as 743. Heap(accum_delta,node)
+3341. Find Minimum Time to Reach Last Room I | A2 | t, i, j = heapq.heappop(H). .... L[i+a][j+b] = max(moveTime[i+a][j+b] + 1, min(t + 1, L[i+a][j+b]))
 
 Hash 0
 1. Two Sum
