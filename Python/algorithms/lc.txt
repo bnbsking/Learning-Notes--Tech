@@ -133,6 +133,7 @@ Graph - Weighted shortest path (Dijkstra: init H, L, S)
 1514. Path with Maximum Probability | A2 | same as 743 Heap(-prob,node)
 1631. Path With Minimum Effort | A2 | same as 743. Heap(accum_delta,node)
 3341. Find Minimum Time to Reach Last Room I | A2 | t, i, j = heapq.heappop(H). .... L[i+a][j+b] = max(moveTime[i+a][j+b] + 1, min(t + 1, L[i+a][j+b]))
+3342. Find Minimum Time to Reach Last Room II | A2 | 3341 replace + 1 as + 1 + (i+j)%2
 
 Hash 0
 1. Two Sum
