@@ -114,11 +114,14 @@ Graph Traversal dfs+bfs
 934. Shortest Bridge | A1, A1B1 | dfs f(x) to collect all boundary of island1 + multi-source BFS (i, j, depth = Q.popleft())
 2385. Amount of Time for Binary Tree to Be Infected | , | Same as 863.
 
-Graph - Topological sort (Kahn's: init inDegL=[inDeg,...], leaves=[inDeg==0 node, ...])
-<207.> Course Schedule | B1 | DFS, G is constant, while leaves
-210. Course Schedule II | B1 | DFS, G is constant, while leaves
-310. Minimum Height Trees | B1 | BFS, G is varied, while len(G)>2: init leaves
-2192. All Ancestors of a Node in a Directed Acyclic Graph | B1 | parentD const, children const, parentD_topo varied. Q, ans = deque(roots), [set() for i in range(n)]. while Q: add parent to ans from parentD. add new roots to Q by parent_topo.
+Graph - Topological sort (Kahn's: init inDeg, leaves. when: undirected graph inDeg=1 or directed graph inDeg=0 are starting points / dfs and bfs duplicates traversal)
++ Must be multi-sourced
++ E: leaves out of while loop (greedy remove nodes as DFS)
++ F: leaves inside while loop (removes nodes level-by-level as BFS)
+<207.> Course Schedule | E | DFS, G is constant, while leaves
+210. Course Schedule II | E | DFS, G is constant, while leaves
+310. Minimum Height Trees | F | BFS, G is varied, while len(G)>2: init leaves
+2192. All Ancestors of a Node in a Directed Acyclic Graph | F | while inDegD: init leaves
 
 Graph - Spanning tree (Prim: init H, L, S)
 <1584.> Min Cost to Connect All Points | A2 | Prim. Init graph. Heap(dist2mst,node) init by random 1 node, L=[dist,...], visitS, ans. while heap: pop, if not in visitS: visitS.add, for nei in G[x]: if D[nei]>G[x][nei]: update and push. Very similar to 743. O((v+e)logv)
