@@ -78,7 +78,7 @@ D backtracking (get path)
     D0 no
     D1 yes
 
-Graph Traversal bfs (shortest distance, unweighted shortest path can be get by parent arr)
+Graph Traversal bfs (init queue and visited) when: shortest distance (unweighted shortest path can be get by parent arr)
 433. Minimum Genetic Mutation | A1 | x,depth=Q.popleft() | memory is for is_neighbor NOT main problem
 498. Diagonal Traverse | x=Q.popleft(). add down when i=0 + add right always, use i+j to judge even or odd
 542. 01 Matrix | B1 | x,depth=Q.popleft(). one queue multi-source BFS start from all 0s (put into Q) update 1s (set -1 as unvisited initially)
@@ -88,7 +88,7 @@ Graph Traversal bfs (shortest distance, unweighted shortest path can be get by p
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1
 
-Graph Traversal dfs (achievable, get path by backtracking)
+Graph Traversal dfs (init recur_func and visited) when: achievable (get path can be get by backtracking)
 79. Word Search | A1B1D1 | backtracking. f(x, match, visitS) 
 130. Surrounded Regions | B1 | f(x)
 133. Clone Graph | A1 | f(x) | node2dict, dict2node
@@ -114,7 +114,7 @@ Graph Traversal dfs+bfs
 934. Shortest Bridge | A1, A1B1 | dfs f(x) to collect all boundary of island1 + multi-source BFS (i, j, depth = Q.popleft())
 2385. Amount of Time for Binary Tree to Be Infected | , | Same as 863.
 
-Graph - Topological sort (Kahn's: init inDeg, leaves. when: undirected graph inDeg=1 or directed graph inDeg=0 are starting points / dfs and bfs duplicates traversal)
+Graph - Topological sort (Kahn's: init inDeg, leaves) when: undirected graph inDeg=1 or directed graph inDeg=0 are starting points / dfs and bfs duplicates traversal)
 + Must be multi-sourced
 + E: leaves out of while loop (greedy remove nodes as DFS)
 + F: leaves inside while loop (removes nodes level-by-level as BFS)
