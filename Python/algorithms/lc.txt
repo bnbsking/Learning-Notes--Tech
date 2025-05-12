@@ -124,8 +124,9 @@ Graph - Topological sort (Kahn's: init inDeg, leaves) when: undirected graph inD
 2192. All Ancestors of a Node in a Directed Acyclic Graph | F | while inDegD: init leaves
 
 Graph - Spanning tree (Prim: init H, L, S)
-<1584.> Min Cost to Connect All Points | A2 | Prim. Init graph. Heap(dist2mst,node) init by random 1 node, L=[dist,...], visitS, ans. while heap: pop, if not in visitS: visitS.add, for nei in G[x]: if D[nei]>G[x][nei]: update and push. Very similar to 743. O((v+e)logv)
-  + Kruskal: Union find, E(w,p,q) = decreasingly sort edges, while len(mst)<len(nodes)-1: E.pop, merge 2 point if U.union(p,q). O(eloge). same complexity.
+<1584.> Min Cost to Connect All Points | A2
+  + Prim: Init graph. Heap(dist2mst,node) init by random 1 node, L=[dist,...], visitS, ans. while heap: pop, if not in visitS: visitS.add, for nei in G[x]: if not in visitS: relaxation. Very similar to 743. O((v+e)logv)
+  + Kruskal: Union find, E(w,p,q) = decreasingly sort edges, while len(mst)<len(nodes)-1: E.pop, merge 2 point if different root. O(eloge). same complexity.
 
 Graph - Weighted shortest path (Dijkstra: init H, L, S)
 <743.> Network Delay Time | A2 | Dijkstra. Init graph. Heap(accum,node), L=[dist, ...], visitS. while H: pop, if not in visitS: visitS.add, for nei in G[x]: if nei not in visitS: L[nei]=min(L[nei], accum+G[x][nei]). heappush(nei)
@@ -452,6 +453,7 @@ Iteration or naive 0
 2022. Convert 1D Array Into 2D Array
 2037. Minimum Number of Moves to Seat Everyone
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
+2094. Finding 3-Digit Even Numbers
 2108. Find First Palindromic String in the Array
 2109. Adding Spaces to a String
 2125. Number of Laser Beams in a Bank
