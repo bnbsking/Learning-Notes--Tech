@@ -40,6 +40,7 @@ DP 1d Forward
 377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
 1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
 2466. Count Ways To Build Good Strings | L[i + zero] += L[i]; L[i + ones] += L[i]
+2901. Longest Unequal Adjacent Groups Subsequence II | O(n^2)
 135*. Candy | for i in range(R): if i is smallest: lr expand (L[r]=max(L[r],L[r-1]+1))
 
 DP Arr2d Backward
