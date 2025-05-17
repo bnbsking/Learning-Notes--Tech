@@ -646,6 +646,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
     + None: while l<=r
     + A: while l < r
     + B: bisect right
+    + C: shift middle
 34. Find First and Last Position of Element in Sorted Array
 35. Search Insert Position
 74. Search a 2D Matrix | twice
@@ -656,6 +657,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 374. Guess Number Higher or Lower
 436. Find Right Interval | for while
 475. Heaters | ans=0. for x in house: while l<=r: l=closest heater. if l==0: ans=max(ans,heaters[l]-x) elif l==len(heaters):ans=max(ans,x-heaters[l-1]) else: ans=max(ans,min(x-heaters[l-1],heaters[l]-x))
+540. Single Element in a Sorted Array | AC | m -= m % 2 == 0
 611. Valid Triangle Number
 658. Find K Closest Elements | find insertion l. c=l-int(l==len(arr) or l>0 and x-arr[l-1]<=arr[l]-x). l, r expand
 667. Beautiful Arrangement II | L, l, r = [1], 2, n. for i in range(k-1): if i%2==0:.... left right alternate. return L+list(range(l,r+1))[::(-1)**parity]
@@ -684,7 +686,6 @@ find pivot first. if L[m] < L[r]: r = m elif L[m] > L[r]: l = m + 1 else r-=1
 Iteration - Binary search m-1,m,m+1
 162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
 462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while 1:
-540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while 1: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
