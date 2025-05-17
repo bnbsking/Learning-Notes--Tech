@@ -638,7 +638,7 @@ Iteration - Arithmetic sort or Minimum swaps sort
 2471. Minimum Number of Operations to Sort a Binary Tree by Level
 41*. First Missing Positive
 
-Iteration - Binary search 0
+Iteration - Binary search
 l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1. else: r = m - 1 [always use this]
 + if L[m] < target: l is bisect left when found
 + if L[m] <= target: l is bisect right when found
@@ -650,25 +650,20 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 34. Find First and Last Position of Element in Sorted Array
 35. Search Insert Position
 74. Search a 2D Matrix | twice
+167. Two Sum II - Input Array Is Sorted | A |
 240. Search a 2D Matrix II | once + for i in range(l, -1, -1): bin search
+275. H-Index II | while l<=r: m = (l+r)//2. if L[m] < len(L)-m: l=m+1 else r=m-1. ... return len(L)-l
 278. First Bad Version
 374. Guess Number Higher or Lower
 436. Find Right Interval | for while
-704. Binary Search
-981. Time Based Key-Value Store
-2485. Find the Pivot Integer
-
-Iteration - Binary search
-33. Search in Rotated Sorted Array | while l<=r -> judge pivot left or right (nums[l]<=nums[m]) -> judge whether target value is between the other side
-81. Search in Rotated Sorted Array II | based on 33. add if nums[l]==nums[m]==nums[r]: l, r = l+1, r-1.
-167. Two Sum II - Input Array Is Sorted | A |
-275. H-Index II | while l<=r: m = (l+r)//2. if L[m] < len(L)-m: l=m+1 else r=m-1. ... return len(L)-l
 475. Heaters | ans=0. for x in house: while l<=r: l=closest heater. if l==0: ans=max(ans,heaters[l]-x) elif l==len(heaters):ans=max(ans,x-heaters[l-1]) else: ans=max(ans,min(x-heaters[l-1],heaters[l]-x))
 611. Valid Triangle Number
 658. Find K Closest Elements | find insertion l. c=l-int(l==len(arr) or l>0 and x-arr[l-1]<=arr[l]-x). l, r expand
 667. Beautiful Arrangement II | L, l, r = [1], 2, n. for i in range(k-1): if i%2==0:.... left right alternate. return L+list(range(l,r+1))[::(-1)**parity]
+704. Binary Search
 875. Koko Eating Bananas | B, r=m-1 | finish_time=sum(math.ceil(p/m) for p in piles). if finish_time ""<="" h: r=m-1, ...
 911. Online Election | D:person->[votes,latest], self.L saves [(time, winner)]. l = l - int(l==len(self.L) or self.L[l][0]!=t)
+981. Time Based Key-Value Store
 1011. Capacity To Ship Packages Within D Days | def isValid(capacity). l,r=max(weights),sum(weights). while l<=r.
 1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
 1552. Magnetic Force Between Two Balls
@@ -680,9 +675,15 @@ Iteration - Binary search
 2563. Count the Number of Fair Pairs | B | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 3152. Special Array II | general splitting + binary search
+2485. Find the Pivot Integer
+
+Iteration - Binary search of rotated sorted array
+find pivot first. if L[m] < L[r]: r = m elif L[m] > L[r]: l = m + 1 else r-=1
+33. Search in Rotated Sorted Array
+81. Search in Rotated Sorted Array II | output pivot l-=1 until reach max to get the leftmost pivot
+153. Find Minimum in Rotated Sorted Array
 
 Iteration - Binary search m-1,m,m+1
-<153.> Find Minimum in Rotated Sorted Array | while 1: v1, v2, v3, v4 = L[l], L[m-1], L[m], L[r]. minv = min(v1, v2, v3, v4). if minv in (v1, v3): return minv. elif minv == v4: l = m + 1. else: r = m - 1. consider 5 cases: pivot at l, m, r, left, right.
 162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
 462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while 1:
 540. Single Element in a Sorted Array | test cases:1/112/122/12233/11233/11223. while 1: if l==r or L[m-1]!=L[m]!=L[m+1]: return L[m] (always valid index since l-r=odd), consider c0 to c4...
