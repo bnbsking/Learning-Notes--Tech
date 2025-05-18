@@ -746,8 +746,8 @@ Math
 1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 
-OrderedDict
-146. LRU Cache | dict+double linked list OR OrderedDict with O.popitem(last=False)
+OrderedDict (dict+double linked list; change val does not change order by default, list-liked)
+146. LRU Cache | O.popitem(last=False), O.move_to_end(key)
 
 Queue 0
 622. Design Circular Queue
