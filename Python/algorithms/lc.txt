@@ -482,6 +482,7 @@ Iteration or naive 0
 2900. Longest Unequal Adjacent Groups Subsequence I
 2971. Find Polygon With the Largest Perimeter
 3011. Find if Array Can Be Sorted | general split
+3024. Type of Triangle
 3042. Count Prefix and Suffix Pairs I
 3163. String Compression III | general split
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
@@ -953,7 +954,7 @@ Sort
 
 SortedContainers
 729. My Calendar I | O(qlogn). idx=L.bisect_left(x)
-731. My Calendar II | O(qn). similar as S1. L.add((start,1)). L.add((end,-1)). count=0. for _,state in L.irange(): if count>2: remove and return False.
+731. My Calendar II | init intersection and union sortedlist. get_all_overlaps(L, start, end).
 732*. My Calendar III | O(qn). similar as 731.
 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
 2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
