@@ -1,3 +1,6 @@
+Difference Array (range update, query at finally)
+3355. Zero Array Transformation I | diff. compare acc_ops nums[i]
+
 DP 0
 62. Unique Paths
 63. Unique Paths II
@@ -940,7 +943,7 @@ Recursion gaming
 877. Stone Game | C1E1 | same as 464.
 1140. Stone Game II | C1E1 | f(i,m)->score. A=arr-for-fast-compute-sum(L[i:]). if i+m*2 >= len(piles): D[(i,m)] = A[i] else: opponent_min = float('inf'). for x in range(1, m*2+1): .... D[(i,m)] = A[i] - opponent_min 
 
-Segment tree
+Segment tree (index update, query interleaving)
 <307.> Range Sum Query - Mutable | 2N Segment tree. build from tail to front. 1-indexed definition of left right node. collect result if left/right is right/left child and move to next/prev sibling.
 
 Sort
