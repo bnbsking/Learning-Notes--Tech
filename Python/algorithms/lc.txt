@@ -417,6 +417,7 @@ Iteration or naive 0
 1003. Check If Word Is Valid After Substitutions
 1009. Complement of Base 10 Integer
 1016. Binary String With Substrings Representing 1 To N | brute force
+1029. Two City Scheduling | costs.sort(key = lambda tup: tup[0] - tup[1])
 1051. Height Checker
 1122. Relative Sort Array
 1137. N-th Tribonacci Number
@@ -554,10 +555,8 @@ Iteration i with start and accum: sliding window -> for sum while
 2762. Continuous Subarrays
 2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
 3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
-3306. Count of Substrings Containing Every Vowel and K Consonants II | start, window = 0, {v: deque() for v in vowels} | {"cons": deque()}. add to queue -> while remove queues -> update ans
-    + min_vowel_idx = min(window[v][-1] for v in vowels)
-    + min_conso_idx = float('inf') if k == 0 else window["cons"][0]
-    + ans += min(min_vowel_idx, min_conso_idx) - start + 1
+3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
+3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
 
 Iteration
 17. Letter Combinations of a Phone Number
