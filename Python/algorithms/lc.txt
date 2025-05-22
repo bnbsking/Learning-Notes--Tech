@@ -1,5 +1,6 @@
 Difference Array (range update, query at finally)
 3355. Zero Array Transformation I | diff. compare acc_ops nums[i]
+3362&. Zero Array Transformation III | queries.sort(reverse=True). H, diff, acc_ops = [], [0] * (len(L) + 1), 0. for: update acc_ops, store, consume, compare.
 
 DP 0
 62. Unique Paths
