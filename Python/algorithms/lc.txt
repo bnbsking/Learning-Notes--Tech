@@ -938,9 +938,9 @@ Recursion return
 60*. Permutation Sequence | | def f(L=[], M=list(range(1,1+n)), k=k-1, each=fac(n-1)) if not M: return "".join(L) else: i = k//each, L.append( M.pop(i) ), return f(L,M,k-i*each,each/len(M) if len(M) else 0)
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
 
-Recursion gaming
-464. Can I Win | C1E1 | f(cards,cards_sum,total)->bool. if total<=0: lose, elif max_card>=total: win, else bool(any of one strategy let opponent lose). # get ith bit: cards>>i&1 # flip ith bit from 1 to 0: mask=~(1<<i)
-486. Predict the Winner | C1 | f(l,r)->score. L=L[l]+min(f(l+2,r),f(l+1,r-1)). R=L[r]+min(f(l+1,r-1),f(l,r-2)). D[(l,r)] = max(L,R).
+Recursion gaming (as long as find one strategy opponent cannot win, i win.)
+464. Can I Win | C1 | f(L=list(range(1,n+1)), target=total) -> bool. if L[-1]>=target: return True. 
+486. Predict the Winner | C1 | f(l=0, r=len(L)-1) -> int: max_can_get. if if r-l<=1: D[(l,r)] = max(L[l], L[r]). max(L[l] + min(f(l+2, r), f(l+1, r-1)), L[r] + min(f(l+1,r-1), f(l, r-2))).
 877. Stone Game | C1E1 | same as 464.
 1140. Stone Game II | C1E1 | f(i,m)->score. A=arr-for-fast-compute-sum(L[i:]). if i+m*2 >= len(piles): D[(i,m)] = A[i] else: opponent_min = float('inf'). for x in range(1, m*2+1): .... D[(i,m)] = A[i] - opponent_min 
 
