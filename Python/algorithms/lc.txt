@@ -954,10 +954,10 @@ Sort
 922. Sort Array By Parity II | ev,od,i=0,1,0. while i<len(L): if not true-pos: swap and update ev or od, else i+=1
 977. Squares of a Sorted Array
 
-SortedContainers
-729. My Calendar I | O(qlogn). idx=L.bisect_left(x)
-731. My Calendar II | init intersection and union sortedlist. get_all_overlaps(L, start, end).
-732*. My Calendar III | O(qn). similar as 731.
+SortedContainers (set like: add, remove, but has bisect_left, add-and-remove instead of modify)
+729. My Calendar I
+731. My Calendar II | intersection=[], union=[]. get_all_overlaps(start: int, end: int) -> List[Tuple[int]].
+732*. My Calendar III | L=[]. get_all_overlaps(start: int, end: int). ...
 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
 2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
 2563. Count the Number of Fair Pairs | L, ans = SortedList(), 0. for x in nums: l = L.bisect_left(lower - x). r = L.bisect_right(upper - x). ans += r - l. L.add(x)
