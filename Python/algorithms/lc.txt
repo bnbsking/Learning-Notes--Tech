@@ -961,6 +961,7 @@ Sort
 977. Squares of a Sorted Array
 
 SortedContainers (set like: add, remove, but has bisect_left, add-and-remove instead of modify)
+715*. Range Module | maintain sorted intervals. get_all_overlaps(start: int, end: int). when query time: (0, 2) (2, 3) can be merged
 729. My Calendar I
 731. My Calendar II | intersection=[], union=[]. get_all_overlaps(start: int, end: int) -> List[Tuple[int]].
 732*. My Calendar III | L=[]. get_all_overlaps(start: int, end: int). ...
