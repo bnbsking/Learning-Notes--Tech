@@ -42,6 +42,7 @@ DP 1d Forward
 313. Super Ugly Number | same as 264
 <322.> coin change | init [0]+[inf]*amount. for i for coin: if i+c<len(L): L[i+c] = min(L[i+c], L[i]+1)
 377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
+673. Number of Longest Increasing Subsequence | L: [max_len, cnt]. if nums[i] < nums[j]: ... L[j][1] += L[i][1]
 1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
 2466. Count Ways To Build Good Strings | L[i + zero] += L[i]; L[i + ones] += L[i]
 2901. Longest Unequal Adjacent Groups Subsequence II | O(n^2)
