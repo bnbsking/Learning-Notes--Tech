@@ -341,6 +341,7 @@ Iteration or naive 0
 382. Linked List Random Node | ll.
 384. Shuffle an Array
 392. Is Subsequence
+393. UTF-8 Validation
 412. Fizz Buzz
 414. Third Maximum Number
 415. Add Strings
@@ -487,6 +488,7 @@ Iteration or naive 0
 2825. Make String a Subsequence Using Cyclic Increments | similar as 392.
 2864. Maximum Odd Binary Number
 2900. Longest Unequal Adjacent Groups Subsequence I
+2942. Find Words Containing Character
 2971. Find Polygon With the Largest Perimeter
 3011. Find if Array Can Be Sorted | general split
 3024. Type of Triangle
