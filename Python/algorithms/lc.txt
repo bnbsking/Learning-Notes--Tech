@@ -252,6 +252,7 @@ Hash
 1814. Count Nice Pairs in an Array | remember to move terms first
 1887. Reduction Operations to Make the Array Elements Equal | Counter -> sort -> sum
 1930. Unique Length-3 Palindromic Subsequences | for c in set(s): l=s.find(c), r=s.rfind(c) -> ans += len(set(s[l+1:r]))
+2131. Longest Palindrome by Concatenating Two Letter Words
 2133. Check if Every Row and Column Contains All Numbers | same as 36.
 2225. Find Players With Zero or One Losses | defaultdict count lose times. loseD[win]+=0, loseD[win]+=1
 2370. Longest Ideal Subsequence | O(2kn) D[c]->ans. for c in s: new = D.get(c,0) for i in range(-k,k+1): if ord('a') <= ord(c)+i <= ord('z'): ...
