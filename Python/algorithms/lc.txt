@@ -94,6 +94,7 @@ Graph Traversal bfs (init queue and visited) when: shortest distance (unweighted
 1030. Matrix Cells in Distance Order | B1 |
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1 |
+3372. Maximize the Number of Target Nodes After Connecting Trees I | A1 | max_tree_2_nodes is independent from any query (compute once and add the const to query)
 
 Graph Traversal dfs (init recur_func and visited) when: achievable (get path can be get by backtracking)
 79. Word Search | A1B1D1 | backtracking. f(x, match, visitS) 
