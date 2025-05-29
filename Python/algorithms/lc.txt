@@ -114,7 +114,8 @@ Graph Traversal dfs (init recur_func and visited) when: achievable (get path can
 802. Find Eventual Safe States | A1B1 | f(x)->bool. recursive call if n not in ans and isSafe and n not in visit
 <841.> Keys and Rooms | A1 | f(x)
 886. Possible Bipartition | A1 | build graph by dislike + dfs. need global_unvisied: Set[int], local_visited: Set[int], colors: List[int]
-1020. Number of Enclaves | B1 | f(i,j). use for every cell: if not visit land: self.is_bound=False=0. self.land=0. dfs(cell). ans+=int(not self.is_bound) * self.land 
+1020. Number of Enclaves | B1 | f(i,j). use for every cell: if not visit land: self.is_bound=False=0. self.land=0. dfs(cell). ans+=int(not self.is_bound) * self.land
+1034. Coloring A Border | A1 | f(x)
 1219. Path with Maximum Gold | A1B1D1 | f(x, visitS, acc) all source dfs + backtracking
 1905. Count Sub Islands | A1B1 | dfs first island to get "cord2islandidx". dfs second island to check all pixel belongs to same islandidx
 
