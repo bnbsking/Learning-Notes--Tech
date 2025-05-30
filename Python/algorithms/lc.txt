@@ -259,6 +259,7 @@ Hash
 2131. Longest Palindrome by Concatenating Two Letter Words
 2133. Check if Every Row and Column Contains All Numbers | same as 36.
 2225. Find Players With Zero or One Losses | defaultdict count lose times. loseD[win]+=0, loseD[win]+=1
+2359. Find Closest Node to Given Two Nodes | notice cycle
 2370. Longest Ideal Subsequence | O(2kn) D[c]->ans. for c in s: new = D.get(c,0) for i in range(-k,k+1): if ord('a') <= ord(c)+i <= ord('z'): ...
 2657. Find the Prefix Common Array of Two Arrays | ans, S = [0], set(). for i in range(len(A)): acc = ans[-1] for X in [A, B]: if X[i] in S: ...
 2870. Minimum Number of Operations to Make Array Empty | C,ans=Counter(L),0. for x in C.values(): if x==1: return -1. ans+=(x+2)//3
