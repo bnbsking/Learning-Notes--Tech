@@ -49,9 +49,9 @@ DP 1d Forward
 135*. Candy | for i in range(R): if i is smallest: lr expand (L[r]=max(L[r],L[r-1]+1))
 
 DP Arr2d Backward
-72. Edit Distance | init 1r1c. L[i][j] = 1 + min(L[i-1][j-1], L[i-1][j], L[i][j-1])
-97. Interleaving String | init 1r1c. T[i][j] = (T[i-1][j] and s1[i-1]==s3[i+j-1]) or (T[i][j-1] and s2[j-1]==s3[i+j-1])
-221. Maximal Square  | init 1r1c. L[i][j] = L[i][j] * (min(L[i-1][j-1], L[i-1][j], L[i][j-1]) + 1)
+72. Edit Distance | if same: L[i][j]=upperleft else: L[i][j]=min(up, left, upperleft) + 1
+97. Interleaving String | Can s1[:i] & s2[:j] interleaves s3[i+j:]? L[i][j] = up and same or left and same
+221. Maximal Square | if 1: L[i][j]=min(up, left, upperleft) + 1
 516. Longest Palindromic Subsequence | init diagonal. L[i][j] means f(s[i:j+1]), fill from i-j=0,-1,-2,..., diag0=1 diag1=1 or 2, others: L[i+1][j-1] if s[i]==s[j] else max(L[i+1][j], L[i][j-1])
 583. Delete Operation for Two Strings | same as 1143.
 688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
