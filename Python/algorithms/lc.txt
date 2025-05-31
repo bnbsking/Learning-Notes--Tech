@@ -43,6 +43,7 @@ DP 1d Forward
 <322.> coin change | init [0]+[inf]*amount. for i for coin: if i+c<len(L): L[i+c] = min(L[i+c], L[i]+1)
 377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
 673. Number of Longest Increasing Subsequence | L: [max_len, cnt]. if nums[i] < nums[j]: ... L[j][1] += L[i][1]
+790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
 1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
 2466. Count Ways To Build Good Strings | L[i + zero] += L[i]; L[i + ones] += L[i]
 2901. Longest Unequal Adjacent Groups Subsequence II | O(n^2)
@@ -55,7 +56,6 @@ DP Arr2d Backward
 516. Longest Palindromic Subsequence | samse as 1143. LCS(s, s[::-1])
 583. Delete Operation for Two Strings | same as 1143.
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
-790. Domino and Tromino Tiling | full, up, down.
 799. Champagne Tower | init triangular 0s, L[0][0]=poured. triangular update by excess: if L[i][j]>1: excess=L[i][j]-1, L[i][j]=1 -> if i+1<len(L): L[i+1][j], L[i+1][j+1] = L[i+1][j]+excess/2., L[i+1][j+1]+excess/2.
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
