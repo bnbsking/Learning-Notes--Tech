@@ -51,14 +51,15 @@ DP 1d Forward
 DP Arr2d Backward
 72. Edit Distance | if same: L[i][j]=upperleft else: L[i][j]=min(up, left, upperleft) + 1
 97. Interleaving String | Can s1[:i] & s2[:j] interleaves s3[i+j:]? L[i][j] = up and same or left and same
-221. Maximal Square | if 1: L[i][j]=min(up, left, upperleft) + 1
-516. Longest Palindromic Subsequence | init diagonal. L[i][j] means f(s[i:j+1]), fill from i-j=0,-1,-2,..., diag0=1 diag1=1 or 2, others: L[i+1][j-1] if s[i]==s[j] else max(L[i+1][j], L[i][j-1])
+221. Maximal Square | simpler than 72. if 1: L[i][j]=min(up, left, upperleft) + 1
+516. Longest Palindromic Subsequence | samse as 1143. LCS(s, s[::-1])
 583. Delete Operation for Two Strings | same as 1143.
 688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
 790. Domino and Tromino Tiling | full, up, down.
 799. Champagne Tower | init triangular 0s, L[0][0]=poured. triangular update by excess: if L[i][j]>1: excess=L[i][j]-1, L[i][j]=1 -> if i+1<len(L): L[i+1][j], L[i+1][j+1] = L[i+1][j]+excess/2., L[i+1][j+1]+excess/2.
-<1143.> Longest Common Subsequence | L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
+<1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
+L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
 2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
 
