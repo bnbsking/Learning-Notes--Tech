@@ -52,7 +52,6 @@ DP Arr2d Backward
 72. Edit Distance | init 1r1c. L[i][j] = 1 + min(L[i-1][j-1], L[i-1][j], L[i][j-1])
 97. Interleaving String | init 1r1c. T[i][j] = (T[i-1][j] and s1[i-1]==s3[i+j-1]) or (T[i][j-1] and s2[j-1]==s3[i+j-1])
 221. Maximal Square  | init 1r1c. L[i][j] = L[i][j] * (min(L[i-1][j-1], L[i-1][j], L[i][j-1]) + 1)
-474. Ones and Zeroes | init all 0s. for s in strs for i in range(m,c0-1,-1) for j in range(n,c1-1,-1): L[i][j] = max(L[i][j], L[i-c0][j-c1]+1). must reverse order filling !!!
 516. Longest Palindromic Subsequence | init diagonal. L[i][j] means f(s[i:j+1]), fill from i-j=0,-1,-2,..., diag0=1 diag1=1 or 2, others: L[i+1][j-1] if s[i]==s[j] else max(L[i+1][j], L[i][j-1])
 583. Delete Operation for Two Strings | same as 1143.
 688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
@@ -864,6 +863,7 @@ Recursion non-return
 416. Partition Equal Subset Sum | E1 | Similar to 40. visitS((start,val)). def f(start=0, val=sumv//2)
 437. Path Sum III | E1 | def f(T=root, accum=0, D={0:1}). similar as 112. + 560.
 473. Matchsticks to Square | E1 | Similar to 40. + 416.
+474. Ones and Zeroes | C1E1 |
 518. Coin Change II | C1E1 | f(start=0,x=amount) and memorization
 526. Beautiful Arrangement | E1 | f(path=[], L=list(range(1,1+n)))
 530. Minimum Absolute Difference in BST | | f(T). self.ans, self.prev = 10**5, 10**5. def f(T): if T: f(T.left), self.ans, self.prev, f(T.right)
