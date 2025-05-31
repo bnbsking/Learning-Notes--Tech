@@ -59,7 +59,8 @@ DP Arr2d Backward
 221. Maximal Square | simpler than 72. if 1: L[i][j]=min(up, left, upperleft) + 1
 516. Longest Palindromic Subsequence | samse as 1143. LCS(s, s[::-1])
 583. Delete Operation for Two Strings | same as 1143.
-712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
+712. Minimum ASCII Delete Sum for Two Strings | same as 1143.
+1035. Uncrossed Lines | same as 1143
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
 
