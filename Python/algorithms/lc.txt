@@ -57,14 +57,10 @@ DP Arr2d Backward
 583. Delete Operation for Two Strings | same as 1143.
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
-L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
-2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
 
 DP Arr2d Forward
 494. Target Sum | i: nums, j: -sum~sum, dp[i][j]: possibilities. dp = [[0] * (sumv * 2 + 1) for _ in range(len(L) + 1)]. dp[0][len(dp[0]) // 2] = 1
-688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
-576. Out of Boundary Paths | init all 0s one 1. renew matrix per step: inner zeros, outer inherit. update inner by forward dp
 
 + Graph (cycle) traversal, X0 is default
 A record visit by
@@ -596,12 +592,14 @@ Iteration
 491. Non-decreasing Subsequences | similar as 78.
 524. Longest Word in Dictionary through Deleting | find longest issubsequence
 556. Next Greater Element III | same as 31.
+576. Out of Boundary Paths | init all 0s one 1. renew matrix per step: inner zeros, outer inherit. update inner by forward dp
 621. Task Scheduler | idleBound = (n+1)*(maxv-1) + maxvCount. tasksBound = len(tasks). return max(idleBound, tasksBound)
 628. Maximum Product of Three Numbers | sort and sliding window at border
 650. 2 Keys Keyboard | i,copy,ans=1,0,0. while i<n: if n%i==0: i,copy,ans=i*2,i,ans+2 else: i,ans=i+copy,ans+1
 665. Non-decreasing Array | for i in range(len(nums)-1): if nums[i]>nums[i+1]: tmp = nums[i+1]. do irregular depends right or depends left respeectively. O(3n)
 670. Maximum Swap | compare to sort, find first diff idx i. find max idx from len(L)-1 to i, swap, break return
 686. Repeated String Match | i = b.find(a). if i==-1: check a.find(b) and 2a.find(b). else return left-right times.
+688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
 763. Partition Labels | similar as 56.
 775. Global and Local Inversions | for i in range(len(L)): if i!=L[i]: if L[i]!=i+1 or i!=L[L[i]]: return False. swap. return True
 777. Swap Adjacent in LR String | check non-X str consistent. L index smaller, R index larger.
@@ -640,6 +638,7 @@ Iteration
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
+2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 149*. Max Points on a Line | use determinant, O(n^3)
