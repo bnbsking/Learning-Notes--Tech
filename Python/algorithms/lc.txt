@@ -56,7 +56,6 @@ DP Arr2d Backward
 516. Longest Palindromic Subsequence | samse as 1143. LCS(s, s[::-1])
 583. Delete Operation for Two Strings | same as 1143.
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
-799. Champagne Tower | init triangular 0s, L[0][0]=poured. triangular update by excess: if L[i][j]>1: excess=L[i][j]-1, L[i][j]=1 -> if i+1<len(L): L[i+1][j], L[i+1][j+1] = L[i+1][j]+excess/2., L[i+1][j+1]+excess/2.
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j])
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
@@ -608,6 +607,7 @@ Iteration
 777. Swap Adjacent in LR String | check non-X str consistent. L index smaller, R index larger.
 786. K-th Smallest Prime Fraction | O(n^2)
 794. Valid Tic-Tac-Toe State | count 1 and -1. sum of 8 lines.
+799. Champagne Tower | overflow_l = (L[j - 1] - 1) / 2 if j > 0 and L[j - 1] > 1 else 0. overflow_r = (L[j] - 1) / 2 if j < len(L) and L[j] > 1 else 0
 817. Linked List Components | Compare 2 arr find "components"
 835. Image Overlap | O(n^4). 1 left up conv. 2 right down conv. 3 horizontal flip of 1. 4 horizontal flip of 2.
 838. Push Dominoes
