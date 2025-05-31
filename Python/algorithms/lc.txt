@@ -426,6 +426,7 @@ Iteration or naive 0
 1016. Binary String With Substrings Representing 1 To N | brute force
 1029. Two City Scheduling | costs.sort(key = lambda tup: tup[0] - tup[1])
 1033. Moving Stones Until Consecutive
+1037. Valid Boomerang
 1051. Height Checker
 1122. Relative Sort Array
 1137. N-th Tribonacci Number
