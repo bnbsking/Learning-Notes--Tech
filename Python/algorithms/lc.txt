@@ -54,7 +54,6 @@ DP Arr2d Backward
 221. Maximal Square | simpler than 72. if 1: L[i][j]=min(up, left, upperleft) + 1
 516. Longest Palindromic Subsequence | samse as 1143. LCS(s, s[::-1])
 583. Delete Operation for Two Strings | same as 1143.
-688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
 790. Domino and Tromino Tiling | full, up, down.
 799. Champagne Tower | init triangular 0s, L[0][0]=poured. triangular update by excess: if L[i][j]>1: excess=L[i][j]-1, L[i][j]=1 -> if i+1<len(L): L[i+1][j], L[i+1][j+1] = L[i+1][j]+excess/2., L[i+1][j+1]+excess/2.
@@ -65,6 +64,7 @@ L[i][j] = L[i-1][j-1] + 1 if text1[i-1]==text2[j-1] else max(L[i][j-1],L[i-1][j]
 
 DP Arr2d Forward
 494. Target Sum | i: nums, j: -sum~sum, dp[i][j]: possibilities. dp = [[0] * (sumv * 2 + 1) for _ in range(len(L) + 1)]. dp[0][len(dp[0]) // 2] = 1
+688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
 576. Out of Boundary Paths | init all 0s one 1. renew matrix per step: inner zeros, outer inherit. update inner by forward dp
 
 + Graph (cycle) traversal, X0 is default
