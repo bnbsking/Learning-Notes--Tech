@@ -12,10 +12,14 @@ DP 0
 120. Triangle
 303. Range Sum Query - Immutable
 304. Range Sum Query 2D - Immutable
+494. Target Sum
+688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
+799. Champagne Tower | overflow_l = (L[j - 1] - 1) / 2 if j > 0 and L[j - 1] > 1 else 0. overflow_r = (L[j] - 1) / 2 if j < len(L) and L[j] > 1 else 0
 931. Minimum Falling Path Sum
 935. Knight Dialer
 1310. XOR Queries of a Subarray | like 303.
 2559. Count Vowel Strings in Ranges | like 303.
+2684. Maximum Number of Moves in a Grid
 
 DP 1d Backward
 45. Jump Game II | i=1. nums[i] = max(nums[i-1], nums[i]+i). Transform array to "farthest index can go"
@@ -30,6 +34,7 @@ DP 1d Backward
 646. Maximum Length of Pair Chain | init 1. similar to 300.
 740. Delete and Earn | C,D=Counter(L),defaultdict(lambda :0). for x,times in sorted(C.items()): D[x]=max(D[y] for y in D if x-y>=2)+x*times. similar to 300.
 764. Largest Plus Sign | for way dp
+790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
 823. Binary Trees With Factors | init D[ele]->ans. return sum(D.values()). similar to 300.
 983. Minimum Cost For Tickets | if i not in days: L[i] = L[i - 1] else: L[i] = min(L[i - 1] + costs[0], L[max(0, i - 7)] + costs[1], L[max(0, i - 30)] + costs[2])
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
@@ -43,7 +48,6 @@ DP 1d Forward
 <322.> coin change | init [0]+[inf]*amount. for i for coin: if i+c<len(L): L[i+c] = min(L[i+c], L[i]+1)
 377. Combination Sum IV | init [1]+[0]*target. for i for num: if i+x<len(L): L[i+x] += L[i]
 673. Number of Longest Increasing Subsequence | L: [max_len, cnt]. if nums[i] < nums[j]: ... L[j][1] += L[i][1]
-790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
 1048. Longest String Chain | Must sort by len first. Create "next node" graph where key=remove_each_char. init [1]*len(words). for i for nei_idx: L[nei_idx] = max(L[nei_idx], L[i]+1)
 2466. Count Ways To Build Good Strings | L[i + zero] += L[i]; L[i + ones] += L[i]
 2901. Longest Unequal Adjacent Groups Subsequence II | O(n^2)
@@ -58,9 +62,6 @@ DP Arr2d Backward
 712. Minimum ASCII Delete Sum for Two Strings | similar as 1143.
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
-
-DP Arr2d Forward
-494. Target Sum | i: nums, j: -sum~sum, dp[i][j]: possibilities. dp = [[0] * (sumv * 2 + 1) for _ in range(len(L) + 1)]. dp[0][len(dp[0]) // 2] = 1
 
 + Graph (cycle) traversal, X0 is default
 A record visit by
@@ -599,13 +600,11 @@ Iteration
 665. Non-decreasing Array | for i in range(len(nums)-1): if nums[i]>nums[i+1]: tmp = nums[i+1]. do irregular depends right or depends left respeectively. O(3n)
 670. Maximum Swap | compare to sort, find first diff idx i. find max idx from len(L)-1 to i, swap, break return
 686. Repeated String Match | i = b.find(a). if i==-1: check a.find(b) and 2a.find(b). else return left-right times.
-688. Knight Probability in Chessboard | for step: copy board, for i for j: reset grid[i][j], for a,b in dirs: update
 763. Partition Labels | similar as 56.
 775. Global and Local Inversions | for i in range(len(L)): if i!=L[i]: if L[i]!=i+1 or i!=L[L[i]]: return False. swap. return True
 777. Swap Adjacent in LR String | check non-X str consistent. L index smaller, R index larger.
 786. K-th Smallest Prime Fraction | O(n^2)
 794. Valid Tic-Tac-Toe State | count 1 and -1. sum of 8 lines.
-799. Champagne Tower | overflow_l = (L[j - 1] - 1) / 2 if j > 0 and L[j - 1] > 1 else 0. overflow_r = (L[j] - 1) / 2 if j < len(L) and L[j] > 1 else 0
 817. Linked List Components | Compare 2 arr find "components"
 835. Image Overlap | O(n^4). 1 left up conv. 2 right down conv. 3 horizontal flip of 1. 4 horizontal flip of 2.
 838. Push Dominoes
@@ -638,7 +637,6 @@ Iteration
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
-2684. Maximum Number of Moves in a Grid | col-major to create boolean arr + BFS or DFS
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 149*. Max Points on a Line | use determinant, O(n^3)
