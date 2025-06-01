@@ -639,6 +639,7 @@ Iteration
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
+2929. Distribute Candies Among Children II | minc, maxc. for c in (minc, maxc + 1): ans += maxb = minb + 1 
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 149*. Max Points on a Line | use determinant, O(n^3)
