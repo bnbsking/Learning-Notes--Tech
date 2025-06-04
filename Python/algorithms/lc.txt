@@ -297,6 +297,7 @@ Heap
 2461. Maximum Sum of Distinct Subarrays With Length K | win_dict, acc = Counter(L[:k]), sum(L[:k]). H = [(-times, val) for val, times in win_dict.items()]. heapq.heapify(H). ans = (-H[0][0]<2) * acc. for i in range(k, len(nums)): ... while heap[0] unmatch win_dict: pop and push true time.
 2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
 2594. Minimum Time to Repair Cars | H = [[r, r, 0] for r in ranks]  # [r * (n + 1) ** 2, r, n] = [next_time, r, curr_n]
+1298*. Maximum Candies You Can Get from Boxes | H(-status, b). if H[0] cannot open renew H.
 
 Iteration or naive 0
 7. Reverse Integer
@@ -642,6 +643,7 @@ Iteration
 2929. Distribute Candies Among Children II | minc, maxc. for c in (minc, maxc + 1): ans += maxb = minb + 1 
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
+3403. Find the Lexicographically Largest String From the Box I
 149*. Max Points on a Line | use determinant, O(n^3)
 
 Iteration - Arithmetic sort or Minimum swaps sort
