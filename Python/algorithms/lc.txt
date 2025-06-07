@@ -1010,6 +1010,7 @@ Stack
 1081. Smallest Subsequence of Distinct Characters | same as 316.
 1190. Reverse Substrings Between Each Pair of Parentheses | multilevel stack
 1381. Design a Stack With Increment Operation | stack[val, acc_bias]
+2434. Using a Robot to Print the Lexicographically Smallest String
 2487. Remove Nodes From Linked List | doubly LL
 
 Trie
