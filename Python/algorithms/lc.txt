@@ -297,6 +297,7 @@ Heap
 2461. Maximum Sum of Distinct Subarrays With Length K | win_dict, acc = Counter(L[:k]), sum(L[:k]). H = [(-times, val) for val, times in win_dict.items()]. heapq.heapify(H). ans = (-H[0][0]<2) * acc. for i in range(k, len(nums)): ... while heap[0] unmatch win_dict: pop and push true time.
 2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
 2594. Minimum Time to Repair Cars | H = [[r, r, 0] for r in ranks]  # [r * (n + 1) ** 2, r, n] = [next_time, r, curr_n]
+3170. Lexicographically Minimum String After Removing Stars | H(ele, -idx)
 1298*. Maximum Candies You Can Get from Boxes | H(-status, b). if H[0] cannot open renew H.
 
 Iteration or naive 0
@@ -1031,6 +1032,7 @@ UnionFind
 684. Redundant Connection
 721. Accounts Merge | output final forest
 990. Satisfiability of Equality Equations | build by eqs, test by neqs
+1061. Lexicographically Smallest Equivalent String
 1584. Min Cost to Connect All Points
 
 ----------
