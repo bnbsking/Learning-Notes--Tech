@@ -993,11 +993,20 @@ Stack 0
 1544. Make The String Great
 
 Stack
-150. Evaluate Reverse Polish Notation | complete version 227. 224.
+A. Increasing
+    A1 Strictly Increasing i.e. while stack[-1] >= x
+    A2 Increasing i.e. while stack[-1] > x
+    A3 Decreasing i.e. while stack[-1] < x
+    A4 Strictly Decreasing i.e. while stack[-1] <= x
+B. answer
+    B1 pop
+    B2 stack
+150. Evaluate Reverse Polish Notation | B2 | complete version is in 224
 155. Min Stack | a stack store (val,min)
-224*. Basic Calculator
-227. Basic Calculator II | same as 224. totally 3 steps
-316. Remove Duplicate Letters | stack is final answer, (not-strict) increasing is regular. lastIdx, stack, stackS. while stack and stack[-1]>c and appears_later:
+224*. Basic Calculator | A1B1, B2 | split, infix2postfix, ops
+227. Basic Calculator II | A1B1, B2 | complete version is in 224
+316. Remove Duplicate Letters | A2B2 | lastIdx: dict, stack: list, in_stack: set. while ... and stack[-1]_appears_later:
+*
 402. Remove K Digits | stack is final answer, increasing as possible is regular. stack=[]. while stack and k and stack[-1]>x. Exceptions: leading 0s, k>0, empty str
 456. 132 Pattern | stack,secondmax=[],-inf. (reverse iter 2->3 needs to update secondmax, so decreasing is regular). for x in reversed(nums): if x<secondmax: return True. while stack and stack[-1]<x: secondmax = stack.pop()
 496. Next Greater Element I | decrease is regular. nextD, stack = {}, [nums2[0]]. for i in range(1,len(nums2)): while stack and stack[-1]<nums2[i]: nextD[stack.pop()]=nums2[i]
