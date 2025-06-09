@@ -1006,8 +1006,8 @@ B. answer
 224*. Basic Calculator | A1B1, B2 | split, infix2postfix, ops
 227. Basic Calculator II | A1B1, B2 | complete version is in 224
 316. Remove Duplicate Letters | A2B2 | lastIdx: dict, stack: list, in_stack: set. while ... and stack[-1]_appears_later:
+402. Remove K Digits | A2B2 | lstrip('0'). if k: ans = ans[:k].
 *
-402. Remove K Digits | stack is final answer, increasing as possible is regular. stack=[]. while stack and k and stack[-1]>x. Exceptions: leading 0s, k>0, empty str
 456. 132 Pattern | stack,secondmax=[],-inf. (reverse iter 2->3 needs to update secondmax, so decreasing is regular). for x in reversed(nums): if x<secondmax: return True. while stack and stack[-1]<x: secondmax = stack.pop()
 496. Next Greater Element I | decrease is regular. nextD, stack = {}, [nums2[0]]. for i in range(1,len(nums2)): while stack and stack[-1]<nums2[i]: nextD[stack.pop()]=nums2[i]
 503. Next Greater Element II | decrease is regular. similar to 739 but iterate 2n times
