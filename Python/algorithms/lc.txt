@@ -488,6 +488,7 @@ Iteration or naive 0
 2490. Circular Sentence
 2491. Divide Players Into Teams of Equal Skill
 2540. Minimum Common Value
+2566. Maximum Difference by Remapping a Digit
 2582. Pass the Pillow | time %= (n-1)*2. return time + 1 if time <= n-1 else n - time % (n-1)
 2678. Number of Senior Citizens
 2696. Minimum String Length After Removing Substrings | similar as 1003.
@@ -503,6 +504,8 @@ Iteration or naive 0
 3042. Count Prefix and Suffix Pairs I
 3163. String Compression III | general split
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
+3423. Maximum Difference Between Adjacent Elements in a Circular Array
+3442. Maximum Difference Between Even and Odd Frequency I
 
 Iteration i with accum (additional accumulation not ans)
 53. Maximum Subarray | ans=L[0], acc=0. for x in L: acc=max(acc+x,x), ans=max(ans,acc)
@@ -535,6 +538,7 @@ Iteration i with accum (additional accumulation not ans)
 1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
 1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
 1769. Minimum Number of Operations to Move All Balls to Each Box | rsum, r1s = sum(indices), len(indices). lsum, l1s, ans = 0, 0, []. for i in range(len(L)): ...
+2016. Maximum Difference Between Increasing Elements
 2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
 2554. Maximum Number of Integers to Choose From a Range I
 2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
@@ -635,6 +639,7 @@ Iteration
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
+1432. Max Difference You Can Get From Changing an Integer | first_ne_9_i -> replace as 9, first_ge_2_i -> replace as 1 or 0 or no-replace (e.g. 333)
 1497. Check If Array Pairs Are Divisible by k | L=[0]*k. for x in arr: L[x%k] += 1.
 1503. Last Moment Before All Ants Fall Out of a Plank | max( max(left) if left else 0, n-min(right) if right else 0 ). (don't trace ant-i but switch id while collision)
 1509. Minimum Difference Between Largest and Smallest Value in Three Moves | bubble sort. min(max4-min0, max3-min1, max2-min2, max1-min3)
@@ -693,8 +698,9 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
 2226. Maximum Candies Allocated to K Children | l, r = 1, int(sum(candies) / k)
 2563. Count the Number of Fair Pairs | B | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
-3152. Special Array II | general splitting + binary search
 2485. Find the Pivot Integer
+2616. Minimize the Maximum Difference of Pairs |
+3152. Special Array II | general splitting + binary search
 
 Iteration - Binary search of rotated sorted array
 find pivot first. if L[m] < L[r]: r = m elif L[m] > L[r]: l = m + 1 else r-=1
