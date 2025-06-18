@@ -1001,34 +1001,37 @@ Stack 0
 
 Stack
 A. Increasing
+    A0 naive e.g. ()
     A1 Strictly Increasing i.e. while stack[-1] >= x
     A2 Increasing i.e. while stack[-1] > x
     A3 Decreasing i.e. while stack[-1] < x
     A4 Strictly Decreasing i.e. while stack[-1] <= x
 B. answer
-    B1 pop
-    B2 stack
-    B3 other
-150. Evaluate Reverse Polish Notation | B2 | complete version is in 224
-155. Min Stack | a stack store (val,min)
-224*. Basic Calculator | A1B1, B2 | split, infix2postfix, ops
-227. Basic Calculator II | A1B1, B2 | complete version is in 224
-316. Remove Duplicate Letters | A2B2 | lastIdx: dict, stack: list, in_stack: set. while ... and stack[-1]_appears_later:
-402. Remove K Digits | A2B2 | lstrip('0'). if k: ans = ans[:k].
-456. 132 Pattern | A3B3 | cmp(stack[-1], prefix_min[i]) instead of cmp(stack[-1], L[i]) !!
-*
-496. Next Greater Element I | decrease is regular. nextD, stack = {}, [nums2[0]]. for i in range(1,len(nums2)): while stack and stack[-1]<nums2[i]: nextD[stack.pop()]=nums2[i]
-503. Next Greater Element II | decrease is regular. similar to 739 but iterate 2n times
-739. Daily Temperatures | decrease is regular. stack=[ith_day]. while stack and tmp[stack[-1]]<tmp[i]: prev_i=stack.pop(). ans[prev_i]=i-prev_i
-856. Score of Parentheses | append if c="(" else (stack[-1]="1" if stack[-1]=="(" else merge. while can merge: merge)
-901. Online Stock Span | eaten = 1. while self.stack and self.stack[-1][0]<=price: eaten += self.stack.pop()[1]. self.stack.append([price, eaten])
-1006. Clumsy Factorial | same as 224.
-1019. Next Greater Node In Linked List | same as 739.
-1081. Smallest Subsequence of Distinct Characters | same as 316.
-1190. Reverse Substrings Between Each Pair of Parentheses | multilevel stack
+    B0 pop out
+    B1 stack
+    B2 interrupt
+150. Evaluate Reverse Polish Notation | B1 | complete version is in 224
+155. Min Stack | a stack store (val, min)
+224*. Basic Calculator | A1B0, B1 | split, infix2postfix, ops
+227. Basic Calculator II | A1B0, B1 | complete version is in 224
+402. Remove K Digits | A2B1 | lstrip('0'). if k: ans = ans[:k].
+496. Next Greater Element I | A3 | similar to 739. nextD, stack = {}, []
+503. Next Greater Element II | A3 | similar to 739. iterate 2n times
+739. Daily Temperatures | A3 | stack=[ith_day]. while stack and tmp[stack[-1]]<tmp[i]: prev_i=stack.pop(). ans[prev_i]=i-prev_i
+856. Score of Parentheses | B1 | for c in s.replace("()", "1"): "(" -> 0, "1" -> 1, acc = 0 ... 
+901. Online Stock Span | A4 | stack(val, absorbed)
+1006. Clumsy Factorial | B1 | same as 224.
+1019. Next Greater Node In Linked List | A3 | same as 739.
+1190. Reverse Substrings Between Each Pair of Parentheses
 1381. Design a Stack With Increment Operation | stack[val, acc_bias]
-2434. Using a Robot to Print the Lexicographically Smallest String
-2487. Remove Nodes From Linked List | doubly LL
+2487. Remove Nodes From Linked List | A3 | doubly LL
+
+Stack + precompute ds
+316. Remove Duplicate Letters | A2B1 | lastIdx: dict, stack: list, in_stack: set. if c not in in_stack: while ... and stack[-1]_appears_later: ...
+456. 132 Pattern | A3B2 | cmp(stack[-1], prefix_min[i]) instead of cmp(stack[-1], L[i]) !!
+1081. Smallest Subsequence of Distinct Characters | A2B1 | same as 316.
+2434. Using a Robot to Print the Lexicographically Smallest String | A3 | cmp(stack[-1], suffix_min[i]) instead of cmp(stack[-1], L[i]) !!
+
 
 Trie
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
