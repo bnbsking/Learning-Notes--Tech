@@ -472,6 +472,7 @@ Iteration or naive 0
 2108. Find First Palindromic String in the Array
 2109. Adding Spaces to a String
 2125. Number of Laser Beams in a Bank
+2138. Divide a String Into Groups of Size k | general split
 2148. Count Elements With Strictly Smaller and Greater Elements
 2149. Rearrange Array Elements by Sign
 2176. Count Equal and Divisible Pairs in an Array
@@ -557,6 +558,7 @@ Iteration i with start (passed ptr not current) -> for if else
 1021. Remove Outermost Parentheses | acc,start,ans=0,0,[]. for i in range(len(s)): acc+=(-1)**(s[i]==")"). if acc == 0:...
 1024. Video Stitching | ans,start,curr_end=1,1,L[0][1]. while curr_end<time: idx = next((idx for idx in range(start, len(L)) if L[idx][0]>curr_end), len(clips)). # next search start index
     next_end = max([clips[i][1] for i in range(start, idx)] + [-1]). if next_end == -1: return -1. ans, start, curr_end = ans+1, idx, next_end.
+2200. Find All K-Distant Indices in an Array
 2938. Separate Black and White Balls
 
 Iteration i with start and accum: sliding window -> for sum while
