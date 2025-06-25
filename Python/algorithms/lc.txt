@@ -892,6 +892,7 @@ Recursion non-return
 861. Score After Flipping Matrix | D1 | f(start=1). 1st col greedy, >=2nd col backtracking (1rate >0.5, =0.5, <0.5)
 869. Reordered Power of 2 | D1 | f(start=0) like 46.
 993. Cousins in Binary Tree | E1 | f(target, T, depth, parent)
+1039. Minimum Score Triangulation of Polygon | C1 |
 1361. Validate Binary Tree Nodes | | if all(ele<2 for ele in inL) and inL.count(0)==1: root, visitS = inL.index(0), set(range(n)). def g(i=root).
 1367. Linked List in Binary Tree | C1 | f(T=root,i=0). self.ans=False. if i == len(L): self.ans = True. ... f(T.left, i+1), f(T.right, i+1), f(T.left, 0), f(T.right, 0)
 1530. Number of Good Leaf Nodes Pairs | E1 | f(T,path=[]). (LCA like 235.)
