@@ -483,6 +483,7 @@ Iteration or naive 0
 2270. Number of Ways to Split Array
 2294. Partition Array Such That Maximum Difference Is K
 2279. Maximum Bags With Full Capacity of Rocks
+2311. Longest Binary Subsequence Less Than or Equal to K
 2326. Spiral Matrix IV | ll.
 2337. Move Pieces to Obtain a String
 2482. Difference Between Ones and Zeros in Row and Column | record row1s & col1s
