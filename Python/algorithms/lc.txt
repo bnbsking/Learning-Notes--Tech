@@ -469,6 +469,7 @@ Iteration or naive 0
 2037. Minimum Number of Moves to Seat Everyone
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
 2094. Finding 3-Digit Even Numbers
+2099. Find Subsequence of Length K With the Largest Sum
 2108. Find First Palindromic String in the Array
 2109. Adding Spaces to a String
 2125. Number of Laser Beams in a Bank
@@ -508,6 +509,7 @@ Iteration or naive 0
 3042. Count Prefix and Suffix Pairs I
 3163. String Compression III | general split
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
+3330. Find the Original Typed String I | general split
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
 
@@ -698,6 +700,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] < target: l = m + 1.
 981. Time Based Key-Value Store
 1011. Capacity To Ship Packages Within D Days | def isValid(capacity). l,r=max(weights),sum(weights). while l<=r.
 1482. Minimum Number of Days to Make m Bouquets | acc_bouquets, acc_continuous, can_collect_in_mid_days = 0, 0, False. for day in bloomDay:...
+1498. Number of Subsequences That Satisfy the Given Sum Condition
 1552. Magnetic Force Between Two Balls
 1760. Minimum Limit of Balls in a Bag
 2064. Minimized Maximum of Products Distributed to Any Store | binary search insertion
