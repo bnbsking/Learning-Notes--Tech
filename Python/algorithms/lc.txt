@@ -966,6 +966,7 @@ Recursion return
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
 2807. Insert Greatest Common Divisors in Linked List | | gcd(a,b)->x. ll.
+3304. Find the K-th Character in String Game I | | f(k): if k == 0: return "a" else: return add1(f(k - 2 ** power))
 25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
 60*. Permutation Sequence | | def f(L=[], M=list(range(1,1+n)), k=k-1, each=fac(n-1)) if not M: return "".join(L) else: i = k//each, L.append( M.pop(i) ), return f(L,M,k-i*each,each/len(M) if len(M) else 0)
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
