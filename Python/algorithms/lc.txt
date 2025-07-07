@@ -251,6 +251,7 @@ Hash
 1282. Group the People Given the Group Size They Belong To | D, ans = defaultdict(lambda :[]), []. for i,size in enumerate(groupSizes): D[size].append(i) if len(D[size])==size: ans.append(D[size]). D[size]=[]
 1647. Minimum Deletions to Make Character Frequencies Unique | Counter, ans, freqS
 1814. Count Nice Pairs in an Array | remember to move terms first
+1865. Finding Pairs With a Certain Sum
 1887. Reduction Operations to Make the Array Elements Equal | Counter -> sort -> sum
 1930. Unique Length-3 Palindromic Subsequences | for c in set(s): l=s.find(c), r=s.rfind(c) -> ans += len(set(s[l+1:r]))
 2131. Longest Palindrome by Concatenating Two Letter Words
@@ -291,6 +292,7 @@ Heap
 355. Design Twitter | {userId:follower set}, {userId: queue(time,tweetID)}, heapq.heapify((time,posts)) while calling getNewsFeed
 373. Find K Pairs with Smallest Sums | heap(sumv,i,j), inH(i,j)
 659. Split Array into Consecutive Subsequences | H=[[1,nums[0]]] #(len, max). for i in range(1,len(nums)): L,find=[],False. while not find and H: length,maxv=heapq.heappop(H). if nums[i]-maxv>1:check, elif nums[i]-maxv==1:extend, else:collect L
+1353. Maximum Number of Events That Can Be Attended | add (end) if already start; pop (end) if already end
 1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
 1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
 2406. Divide Intervals Into Minimum Number of Groups | heap(end).
