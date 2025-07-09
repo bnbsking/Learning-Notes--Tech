@@ -660,6 +660,7 @@ Iteration
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3403. Find the Lexicographically Largest String From the Box I
+3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
 149*. Max Points on a Line | use determinant, O(n^3)
 
