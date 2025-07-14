@@ -436,6 +436,7 @@ Iteration or naive 0
 1137. N-th Tribonacci Number
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
+1290. Convert Binary Number in a Linked List to Integer | ll
 1318. Minimum Flips to Make a OR b Equal to c
 1331. Rank Transform of an Array
 1351. Count Negative Numbers in a Sorted Matrix
