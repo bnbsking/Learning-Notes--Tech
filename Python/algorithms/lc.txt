@@ -510,6 +510,7 @@ Iteration or naive 0
 3011. Find if Array Can Be Sorted | general split
 3024. Type of Triangle
 3042. Count Prefix and Suffix Pairs I
+3136. Valid Word
 3163. String Compression III | general split
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
 3330. Find the Original Typed String I | general split
@@ -660,6 +661,7 @@ Iteration
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
+3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3403. Find the Lexicographically Largest String From the Box I
 3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
