@@ -63,6 +63,7 @@ DP Arr2d Backward
 1035. Uncrossed Lines | same as 1143
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
+3202. Find the Maximum Length of Valid Subsequence II | longest interleaving subsequence: L[i][y] = L[y][i] + 1
 
 + Graph (cycle) traversal, X0 is default
 A record visit by
