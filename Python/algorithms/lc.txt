@@ -54,6 +54,8 @@ DP 1d Forward
 135*. Candy | for i in range(R): if i is smallest: lr expand (L[r]=max(L[r],L[r-1]+1))
 
 DP Arr2d Backward
+    A0: adjacent
+    A1: irregular
 72. Edit Distance | if same: L[i][j]=upperleft else: L[i][j]=min(up, left, upperleft) + 1
 97. Interleaving String | Can s1[:i] & s2[:j] interleaves s3[i+j:]? L[i][j] = up and same or left and same
 221. Maximal Square | simpler than 72. if 1: L[i][j]=min(up, left, upperleft) + 1
@@ -63,7 +65,7 @@ DP Arr2d Backward
 1035. Uncrossed Lines | same as 1143
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
-3202. Find the Maximum Length of Valid Subsequence II | longest interleaving subsequence: L[i][y] = L[y][i] + 1
+3202. Find the Maximum Length of Valid Subsequence II | A1 | longest interleaving subsequence: L[i][y] = L[y][i] + 1
 
 + Graph (cycle) traversal, X0 is default
 A record visit by
@@ -586,6 +588,9 @@ Iteration i with start and accum: sliding window -> for sum while
 3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
 3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
 3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
+
+Iteration irregular sliding window
+1040. Moving Stones Until Consecutive II
 
 Iteration
 17. Letter Combinations of a Phone Number
