@@ -1003,6 +1003,7 @@ Sort
 <912.> Sort an Array | Quick sort. if l<r. random pivot + Dutch flag. f(l,lo-1), f(hi+1,r)
 922. Sort Array By Parity II | ev,od,i=0,1,0. while i<len(L): if not true-pos: swap and update ev or od, else i+=1
 977. Squares of a Sorted Array
+4*. Median of Two Sorted Arrays | if k < m1 - l1 + 1 + m2 - l2 + 1: remove larger median arr's larger-half else: remove smaller median arr's smaller half
 
 SortedContainers (set like: add, remove, but has bisect_left, add-and-remove instead of modify)
 715*. Range Module | maintain sorted intervals. get_all_overlaps(start: int, end: int). when query time: (0, 2) (2, 3) can be merged
