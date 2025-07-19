@@ -996,6 +996,7 @@ Segment tree (index update, query interleaving)
 <307.> Range Sum Query - Mutable
 
 Sort
++ dutch flag parition by l and r: <= l - 1 is color-0, >= r + 1 is color-2
 <75.> Sort Colors | Dutch Flag Algorithm. l=m=0, r=len(L)-1. while m<=r: if nums[m]==0: swap(L[l],[m]), l+=1, m+=1 elif nums[m]==1: m+=1, else: swap(L[m],L[r]), r-=1
     + while m<=r, m+=1 only if L[m]=0or1
 <215.> Kth Largest Element in an Array | Quick select. if l<r: random pivot + Dutch flag. Exclusive: if k<lo: f(l,lo-1) elif k>hi: f(hi+1,r)
