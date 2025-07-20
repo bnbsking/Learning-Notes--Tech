@@ -982,7 +982,8 @@ Recursion return
 25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
 60*. Permutation Sequence | | def f(L=[], M=list(range(1,1+n)), k=k-1, each=fac(n-1)) if not M: return "".join(L) else: i = k//each, L.append( M.pop(i) ), return f(L,M,k-i*each,each/len(M) if len(M) else 0)
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
-297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders 
+297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders
+1948*. Delete Duplicate Folders in System | trie + similar as 297 but unlike binary needs placeholders, multi-ary disregard the order! 
 
 Recursion gaming (as long as find one strategy opponent cannot win, i win.)
 464. Can I Win | C1 | f(L=list(range(1,n+1)), target=total) -> bool. if L[-1]>=target: return True. 
