@@ -543,7 +543,6 @@ Iteration i with accum (additional accumulation not ans)
 1013. Partition Array Into Three Parts With Equal Sum | target, acc, cnt = sumv // 3, 0, 0. for x in arr: acc += x. cnt += acc==target*(cnt+1)
 1014. Best Sightseeing Pair | maxvi,ans=L[0], -inf. for j in range(1,len(L)): ans=max(ans,maxvi+L[j]-j). maxvi = max(maxvi,L[j]+j)
 1018. Binary Prefix Divisible By 5
-1052. Grumpy Bookstore Owner | constant sliding window
 1249. Minimum Remove to Make Valid Parentheses
 1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
 1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
@@ -589,7 +588,11 @@ Iteration i with start and accum: sliding window -> for sum while
 3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
 3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
 
-Iteration irregular sliding window
+Iteration: sliding window const
+1052. Grumpy Bookstore Owner | constant sliding window
+30*. Substring with Concatenation of All Words
+
+Iteration: sliding window irregular
 1040. Moving Stones Until Consecutive II
 
 Iteration
@@ -920,7 +923,6 @@ Recursion non-return
 2597. The Number of Beautiful Subsets | E1 | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
 2641. Cousins in Binary Tree II | | f(T=root, level=0). g(p=root, sec_deg_val=0, level=0).
 --
-30*. Substring with Concatenation of All Words
 37*. Sudoku Solver | use L but not S to prevent unorder traversal, just pop and try 1-9, backtracking + must copy L since has L.pop
 51*. N-Queens | backtracking + no need copy B since B is invariant
 52*. N-Queens II
