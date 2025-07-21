@@ -1054,6 +1054,7 @@ B. answer
 1190. Reverse Substrings Between Each Pair of Parentheses
 1381. Design a Stack With Increment Operation | stack[val, acc_bias]
 2487. Remove Nodes From Linked List | A3 | doubly LL
+32*. Longest Valid Parentheses | stack[-1] means exclusive valid start idx and never empty
 
 Stack + precompute ds
 316. Remove Duplicate Letters | A2B1 | lastIdx: dict, stack: list, in_stack: set. if c not in in_stack: while ... and stack[-1]_appears_later: ...
