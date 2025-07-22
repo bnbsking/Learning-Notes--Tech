@@ -675,6 +675,7 @@ Iteration
 3403. Find the Lexicographically Largest String From the Box I
 3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
+60*. Permutation Sequence | if n == 1: return "1". L, ans, k = list(range(1, n + 1)), [], k - 1
 149*. Max Points on a Line | use determinant, O(n^3)
 
 Iteration - Arithmetic sort or Minimum swaps sort
@@ -984,7 +985,6 @@ Recursion return
 2807. Insert Greatest Common Divisors in Linked List | | gcd(a,b)->x. ll.
 3304. Find the K-th Character in String Game I | | f(k): if k == 0: return "a" else: return add1(f(k - 2 ** power))
 25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
-60*. Permutation Sequence | | def f(L=[], M=list(range(1,1+n)), k=k-1, each=fac(n-1)) if not M: return "".join(L) else: i = k//each, L.append( M.pop(i) ), return f(L,M,k-i*each,each/len(M) if len(M) else 0)
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
 297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders
 1948*. Delete Duplicate Folders in System | trie + similar as 297 but unlike binary needs placeholders, multi-ary disregard the order! 
