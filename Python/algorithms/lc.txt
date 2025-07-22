@@ -924,7 +924,7 @@ Recursion non-return
 2597. The Number of Beautiful Subsets | E1 | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
 2641. Cousins in Binary Tree II | | f(T=root, level=0). g(p=root, sec_deg_val=0, level=0).
 --
-37*. Sudoku Solver | use L but not S to prevent unorder traversal, just pop and try 1-9, backtracking + must copy L since has L.pop
+37*. Sudoku Solver | D1E1 | rows=[set() for _ in range(9)], cols, grid.
 51*. N-Queens | backtracking + no need copy B since B is invariant
 52*. N-Queens II
 140*. Word Break II | similar as 40
