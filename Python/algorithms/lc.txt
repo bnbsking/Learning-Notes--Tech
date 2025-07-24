@@ -989,6 +989,7 @@ Recursion return
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
 297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders
 1948*. Delete Duplicate Folders in System | trie + similar as 297 but unlike binary needs placeholders, multi-ary disregard the order! 
+2322*. Minimum Score After Removals on a Tree | TreeNode(val: int, idx: int, children: List[TreeNode], all_children: Set[int], acc: int)
 
 Recursion gaming (as long as find one strategy opponent cannot win, i win.)
 464. Can I Win | C1 | f(L=list(range(1,n+1)), target=total) -> bool. if L[-1]>=target: return True. 
