@@ -223,6 +223,7 @@ Hash 0
 3016. Minimum Number of Pushes to Type Word II
 3217. Delete Nodes From Linked List Present in Array | ll.
 3223. Minimum Length of String After Operations | sum((times + 1) % 2 + 1 for times in Counter(s).values())
+3487. Maximum Unique Subarray Sum After Deletion
 
 Hash
 3. Longest Substring Without Repeating Character | if s[i] not in D or accum<D[s[i]]: accum+=1, else accum=i-D[s[i]]
@@ -434,6 +435,7 @@ Iteration or naive 0
 1029. Two City Scheduling | costs.sort(key = lambda tup: tup[0] - tup[1])
 1033. Moving Stones Until Consecutive
 1037. Valid Boomerang
+1041. Robot Bounded In Circle
 1051. Height Checker
 1122. Relative Sort Array
 1137. N-th Tribonacci Number
