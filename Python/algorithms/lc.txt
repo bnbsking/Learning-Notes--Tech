@@ -588,6 +588,7 @@ Iteration i with start and accum: sliding window -> for sum while
 3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
 3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
 3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
+76*. Minimum Window Substring | window = Counter({k: -v for k, v in target.items()}). while all(window[k] >= 0 for k in target):
 
 Iteration: sliding window const
 1052. Grumpy Bookstore Owner | constant sliding window
