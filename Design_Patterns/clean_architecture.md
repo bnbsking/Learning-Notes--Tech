@@ -56,3 +56,26 @@
         + (I=1, A=1): Zone of Useless - useless style. abstract class has no fans out
         + D-value = sum_i(|A_i + I_i - 1|)
             + ideal case: D=0
+
++ Architecture
+    + Do focus on requirements, do not focus on details (which tools to use)
+    + Consider
+        + Development
+        + Deployment
+        + Run
+        + Maintanance
+    + If duplication will be diverse in the future, do not merge them
+    + Decoupling level: there is no absoulute correct answer
+        + source code level
+        + deploy (component) level
+        + service-level (SoA = service oriented architecture)
+
++ Entity -> Use cases -> Controller -> Framework and tools e.g. web, db
+    + left is core, out are details
+
++ Humble object patterns
+    + data -> presenter -> view -> GUI show
+    + presenter: data formatting, test unit, hard to test
+    + view: data getter, test unit, easy to test
+
+
