@@ -1105,7 +1105,8 @@ Pending diffiuclt
 28. Find the Index of the First Occurrence in a String | lcps + KMP
 880. Decoded String at Index | f(k=k-1) cnt=0 for c in s: if c.isalpha(): ( if cnt==k: return char else cnt+=1 ) else: ( if cnt*int(char)>k: return f( k%cnt ) else cnt*=int(char) ).
 --
-*1483. Kth Ancestor of a Tree Node | Binary lifting. self.D[i][j]=i-th node's 2**j ancestor. Column major filling since it may not have ancestor before filling parent. To fill self.D[i][j-1], parent=self.D[i][j-1] 
+1483*. Kth Ancestor of a Tree Node | Binary lifting. self.D[i][j]=i-th node's 2**j ancestor. Column major filling since it may not have ancestor before filling parent. To fill self.D[i][j-1], parent=self.D[i][j-1] 
+3480*. Maximize Subarrays After Removing One Conflicting Pair | https://chatgpt.com/c/6884966b-ada4-8009-9811-14d25b14551f
 
 Bad
 6. Zigzag Conversion
