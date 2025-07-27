@@ -116,6 +116,7 @@ Graph Traversal dfs (init recur_func and visited) when: achievable (get path can
 886. Possible Bipartition | A1 | build graph by dislike + dfs. need global_unvisied: Set[int], local_visited: Set[int], colors: List[int]
 1020. Number of Enclaves | B1 | f(i,j). use for every cell: if not visit land: self.is_bound=False=0. self.land=0. dfs(cell). ans+=int(not self.is_bound) * self.land
 1034. Coloring A Border | A1 | f(x)
+1042. Flower Planting With No Adjacent | A1B1 | contains "for nein2 in G[nei2]" to get nei color
 1219. Path with Maximum Gold | A1B1D1 | f(x, visitS, acc) all source dfs + backtracking
 1905. Count Sub Islands | A1B1 | dfs first island to get "cord2islandidx". dfs second island to check all pixel belongs to same islandidx
 
@@ -488,6 +489,7 @@ Iteration or naive 0
 2185. Counting Words With a Given Prefix2220. Minimum Bit Flips to Convert Number
 2191. Sort the Jumbled Numbers
 2206. Divide Array Into Equal Pairs
+2210. Count Hills and Valleys in an Array
 2264. Largest 3-Same-Digit Number in String
 2270. Number of Ways to Split Array
 2294. Partition Array Such That Maximum Difference Is K
