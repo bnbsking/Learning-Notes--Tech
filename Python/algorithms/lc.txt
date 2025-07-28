@@ -1064,14 +1064,14 @@ B. answer
 1381. Design a Stack With Increment Operation | stack[val, acc_bias]
 2487. Remove Nodes From Linked List | A3 | doubly LL
 32*. Longest Valid Parentheses | stack[-1] means exclusive valid start idx and never empty
-84*. Largest Rectangle in Histogram | height = heights[stack.pop()]. next_smaller_ele_idx = i. prev_smaller_ele_idx = stack[-1] if stack else -1
+84*. Largest Rectangle in Histogram | A2 | height = heights[stack.pop()]. next_smaller_ele_idx = i. prev_smaller_ele_idx = stack[-1] if stack else -1
+85*. Maximal Rectangle | A2 | get acc heights for each row. then use 84*.
 
 Stack + precompute ds
 316. Remove Duplicate Letters | A2B1 | lastIdx: dict, stack: list, in_stack: set. if c not in in_stack: while ... and stack[-1]_appears_later: ...
 456. 132 Pattern | A3B2 | cmp(stack[-1], prefix_min[i]) instead of cmp(stack[-1], L[i]) !!
 1081. Smallest Subsequence of Distinct Characters | A2B1 | same as 316.
 2434. Using a Robot to Print the Lexicographically Smallest String | A3 | cmp(stack[-1], suffix_min[i]) instead of cmp(stack[-1], L[i]) !!
-
 
 Trie
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
