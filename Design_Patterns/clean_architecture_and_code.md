@@ -87,3 +87,42 @@
     + choosing framework must be meticulous, do not couple with your core
  
 ## Clean Code  
++ common rules
+    + meaningful names
+    + no magic numbers
+    + distinguishable
+    + consistency
+    + use prefix
+    + type hint
+    + no encoding
+
++ comments
+    + readibility > add comment
+
++ no `a.b().C()`, Demeter law
+
++ about third party tool
+    + learning tests: write testing functions for better unstanding
+    + should minimal use the tool
+    + Adapter is a possilbe solution
+
++ tests
+    + must be mutually independent
+    + for a time-consuming pipeline test, use yield or return
+
++ parallel
+    + SRP decouple
+    + minimize the locking area
+    + consider the aftermath of shuting down a certain thread
+
++ Synchronous
+    + Deadlock - 4 necessary criterion
+        + 1 mutex -> cannot prevent
+        + 2 hold and wait -> can prevent if always release all resource before aquire
+        + 3 preemption -> use (priority) queue to prevent (priority might cause starvation)
+        + 4 circular waiting -> map PID to order, alternatively acquire resource  
+        + (Most common are 4)
+    + classical problem
+        + Reader-Writer: queue + lock
+        + Producer-Consumer: queue + lock
+    + [example](../python/advanced_internal_features/parallel_lock.ipynb)
