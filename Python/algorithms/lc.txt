@@ -598,6 +598,7 @@ Iteration i with start and accum: sliding window -> for sum while
 Iteration: sliding window const
 1052. Grumpy Bookstore Owner | constant sliding window
 30*. Substring with Concatenation of All Words
+2106*. Maximum Fruits Harvested After at Most K Steps | left return right and right return left
 
 Iteration: sliding window irregular
 1040. Moving Stones Until Consecutive II
