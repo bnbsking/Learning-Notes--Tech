@@ -995,6 +995,7 @@ Recursion return
 3304. Find the K-th Character in String Game I | | f(k): if k == 0: return "a" else: return add1(f(k - 2 ** power))
 25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
 87*. Scramble String | C | f(s1, s2) split by same prefix-prefix counter and prefix-suffix counter 
+115*. Distinct Subsequences | C |
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
 297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders
 1948*. Delete Duplicate Folders in System | trie + similar as 297 but unlike binary needs placeholders, multi-ary disregard the order! 
