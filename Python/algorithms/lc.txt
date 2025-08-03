@@ -823,6 +823,7 @@ Queue
 --
 127*. Word Ladder
 239*. Sliding Window Maximum | (val,idx) in queue, length is not const, always desc sorted
+2561*. Rearranging Fruits | more1: Q, more2: Q, minv1: int, minv2: int. cost1 and cost2 -> swap max more and min more. cost3 and cost4 -> swap max more and minv + swap minv max 
 
 Recursion 0 (bottom-up or top-down)
 2. Add Two Numbers | ll
