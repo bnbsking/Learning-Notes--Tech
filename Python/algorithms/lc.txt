@@ -567,7 +567,6 @@ Iteration i with start (passed ptr not current) -> for if else
 413. Arithmetic Slices | similar to 674 but ans+=i-start-1
 <674.> Longest Continuous Increasing Subsequence | start, ans = 0, 1 for if else (compare to 300. which is not continuous)
 826. Most Profit Assigning Work | sort(zip(diff,prof)) -> change prof to curr_max_prof -> start=0. for loading in sorted(workers): if L[start][0]<=loading:...
-904. Fruit Into Baskets | a, b, start_a, ans = None, None, None, 0
 905. Sort Array By Parity | like 283.
 1021. Remove Outermost Parentheses | acc,start,ans=0,0,[]. for i in range(len(s)): acc+=(-1)**(s[i]==")"). if acc == 0:...
 1024. Video Stitching | ans,start,curr_end=1,1,L[0][1]. while curr_end<time: idx = next((idx for idx in range(start, len(L)) if L[idx][0]>curr_end), len(clips)). # next search start index
@@ -581,6 +580,7 @@ Iteration i with start and accum: sliding window -> for sum while
 567. Permutation in String | start,accum,match=0,Counter(),Counter(s1). for i,c in enumerate(s2): if c in match: while match[c]==0:update, update. else: start+=1,restore match%count.
 713. Subarray Product Less Than K | if k<2: return 0. start,acc,ans=0,1,0. for i in range(len(L)): acc*=L[i]. while acc>=k: acc,start=acc//L[start],start+1. ans+=i-start+1. (while inclusive, update ans at last)
 795. Number of Subarrays with Bounded Maximum | start,larger_left_idx,ans=0,None,0. for i in range(len(L)): if L[i]>right: start,larger_left_idx=i+1,None. else: if nums[i]>=left:larger_left_idx=i. if larger_left_idx: ans+=larger_left_idx-start+1
+904. Fruit Into Baskets
 1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
 1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
 <1695.> Maximum Erasure Value
