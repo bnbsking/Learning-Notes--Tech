@@ -95,6 +95,7 @@ Graph Traversal bfs (init queue and visited) when: shortest distance (unweighted
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1 |
 3372. Maximize the Number of Target Nodes After Connecting Trees I | A1 | max_tree_2_nodes is independent from any query (compute once and add the const to query)
+127*. Word Ladder
 3373*. Maximize the Number of Target Nodes After Connecting Trees II | A1 | split to even nodes and odd nodes
 
 Graph Traversal dfs (init recur_func and visited) when: achievable (get path can be get by backtracking)
@@ -124,6 +125,7 @@ Graph Traversal dfs+bfs
 863. All Nodes Distance K in Binary Tree | , | f(T, parent=None). dfs to tree to Graph by add parent link. x, depth = self.Q.popleft()
 934. Shortest Bridge | A1, A1B1 | dfs f(x) to collect all boundary of island1 + multi-source BFS (i, j, depth = Q.popleft())
 2385. Amount of Time for Binary Tree to Be Infected | , | Same as 863.
+126*(TLE). Word Ladder II | build distance List[Set[str]] by BFS -> DFS to get all paths with backtracking
 
 Graph - Topological sort (Kahn's: init inDeg, leaves) when: undirected graph inDeg=1 or directed graph inDeg=0 are starting points / dfs and bfs duplicates traversal)
 + Must be multi-sourced
@@ -822,7 +824,6 @@ Queue 0
 Queue
 649. Dota2 Senate | C,Q=Counter(senate),deque(senate). while C["R"]*C["D"]: ego,chance,max_chance=Q.popleft(),1,1. rival="D" if ego=="R" else "R". while chance*C[rival]:...
 --
-127*. Word Ladder
 239*. Sliding Window Maximum | (val,idx) in queue, length is not const, always desc sorted
 2561*. Rearranging Fruits | more1: Q, more2: Q, minv1: int, minv2: int. cost1 and cost2 -> swap max more and min more. cost3 and cost4 -> swap max more and minv + swap minv max 
 
