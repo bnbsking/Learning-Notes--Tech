@@ -998,6 +998,7 @@ Recursion return
 87*. Scramble String | C | f(s1, s2) split by same prefix-prefix counter and prefix-suffix counter 
 115*. Distinct Subsequences | C |
 124*. Binary Tree Maximum Path Sum | | similar to 687, self.ans=root.val. def f(T=root). return max-path-sum pass T. (self.ans = max(self.ans, l+r+T.val))
+132*. Palindrome Partitioning II | C | precompute is_pal[i][j] in O(mn) time.
 297*. Serialize and Deserialize Binary Tree | [way1] 105. with unique id. [way2] parenthesis string "A()" nodes and "_()" placeholders
 1948*. Delete Duplicate Folders in System | trie + similar as 297 but unlike binary needs placeholders, multi-ary disregard the order! 
 2322*. Minimum Score After Removals on a Tree | TreeNode(val: int, idx: int, children: List[TreeNode], all_children: Set[int], acc: int)
