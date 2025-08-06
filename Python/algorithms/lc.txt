@@ -1012,6 +1012,7 @@ Segment tree (index update, query interleaving)
 # (node, lnode, rnode) is for tree, others (l, r, m, ql, qr, idx) are for arr
 # 3 methods (build, update, query) has (i.) same input/output of subfunc (ii.) similar calling template
 <307.> Range Sum Query - Mutable
+3479. Fruits Into Baskets III | Max segement tree
 
 Sort
 + dutch flag parition by l and r: <= l - 1 is color-0, >= r + 1 is color-2
