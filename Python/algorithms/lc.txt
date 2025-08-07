@@ -66,6 +66,7 @@ DP Arr2d Backward
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
 3202. Find the Maximum Length of Valid Subsequence II | A1 | longest interleaving subsequence: L[i][y] = L[y][i] + 1
+3363*. Find the Maximum Number of Fruits Collected | 3 routes are independent
 
 + Graph (cycle) traversal, X0 is default
 A record visit by
