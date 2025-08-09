@@ -981,6 +981,7 @@ Recursion return
 687. Longest Univalue Path | self.ans = 0. def f(T=root, prev=-0.5). similar to 543, but return max tree height that has same value (self.ans=max(self.ans, l+r))
 701. Insert into a Binary Search Tree | | f(x,val)->tree. if can insert left elif can insert right else recursion
 779. K-th Symbol in Grammar | | f(n,k)->ans. if n<3: return k-1. prev = self.kthGrammar(n-1, (k+1)//2). return k%2 if prev==1 else (k+1)%2
+808. Soup Servings | C | n->10000 p=1
 813. Largest Sum of Averages | C | f(start=0,k=k) with memeory
 814. Binary Tree Pruning | | f(T) -> return prunedTree, isEmpty
 865. Smallest Subtree with all the Deepest Nodes | | Collect deepest node id by f(T)->None. self.ans=None. g(T)->count_deepest_nodes_in_subtree (first acheive collection node is ans)
