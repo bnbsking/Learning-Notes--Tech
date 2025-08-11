@@ -677,6 +677,7 @@ Iteration
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
+2438. Range Product Queries of Powers
 2929. Distribute Candies Among Children II | minc, maxc. for c in (minc, maxc + 1): ans += maxb = minb + 1 
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
@@ -924,7 +925,7 @@ Recursion non-return
 678. Valid Parenthesis String | C | f(start=0, l=0, r=0) + mem
 698. Partition to K Equal Sum Subsets | | nums.sort(reverse=True). trim ele>each and ele+min>each. L=[0]*k. f(start=0)
 861. Score After Flipping Matrix | D | f(start=1). 1st col greedy, >=2nd col backtracking (1rate >0.5, =0.5, <0.5)
-869. Reordered Power of 2 | D | f(start=0) like 46.
+869. Reordered Power of 2 | D | collect same digits Counter and compare same
 993. Cousins in Binary Tree | f(target, T, depth, parent)
 1039. Minimum Score Triangulation of Polygon | C |
 1361. Validate Binary Tree Nodes | | if all(ele<2 for ele in inL) and inL.count(0)==1: root, visitS = inL.index(0), set(range(n)). def g(i=root).
