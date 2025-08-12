@@ -997,6 +997,7 @@ Recursion return
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
 2807. Insert Greatest Common Divisors in Linked List | | gcd(a,b)->x. ll.
+2787. Ways to Express an Integer as Sum of Powersv | C | f(remain=n, start=1), pick and not-pick
 3304. Find the K-th Character in String Game I | | f(k): if k == 0: return "a" else: return add1(f(k - 2 ** power))
 25*. Reverse Nodes in k-Group | | split all sublists -> call 206. -> connect
 87*. Scramble String | C | f(s1, s2) split by same prefix-prefix counter and prefix-suffix counter 
