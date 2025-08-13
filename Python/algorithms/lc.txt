@@ -241,6 +241,7 @@ Hash
 467. Unique Substrings in Wraparound String | D={c:1 for c in s}, cont=1. D substr end with char -> numbers. for i in range(1,len(s)): cont = cont+1 if (ord(s[i])-ord(s[i-1]))%26==1 else 1. D[s[i]]=max(D[s[i]],cont)
 532. K-diff Pairs in an Array | S, ans = set(nums), 0. for x in sorted(list(S)): if x+k in S: ans+=1
 554. Brick Wall | spaces=Counter(). for row in wall: for x in accumulate(row[-1]): spaces[x]+=1
+611. Valid Triangle Number | side2acc dict. counts of aaa, aab, abb, abc.
 781. Rabbits in Forest | C, ans = Counter(answers), 0. for k, v in C.items(): ans += math.ceil(v / (k + 1)) * (k + 1). return ans
 792. Number of Matching Subsequences | D=defaultdict(lambda:[]) (start_char -> [[word, match], ...]). for c in s: raw_words=D[c], D[c]=[]. for word,match in raw_words: if else....
 825. Friends Of Appropriate Ages | C, req = Counter(ages), lambda x, y: int(y>0.5*x+7 and y<=x and (y<=100 or x>=100))....
@@ -717,8 +718,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 374. Guess Number Higher or Lower
 436. Find Right Interval | for while
 475. Heaters | ans=0. for x in house: while l<=r: l=closest heater. if l==0: ans=max(ans,heaters[l]-x) elif l==len(heaters):ans=max(ans,x-heaters[l-1]) else: ans=max(ans,min(x-heaters[l-1],heaters[l]-x))
-540. Single Element in a Sorted Array | m -= m % 2 == 0
-611. Valid Triangle Number
+540. Single Element in a Sorted Array | way1: m is singular -> ans. odd with same prev or even with same next. way2: m -= m % 2 == 0
 658. Find K Closest Elements | find insertion l. c=l-int(l==len(arr) or l>0 and x-arr[l-1]<=arr[l]-x). l, r expand
 667. Beautiful Arrangement II | L, l, r = [1], 2, n. for i in range(k-1): if i%2==0:.... left right alternate. return L+list(range(l,r+1))[::(-1)**parity]
 704. Binary Search
