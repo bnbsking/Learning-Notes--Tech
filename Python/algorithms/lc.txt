@@ -661,16 +661,17 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 3152. Special Array II | general splitting + binary search
 
 Iteration - Binary search non-sorted
-    A. unique + find target -> "L[m] == target" early stopping; judge pivot by "L[m] > L[r]"
-    B. unique + find min/max/pivot -> cmp(m-1, m, m+1)
-    C. duplicate + find target ->
-    D. duplicate + find min/max/pivot ->
-33. Search in Rotated Sorted Array | A |
-81. Search in Rotated Sorted Array II | C | output pivot l-=1 until reach max to get the leftmost pivot
-153. Find Minimum in Rotated Sorted Array | B | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
-162. Find Peak Element | B | while 1: if maxv==v2: return m elif maxv == v1: ...
-462. Minimum Moves to Equal Array Elements II | B | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
-154*. Find Minimum in Rotated Sorted Array II | D |
+    A triplet early stopping -> if min(L[m - 1], L[m], L[m + 1]) == L[m]
+    rotated sorted array
+    B [always]      find pivot: if "L[m] < L[r]" -> pivot at left, right is ordered
+    C [find target] singlet early stopping -> if L[m] == target
+    D [duplication] worst case -> add"L[m] == L[r]: r -= 1"
+<33.> Search in Rotated Sorted Array | BC |
+<81.> Search in Rotated Sorted Array II | BCD | output pivot l-=1 until reach max to get the leftmost pivot
+<153.> Find Minimum in Rotated Sorted Array | AB | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
+162. Find Peak Element | A | while 1: if maxv==v2: return m elif maxv == v1: ...
+462. Minimum Moves to Equal Array Elements II | A | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
+<154*.> Find Minimum in Rotated Sorted Array II | D |
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
