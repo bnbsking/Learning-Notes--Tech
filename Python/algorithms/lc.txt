@@ -37,6 +37,7 @@ DP 1d Backward
 790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
 823. Binary Trees With Factors | init D[ele]->ans. return sum(D.values()). similar to 300.
 983. Minimum Cost For Tickets | if i not in days: L[i] = L[i - 1] else: L[i] = min(L[i - 1] + costs[0], L[max(0, i - 7)] + costs[1], L[max(0, i - 30)] + costs[2])
+1043. Partition Array for Maximum Sum | O(Nk) backward_max, local_ans = arr[i], dp[-1] + arr[i]. slide to left
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 2707. Extra Characters in a String | init 1. similar to 300.
 
@@ -1087,6 +1088,12 @@ Stack + precompute ds
 1081. Smallest Subsequence of Distinct Characters | A2B1 | same as 316.
 2434. Using a Robot to Print the Lexicographically Smallest String | A3 | cmp(stack[-1], suffix_min[i]) instead of cmp(stack[-1], L[i]) !!
 
+String matching
++ KMP
++ Karp Rabin: 1 Double hashing to prevent collision 2 reuse "lead_pow" by "for loop" to prevent large power 
+28. Find the Index of the First Occurrence in a String
+1044. Longest Duplicate Substring | Binary search of find substr of length m
+
 Trie
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
 211. Design Add and Search Words Data Structure | Trie + recursion
@@ -1113,12 +1120,10 @@ UnionFind
 ----------
 
 Pending diffiuclt
-611. Valid Triangle Number
 673. Number of Longest Increasing Subsequence | 2d dp
 718. Maximum Length of Repeated Subarray | 2d dp reversed
 907. Sum of Subarray Minimums | stack+DP | pop while smaller, dp[stack[-1]] + arr[i]*(i-stack[-1]) if stack else arr[i]*(i+1) [difficult]
 1802. Maximum Value at a Given Index in a Bounded Array | reach l/r -> reach r/l -> go up
-28. Find the Index of the First Occurrence in a String | lcps + KMP
 880. Decoded String at Index | f(k=k-1) cnt=0 for c in s: if c.isalpha(): ( if cnt==k: return char else cnt+=1 ) else: ( if cnt*int(char)>k: return f( k%cnt ) else cnt*=int(char) ).
 --
 1483*. Kth Ancestor of a Tree Node | Binary lifting. self.D[i][j]=i-th node's 2**j ancestor. Column major filling since it may not have ancestor before filling parent. To fill self.D[i][j-1], parent=self.D[i][j-1] 
