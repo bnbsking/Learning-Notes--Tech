@@ -528,85 +528,6 @@ Iteration or naive 0
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
 
-Iteration i with accum (additional accumulation not ans)
-53. Maximum Subarray | ans=L[0], acc=0. for x in L: acc=max(acc+x,x), ans=max(ans,acc)
-<121.> Best Time to Buy and Sell Stock | ans=0, lowest=L[0]. for x in L: lowest=min(lowest,x), ans=max(ans, x-lowest)
-134. Gas Station | ans=0, acc=0. for i in range(len(gas)): acc+=gas[i]-cost[i], if acc<0: ans=i+1, acc=0
-152. Maximum Product Subarray | ans=nums[0], minv=1, maxv=1. for x in L: minv=min(x,minv*x,maxv*x), maxv=max(x,minv*x,maxv*x), ans=max(ans,maxv)
-238. Product of Array Except Self | left_accum, right_accum
-331. Verify Preorder Serialization of a Binary Tree | slot=1 if slot-=1 else slot+=1, slot must >0 during iteration and =0 finally
-376. Wiggle Subsequence | similar to 152. up, down = 1, 1 (first wiggle is up or down). for i in range(1,len(nums)): if nums[i]>nums[i-1]: up = down+1 elif nums[i]<nums[i-1]: down = up+1. return max(up, down)
-334. Increasing Triplet Subsequence | min1, min2 = float('inf'), float('inf'). for x in nums: if x<=min1: min1 = x elif x<=min2: min2 = x else: return True
-396. Rotate Function | init ans=current, sumv. current += sumv - nums[-1-i]*len(nums). consider rotate difference only
-452. Minimum Number of Arrows to Burst Balloons | similar to 56. minv, maxv, ans = -inf, -inf, 0. for start, end in sorted(L): if maxv < start: ... else: ...
-581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
-624. Maximum Distance in Arrays | curr_min, curr_max, ans
-746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
-769. Max Chunks To Make Sorted | curr_chunk_max, ans = -1, 0. for i in range(len(L)): if curr_chunk_mask < idx: ... else ... 
-845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
-915. Partition Array into Disjoint Intervals | like 238. mins arr append, while lmax<mins[-1]: ...
-918. Maximum Sum Circular Subarray | use 53. to find max_arr and min_arr. return max(max_arr,sum-min_arr)
-921. Minimum Add to Make Parentheses Valid | diff, ans = 0, 0. simpler than 53.
-926. Flip String to Monotone Increasing | like 238. all0, all1 = s.count(0), s.count(1). l0, l1, ans = 0, 0, all1, iterate from 11..11 -> 00..11 -> 00..00.
-1013. Partition Array Into Three Parts With Equal Sum | target, acc, cnt = sumv // 3, 0, 0. for x in arr: acc += x. cnt += acc==target*(cnt+1)
-1014. Best Sightseeing Pair | maxvi,ans=L[0], -inf. for j in range(1,len(L)): ans=max(ans,maxvi+L[j]-j). maxvi = max(maxvi,L[j]+j)
-1018. Binary Prefix Divisible By 5
-1249. Minimum Remove to Make Valid Parentheses
-1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
-1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
-1652. Defuse the Bomb | if k<0: k=abs(k), code.reverse(). ... . return ans if raw k > 0 else ans[::-1] 
-1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
-1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
-1769. Minimum Number of Operations to Move All Balls to Each Box | rsum, r1s = sum(indices), len(indices). lsum, l1s, ans = 0, 0, []. for i in range(len(L)): ...
-2016. Maximum Difference Between Increasing Elements
-2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
-2554. Maximum Number of Integers to Choose From a Range I
-2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
-3254. Find the Power of K-Size Subarrays I | ans, acc = [L[0] if k==1 else -1], 1. for i in range(1, len(L)): acc = acc + 1 if L[i-1]+1==L[i] else 1. ans.append(L[i] if acc>=k else -1).
-
-Iteration i with start (passed ptr not current) -> for if else
-26. Remove Duplicates from Sorted Array
-80. Remove Duplicates from Sorted Array II | same as 26 but add dup=1or2
-<283.> Move Zeroes | start = 0. for i in range(len(L)): if L[i]: L[start], L[i] = L[i], L[start]. start += 1.
-413. Arithmetic Slices | similar to 674 but ans+=i-start-1
-<674.> Longest Continuous Increasing Subsequence | start, ans = 0, 1 for if else (compare to 300. which is not continuous)
-826. Most Profit Assigning Work | sort(zip(diff,prof)) -> change prof to curr_max_prof -> start=0. for loading in sorted(workers): if L[start][0]<=loading:...
-905. Sort Array By Parity | like 283.
-1021. Remove Outermost Parentheses | acc,start,ans=0,0,[]. for i in range(len(s)): acc+=(-1)**(s[i]==")"). if acc == 0:...
-1024. Video Stitching | ans,start,curr_end=1,1,L[0][1]. while curr_end<time: idx = next((idx for idx in range(start, len(L)) if L[idx][0]>curr_end), len(clips)). # next search start index
-    next_end = max([clips[i][1] for i in range(start, idx)] + [-1]). if next_end == -1: return -1. ans, start, curr_end = ans+1, idx, next_end.
-2200. Find All K-Distant Indices in an Array
-2938. Separate Black and White Balls
-
-Iteration i with start and accum: sliding window -> for sum while
-<209.> Minimum Size Subarray Sum | start,acc,ans=0,0,len(L). for i in range(len(L)): acc+=L[i], while acc>=target: ans=min(ans,end-start+1), sumv-=nums[start], start+=1.
-424. Longest Repeating Character Replacement | # window_max_cnt_char is the char in window that has the most cnt. # assume window_max_cnt_char is x, change all chars in window to x. start, window, window_max_cnt, ans = 0, defaultdict(int), 0, 0.
-567. Permutation in String | start,accum,match=0,Counter(),Counter(s1). for i,c in enumerate(s2): if c in match: while match[c]==0:update, update. else: start+=1,restore match%count.
-713. Subarray Product Less Than K | if k<2: return 0. start,acc,ans=0,1,0. for i in range(len(L)): acc*=L[i]. while acc>=k: acc,start=acc//L[start],start+1. ans+=i-start+1. (while inclusive, update ans at last)
-795. Number of Subarrays with Bounded Maximum | start,larger_left_idx,ans=0,None,0. for i in range(len(L)): if L[i]>right: start,larger_left_idx=i+1,None. else: if nums[i]>=left:larger_left_idx=i. if larger_left_idx: ans+=larger_left_idx-start+1
-904. Fruit Into Baskets
-1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
-1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
-<1695.> Maximum Erasure Value
-1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
-2401. Longest Nice Subarray | start, ans, acc, acc_len = 0, 0, 0, 0. for, while acc -= nums[start], acc |= nums[i]
-2411. Smallest Subarrays With Maximum Bitwise OR | special case L=[x,y,0,0,..,0]
-2516. Take K of Each Character From Left and Right | max_win = 0. start, win_cnt, limit_cnt = 0, [0, 0, 0], [s.count(x)-k for x in "abc"]
-2762. Continuous Subarrays
-2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
-3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
-3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
-3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
-76*. Minimum Window Substring | window = Counter({k: -v for k, v in target.items()}). while all(window[k] >= 0 for k in target):
-
-Iteration: sliding window const
-1052. Grumpy Bookstore Owner | constant sliding window
-30*. Substring with Concatenation of All Words
-2106*. Maximum Fruits Harvested After at Most K Steps | left return right and right return left
-
-Iteration: sliding window irregular
-1040. Moving Stones Until Consecutive II
-
 Iteration
 17. Letter Combinations of a Phone Number
 31. Next Permutation | e.g. 246531. from right to left: i at peak. if i>0: from right to left: L[j]>L[i-1], swap(L[i-1],L[j]). swap all ele >=i
@@ -739,15 +660,15 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 2616. Minimize the Maximum Difference of Pairs |
 3152. Special Array II | general splitting + binary search
 
+Iteration - Binary search find min/max/pivot instead of target. m-1, m, m+1
+153. Find Minimum in Rotated Sorted Array | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
+162. Find Peak Element | while 1: if maxv==v2: return m elif maxv == v1: ...
+462. Minimum Moves to Equal Array Elements II | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
+
 Iteration - Binary search of rotated sorted array
 find pivot first. if L[m] < L[r]: r = m elif L[m] > L[r]: l = m + 1 else r-=1
 33. Search in Rotated Sorted Array
 81. Search in Rotated Sorted Array II | output pivot l-=1 until reach max to get the leftmost pivot
-153. Find Minimum in Rotated Sorted Array
-
-Iteration - Binary search m-1,m,m+1
-162. Find Peak Element | while 1: v1, v2, v3 = L[m-1], L[m], L[m+1]. maxv=max(v1, v2, v3). if maxv==v2: return m elif maxv==v1: r = m-1 else: l = m+1
-462. Minimum Moves to Equal Array Elements II | similar to 162. l,r,f=min(L),max(L),lambda level:sum(abs(x-level) for x in nums). while 1:
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
@@ -784,6 +705,85 @@ Iteration - Left-Right <-|->
 647. Palindromic Substrings | same as 5.
 696. Count Binary Substrings | match.start(0) for match in re.finditer(pattern,s)
 *214. Shortest Palindrome | similar as 5.
+
+Iteration i with accum (additional accumulation not ans)
+53. Maximum Subarray | ans=L[0], acc=0. for x in L: acc=max(acc+x,x), ans=max(ans,acc)
+<121.> Best Time to Buy and Sell Stock | ans=0, lowest=L[0]. for x in L: lowest=min(lowest,x), ans=max(ans, x-lowest)
+134. Gas Station | ans=0, acc=0. for i in range(len(gas)): acc+=gas[i]-cost[i], if acc<0: ans=i+1, acc=0
+152. Maximum Product Subarray | ans=nums[0], minv=1, maxv=1. for x in L: minv=min(x,minv*x,maxv*x), maxv=max(x,minv*x,maxv*x), ans=max(ans,maxv)
+238. Product of Array Except Self | left_accum, right_accum
+331. Verify Preorder Serialization of a Binary Tree | slot=1 if slot-=1 else slot+=1, slot must >0 during iteration and =0 finally
+376. Wiggle Subsequence | similar to 152. up, down = 1, 1 (first wiggle is up or down). for i in range(1,len(nums)): if nums[i]>nums[i-1]: up = down+1 elif nums[i]<nums[i-1]: down = up+1. return max(up, down)
+334. Increasing Triplet Subsequence | min1, min2 = float('inf'), float('inf'). for x in nums: if x<=min1: min1 = x elif x<=min2: min2 = x else: return True
+396. Rotate Function | init ans=current, sumv. current += sumv - nums[-1-i]*len(nums). consider rotate difference only
+452. Minimum Number of Arrows to Burst Balloons | similar to 56. minv, maxv, ans = -inf, -inf, 0. for start, end in sorted(L): if maxv < start: ... else: ...
+581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
+624. Maximum Distance in Arrays | curr_min, curr_max, ans
+746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
+769. Max Chunks To Make Sorted | curr_chunk_max, ans = -1, 0. for i in range(len(L)): if curr_chunk_mask < idx: ... else ... 
+845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
+915. Partition Array into Disjoint Intervals | like 238. mins arr append, while lmax<mins[-1]: ...
+918. Maximum Sum Circular Subarray | use 53. to find max_arr and min_arr. return max(max_arr,sum-min_arr)
+921. Minimum Add to Make Parentheses Valid | diff, ans = 0, 0. simpler than 53.
+926. Flip String to Monotone Increasing | like 238. all0, all1 = s.count(0), s.count(1). l0, l1, ans = 0, 0, all1, iterate from 11..11 -> 00..11 -> 00..00.
+1013. Partition Array Into Three Parts With Equal Sum | target, acc, cnt = sumv // 3, 0, 0. for x in arr: acc += x. cnt += acc==target*(cnt+1)
+1014. Best Sightseeing Pair | maxvi,ans=L[0], -inf. for j in range(1,len(L)): ans=max(ans,maxvi+L[j]-j). maxvi = max(maxvi,L[j]+j)
+1018. Binary Prefix Divisible By 5
+1249. Minimum Remove to Make Valid Parentheses
+1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
+1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
+1652. Defuse the Bomb | if k<0: k=abs(k), code.reverse(). ... . return ans if raw k > 0 else ans[::-1] 
+1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
+1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
+1769. Minimum Number of Operations to Move All Balls to Each Box | rsum, r1s = sum(indices), len(indices). lsum, l1s, ans = 0, 0, []. for i in range(len(L)): ...
+2016. Maximum Difference Between Increasing Elements
+2483. Minimum Penalty for a Shop | ans=0, lowestPenalty=penalty=L.count("Y"). for i in range(len(L)): penalty += (-1)**int(L[i]=="Y"). if penalty<lowestPenalty: ans, lowestPenalty = i+1, penalty
+2554. Maximum Number of Integers to Choose From a Range I
+2962. Count Subarrays Where Max Element Appears at Least K Times | maxv,maxv_indices(mi),ans=max(L),[],0. for i in range(len(L)): if nums[i]==maxv: mi.append(i). if len(mi)>=k: ans+=mi[-k]+1
+3254. Find the Power of K-Size Subarrays I | ans, acc = [L[0] if k==1 else -1], 1. for i in range(1, len(L)): acc = acc + 1 if L[i-1]+1==L[i] else 1. ans.append(L[i] if acc>=k else -1).
+
+Iteration i with start (passed ptr not current) -> for if else
+26. Remove Duplicates from Sorted Array
+80. Remove Duplicates from Sorted Array II | same as 26 but add dup=1or2
+<283.> Move Zeroes | start = 0. for i in range(len(L)): if L[i]: L[start], L[i] = L[i], L[start]. start += 1.
+413. Arithmetic Slices | similar to 674 but ans+=i-start-1
+<674.> Longest Continuous Increasing Subsequence | start, ans = 0, 1 for if else (compare to 300. which is not continuous)
+826. Most Profit Assigning Work | sort(zip(diff,prof)) -> change prof to curr_max_prof -> start=0. for loading in sorted(workers): if L[start][0]<=loading:...
+905. Sort Array By Parity | like 283.
+1021. Remove Outermost Parentheses | acc,start,ans=0,0,[]. for i in range(len(s)): acc+=(-1)**(s[i]==")"). if acc == 0:...
+1024. Video Stitching | ans,start,curr_end=1,1,L[0][1]. while curr_end<time: idx = next((idx for idx in range(start, len(L)) if L[idx][0]>curr_end), len(clips)). # next search start index
+    next_end = max([clips[i][1] for i in range(start, idx)] + [-1]). if next_end == -1: return -1. ans, start, curr_end = ans+1, idx, next_end.
+2200. Find All K-Distant Indices in an Array
+2938. Separate Black and White Balls
+
+Iteration i with start and accum: sliding window -> for sum while
+<209.> Minimum Size Subarray Sum | start,acc,ans=0,0,len(L). for i in range(len(L)): acc+=L[i], while acc>=target: ans=min(ans,end-start+1), sumv-=nums[start], start+=1.
+424. Longest Repeating Character Replacement | # window_max_cnt_char is the char in window that has the most cnt. # assume window_max_cnt_char is x, change all chars in window to x. start, window, window_max_cnt, ans = 0, defaultdict(int), 0, 0.
+567. Permutation in String | start,accum,match=0,Counter(),Counter(s1). for i,c in enumerate(s2): if c in match: while match[c]==0:update, update. else: start+=1,restore match%count.
+713. Subarray Product Less Than K | if k<2: return 0. start,acc,ans=0,1,0. for i in range(len(L)): acc*=L[i]. while acc>=k: acc,start=acc//L[start],start+1. ans+=i-start+1. (while inclusive, update ans at last)
+795. Number of Subarrays with Bounded Maximum | start,larger_left_idx,ans=0,None,0. for i in range(len(L)): if L[i]>right: start,larger_left_idx=i+1,None. else: if nums[i]>=left:larger_left_idx=i. if larger_left_idx: ans+=larger_left_idx-start+1
+904. Fruit Into Baskets
+1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
+1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
+<1695.> Maximum Erasure Value
+1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
+2401. Longest Nice Subarray | start, ans, acc, acc_len = 0, 0, 0, 0. for, while acc -= nums[start], acc |= nums[i]
+2411. Smallest Subarrays With Maximum Bitwise OR | special case L=[x,y,0,0,..,0]
+2516. Take K of Each Character From Left and Right | max_win = 0. start, win_cnt, limit_cnt = 0, [0, 0, 0], [s.count(x)-k for x in "abc"]
+2762. Continuous Subarrays
+2958. Length of Longest Subarray With at Most K Frequency | start,acc,ans=0,{},0. similar as 1838.
+3097. Shortest Subarray With OR at Least K II | start, acc, ans = 0, [0]*31, float('inf').
+3305. Count of Substrings Containing Every Vowel and K Consonants I | same as 3306
+3306. Count of Substrings Containing Every Vowel and K Consonants II | ans, start, window = 0, 0, [deque() for i in range(6)]. for: if valid: ans += min(min_last_vowel_idx, first_conso_idx) - start + 1
+76*. Minimum Window Substring | window = Counter({k: -v for k, v in target.items()}). while all(window[k] >= 0 for k in target):
+
+Iteration - sliding window const
+1052. Grumpy Bookstore Owner | constant sliding window
+30*. Substring with Concatenation of All Words
+2106*. Maximum Fruits Harvested After at Most K Steps | left return right and right return left
+
+Iteration - sliding window irregular
+1040. Moving Stones Until Consecutive II
 
 Iteration - Max overlapped interval
 S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
