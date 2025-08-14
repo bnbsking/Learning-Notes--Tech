@@ -671,7 +671,7 @@ Iteration - Binary search non-sorted
 <153.> Find Minimum in Rotated Sorted Array | AB | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
 162. Find Peak Element | A | while 1: if maxv==v2: return m elif maxv == v1: ...
 462. Minimum Moves to Equal Array Elements II | A | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
-<154*.> Find Minimum in Rotated Sorted Array II | D |
+<154*.> Find Minimum in Rotated Sorted Array II | ABD |
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
