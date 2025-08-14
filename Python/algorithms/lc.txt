@@ -660,15 +660,17 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 2616. Minimize the Maximum Difference of Pairs |
 3152. Special Array II | general splitting + binary search
 
-Iteration - Binary search find min/max/pivot instead of target. m-1, m, m+1
-153. Find Minimum in Rotated Sorted Array | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
-162. Find Peak Element | while 1: if maxv==v2: return m elif maxv == v1: ...
-462. Minimum Moves to Equal Array Elements II | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
-
-Iteration - Binary search of rotated sorted array
-find pivot first. if L[m] < L[r]: r = m elif L[m] > L[r]: l = m + 1 else r-=1
-33. Search in Rotated Sorted Array
-81. Search in Rotated Sorted Array II | output pivot l-=1 until reach max to get the leftmost pivot
+Iteration - Binary search non-sorted
+    A. unique + find target -> "L[m] == target" early stopping; judge pivot by "L[m] > L[r]"
+    B. unique + find min/max/pivot -> cmp(m-1, m, m+1)
+    C. duplicate + find target ->
+    D. duplicate + find min/max/pivot ->
+33. Search in Rotated Sorted Array | A |
+81. Search in Rotated Sorted Array II | C | output pivot l-=1 until reach max to get the leftmost pivot
+153. Find Minimum in Rotated Sorted Array | B | while 1: if min(v1, v2, v3) == v2: return nums[m] elif nums[m] > nums[r]: ...
+162. Find Peak Element | B | while 1: if maxv==v2: return m elif maxv == v1: ...
+462. Minimum Moves to Equal Array Elements II | B | l,r,f=min(L),max(L),lambda lvl:sum(abs(x-lvl) for x in nums). while 1: same as 162
+154*. Find Minimum in Rotated Sorted Array II | D |
 
 Iteration - Bit operations
 <136.> Single Number | return ^:all
