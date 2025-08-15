@@ -464,6 +464,7 @@ Iteration or naive 0
 1464. Maximum Product of Two Elements in an Array
 1475. Final Prices With a Special Discount in a Shop
 1502. Can Make Arithmetic Progression From Sequence
+1508. Range Sum of Sorted Subarray Sums
 1518. Water Bottles
 1550. Three Consecutive Odds
 1572. Matrix Diagonal Sum
@@ -791,6 +792,7 @@ Iteration - sliding window const
 1052. Grumpy Bookstore Owner | constant sliding window
 30*. Substring with Concatenation of All Words
 2106*. Maximum Fruits Harvested After at Most K Steps | left return right and right return left
+2134. Minimum Swaps to Group All 1's Together II | ans = max_cover - num_of_ones
 
 Iteration - sliding window irregular
 1040. Moving Stones Until Consecutive II
