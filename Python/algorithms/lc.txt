@@ -833,8 +833,9 @@ Queue 0
 
 Queue
 649. Dota2 Senate | C,Q=Counter(senate),deque(senate). while C["R"]*C["D"]: ego,chance,max_chance=Q.popleft(),1,1. rival="D" if ego=="R" else "R". while chance*C[rival]:...
+1937. Maximum Number of Points with Cost | combine 396. and 239.
 --
-239*. Sliding Window Maximum | (val,idx) in queue, length is not const, always desc sorted
+239*. Sliding Window Maximum | Max Queue: double queue, pop unecessary if face larger, self.maxQ[0] is max
 2561*. Rearranging Fruits | more1: Q, more2: Q, minv1: int, minv2: int. cost1 and cost2 -> swap max more and min more. cost3 and cost4 -> swap max more and minv + swap minv max 
 
 Recursion 0 (bottom-up or top-down)
