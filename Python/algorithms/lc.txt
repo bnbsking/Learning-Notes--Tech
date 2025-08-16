@@ -109,7 +109,6 @@ Graph Traversal dfs (init recur_func and visited) when: achievable (get path can
 133. Clone Graph | A1 | f(x) | node2dict, dict2node
 200. Number of Islands | B1 | f(x) | same as 130.
 399. Evaluate Division | A1B1C1 | f(x, target, visitS)->ans. for start, end in queries: ans.append(f(start, end, set()))
-457. Circular Array Loop | A1B1 | self.ans, visitEdgeS = False, set(). def f(i, pathS): nexti=(i+nums[i])%len(nums). if i!=nexti and (i,nexti) not in visitEdgeS:
 529. Minesweeper | f(x)
 547. Number of Provinces | A1B1 | f(x)
 695. Max Area of Island | A1B1 | f(x)
@@ -139,6 +138,7 @@ Graph - Topological sort (Kahn's: init inDeg, leaves) when: undirected graph inD
 <207.> Course Schedule | E | DFS, G is constant, while leaves
 210. Course Schedule II | E | DFS, G is constant, while leaves
 310. Minimum Height Trees | F | BFS, G is varied, while len(G)>2: init leaves
+457. Circular Array Loop | F | BFS + ll
 2192. All Ancestors of a Node in a Directed Acyclic Graph | F | while inDegD: init leaves
 
 Graph - Spanning tree (Prim: init H, L, S)
@@ -1107,6 +1107,7 @@ String matching
 Trie
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
 211. Design Add and Search Words Data Structure | Trie + recursion
+421. Maximum XOR of Two Numbers in an Array | Trie + for x in num: reverse bit traverse
 648. Replace Words
 676. Implement Magic Dictionary | Build Trie. def f(c=0,p=self.T,err=0): if c==len(word): return "end" in p and err==1. if word[c] in p and find(c+1, p[word[c]], err): return True. if err==0 and (len(p)>1 or "end" not in p): .... # if "end" be the unique key, not traversal. # call both match and unmatch even c is match (err must be 0)
 677. Map Sum Pairs | self.D[key]->val, self.T:trie
