@@ -603,6 +603,7 @@ Iteration
 1497. Check If Array Pairs Are Divisible by k | L=[0]*k. for x in arr: L[x%k] += 1.
 1503. Last Moment Before All Ants Fall Out of a Plank | max( max(left) if left else 0, n-min(right) if right else 0 ). (don't trace ant-i but switch id while collision)
 1509. Minimum Difference Between Largest and Smallest Value in Three Moves | bubble sort. min(max4-min0, max3-min1, max2-min2, max1-min3)
+1727. Largest Submatrix With Rearrangements | like 85. for each row: get continuous-acc-heights and sort. 
 1813. Sentence Similarity III | return common_prefix_length + common_suffix_length >= min(L1, L2)
 1980. Find Unique Binary String | return "".join( str(int(L[i][i]=="0")) for i in range(len(L)) ) # diagnoal algorithm
 1992. Find All Groups of Farmland | add switchD (i,j)->(i,j+rect)
