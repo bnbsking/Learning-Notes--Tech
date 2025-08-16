@@ -99,6 +99,7 @@ Graph Traversal bfs (init queue and visited) when: shortest distance (unweighted
 1030. Matrix Cells in Distance Order | B1 |
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1 |
+2101. Detonate the Maximum Bombs | A1B1 | bfs indegree==1, bfs remains
 3372. Maximize the Number of Target Nodes After Connecting Trees I | A1 | max_tree_2_nodes is independent from any query (compute once and add the const to query)
 127*. Word Ladder
 3373*. Maximize the Number of Target Nodes After Connecting Trees II | A1 | split to even nodes and odd nodes
@@ -745,6 +746,7 @@ Iteration i with accum (additional accumulation not ans)
 1535. Find the Winner of an Array Game | current_winner(cwr), consecutive_wins(cws) = L[0], 0. for i in range(1,len(L)): if L[i]>cwr: cwr, cws = L[i], 1 else cws+=1 if cws==k: break
 1608. Special Array With X Elements Greater Than or Equal X | C, acc = sorted(Counter(L).items(), reverse=True), 0. for x, times in C: if acc>x: return acc. acc+=times. if acc==x: return x. elif acc>x: return -1.
 1652. Defuse the Bomb | if k<0: k=abs(k), code.reverse(). ... . return ans if raw k > 0 else ans[::-1] 
+1685. Sum of Absolute Differences in a Sorted Array | like 396. and 1937.
 1701. Average Waiting Time | wait_time, sum_wait_time, prev_arrive = 0, 0, 0
 1759. Count Number of Homogenous Substrings | ans=1, cont=1. for x in L[1:]: cont=cont+1 if s[i]==s[i-1] else 1. ans+=cont (ans+=cont due to arithmetic sum, similar to 467)
 1769. Minimum Number of Operations to Move All Balls to Each Box | rsum, r1s = sum(indices), len(indices). lsum, l1s, ans = 0, 0, []. for i in range(len(L)): ...
