@@ -701,7 +701,8 @@ Iteration - Bit operations
 Iteration - FSM
 <309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
 714. Best Time to Buy and Sell Stock with Transaction Fee | empty,hold=0,-prices[0]. for p in prices: empty,hold=max(empty,hold+p-fee), max(hold,empty-p).
-123*. Best Time to Buy and Sell Stock III | b1, s1, b2, s2 = -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
+123*. Best Time to Buy and Sell Stock III | s0, b1, s1, b2, s2 = 0, -P[0], 0, -P[0], 0. for p in P: b1, s1, b2, s2 = max(b1,s0-p), max(s1, b1+p), max(b2, s1-p), max(s2, b2+p). return sel2
+188*. Best Time to Buy and Sell Stock IV | s0 -> b0 -> s1 -> ... -> bk_1 -> sk
 
 Iteration - Left-Right ->|<-
 11. Container With Most Water | ans=0. while l<=r: ans=max(ans,(r-l)*min(L[l],L[r])). if height[l]<=height[r]: l+=1 else: r-=1
@@ -1009,6 +1010,7 @@ Recursion return
 979. Distribute Coins in Binary Tree | | self.ans=0. f(T) -> exceed_or_lack coins. def f(T=root): if T: l,r=f(T.left),f(T.right). self.ans+=abs(l)+abs(r). return T.val-1+l+r. else: return 0.
 1008. Construct Binary Search Tree from Preorder Traversal | | Same as 105. 
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
+1376. Time Needed to Inform All Employees | |
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
 2807. Insert Greatest Common Divisors in Linked List | | gcd(a,b)->x. ll.
 2787. Ways to Express an Integer as Sum of Powersv | C | f(remain=n, start=1), pick and not-pick
