@@ -1,3 +1,7 @@
+Binary Lifting: Use dfs with path (backtracking) to construct self.parent_level_dict = defaultdict(list). node i's 2**j parent
+
+1483*. Kth Ancestor of a Tree Node
+
 Difference Array (range update, query at finally)
 3355. Zero Array Transformation I | diff. compare acc_ops nums[i]
 3356. Zero Array Transformation II | simpler than 3362, no storage. not enough consume immediately. diff, k, acc_ops = [0] * (len(nums) + 1), 0, 0.
@@ -946,10 +950,10 @@ Recursion non-return
 1039. Minimum Score Triangulation of Polygon | C |
 1361. Validate Binary Tree Nodes | | if all(ele<2 for ele in inL) and inL.count(0)==1: root, visitS = inL.index(0), set(range(n)). def g(i=root).
 1367. Linked List in Binary Tree | C | f(T=root,i=0). self.ans=False. if i == len(L): self.ans = True. ... f(T.left, i+1), f(T.right, i+1), f(T.left, 0), f(T.right, 0)
-1530. Number of Good Leaf Nodes Pairs | f(T,path=[]). (LCA like 235.)
+1530. Number of Good Leaf Nodes Pairs | f(T) -> List[int] leaves distance
 <1593.> Split a String Into the Max Number of Unique Substrings | f(s=s,U=None) if s not in U: self.ans = max(self.ans, len(U)+1). for...
 2044. Count Number of Maximum Bitwise-OR Subsets | f(i=0, acc=0)
-2096. Step-By-Step Directions From a Binary Tree Node to Another | f(T,path=[]). (LCA like 235.)
+2096. Step-By-Step Directions From a Binary Tree Node to Another | D | find two path and intersect.
 2305. Fair Distribution of Cookies | CD | backtracking and memorization. self.ans,visitS,_=float('inf'),set(),cookies.sort(). def f(L=[0]*k, start=0): key=(tuple(sorted(L)),start) if key not in visitS: ...
 2415. Reverse Odd Levels of Binary Tree | | Level-order. D[path] -> Tree.
 2597. The Number of Beautiful Subsets | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
@@ -972,11 +976,11 @@ Recursion return
 111. Minimum Depth of Binary Tree | | f(T) -> height
 129. Sum Root to Leaf Numbers | | f(T)->List[path]
 <206.> Reverse Linked List | | ll. f(L)->Node. if not head or not head.next: return head. reverse=self.reverseList(head.next). head.next.next=head. head.next=None. return reverse.
-235. Lowest Common Ancestor of a Binary Search Tree | | f(T, target) -> find, path.
-236. Lowest Common Ancestor of a Binary Tree | (LCA)
-  + Naive recursion (good at balanced) as 235.
-  + (Too complex) Change to Range min query (good at general): euler path, depth path, D: T.val->"first occurence index in euler path". Build segment tree each node (T.val,index) then query(D[p.val],D[q.val])
-  + (Too complex) binary lifting
+235. Lowest Common Ancestor of a Binary Search Tree | | f(T). if T is max, elif T is min else return T.
+236. Lowest Common Ancestor of a Binary Tree | LCA
+  + If balance and single query -> naive, get two path by backpropagation and intersect (similar to 2096.)
+  + Segment tree (too complex)
+  + Binary lifting -> raise to same shallow depth, jump to the most shallow different node
 241. Different Ways to Add Parentheses | | split + similar to 95.
 257. Binary Tree Paths | | f(T)->path
 306. Additive Number | | f(a,b,c)->bool. cut all possibilities of 3 parts, each do recursive call
@@ -1138,7 +1142,6 @@ UnionFind
 
 Pending diffiuclt
 907. Sum of Subarray Minimums | stack+DP | pop while smaller, dp[stack[-1]] + arr[i]*(i-stack[-1]) if stack else arr[i]*(i+1)
-1483*. Kth Ancestor of a Tree Node | Binary lifting. self.D[i][j]=i-th node's 2**j ancestor. Column major filling since it may not have ancestor before filling parent. To fill self.D[i][j-1], parent=self.D[i][j-1] 
 3480*. Maximize Subarrays After Removing One Conflicting Pair | https://chatgpt.com/c/6884966b-ada4-8009-9811-14d25b14551f
 
 Bad
