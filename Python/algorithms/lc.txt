@@ -625,6 +625,7 @@ Iteration
 60*. Permutation Sequence | if n == 1: return "1". L, ans, k = list(range(1, n + 1)), [], k - 1
 68*. Text Justification
 149*. Max Points on a Line | use determinant, O(n^3)
+679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
 
 Iteration - Arithmetic sort or Minimum swaps sort
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
