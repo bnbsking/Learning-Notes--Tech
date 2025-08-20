@@ -1,11 +1,10 @@
 Binary Lifting: Use dfs with path (backtracking) to construct self.parent_level_dict = defaultdict(list). node i's 2**j parent
-
 1483*. Kth Ancestor of a Tree Node
 
 Difference Array (range update, query at finally)
 3355. Zero Array Transformation I | diff. compare acc_ops nums[i]
 3356. Zero Array Transformation II | simpler than 3362, no storage. not enough consume immediately. diff, k, acc_ops = [0] * (len(nums) + 1), 0, 0.
-3362&. Zero Array Transformation III | queries.sort(reverse=True). H, diff, acc_ops = [], [0] * (len(L) + 1), 0. for: update acc_ops, store, consume, compare.
+3362. Zero Array Transformation III | queries.sort(reverse=True). H, diff, acc_ops = [], [0] * (len(L) + 1), 0. for: update acc_ops, store, consume, compare.
 
 DP 0
 62. Unique Paths
@@ -1146,6 +1145,7 @@ UnionFind
 ----------
 
 Pending diffiuclt
+174*. Dungeon Game
 907. Sum of Subarray Minimums | stack+DP | pop while smaller, dp[stack[-1]] + arr[i]*(i-stack[-1]) if stack else arr[i]*(i+1)
 3480*. Maximize Subarrays After Removing One Conflicting Pair | https://chatgpt.com/c/6884966b-ada4-8009-9811-14d25b14551f
 
