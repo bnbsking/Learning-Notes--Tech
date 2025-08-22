@@ -535,6 +535,7 @@ Iteration or naive 0
 3136. Valid Word
 3163. String Compression III | general split
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
+3195. Find the Minimum Area to Cover All Ones I
 3330. Find the Original Typed String I | general split
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
@@ -846,10 +847,15 @@ Queue 0
 2073. Time Needed to Buy Tickets
 
 Queue
++ MaxQueue: A
+    + int: Q, maxQ
+    + append: normal Q, stack behavior maxQ
+    + popleft: normal Q, pop maxQ[0] if same ele
 649. Dota2 Senate | C,Q=Counter(senate),deque(senate). while C["R"]*C["D"]: ego,chance,max_chance=Q.popleft(),1,1. rival="D" if ego=="R" else "R". while chance*C[rival]:...
-1937. Maximum Number of Points with Cost | combine 396. and 239.
+1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | A | add minQ
+1937. Maximum Number of Points with Cost | A | combine 396. and 239.
 --
-239*. Sliding Window Maximum | Max Queue: double queue, pop unecessary if face larger, self.maxQ[0] is max
+239*. Sliding Window Maximum | A |
 2561*. Rearranging Fruits | more1: Q, more2: Q, minv1: int, minv2: int. cost1 and cost2 -> swap max more and min more. cost3 and cost4 -> swap max more and minv + swap minv max 
 
 Recursion 0 (bottom-up or top-down)
@@ -1057,12 +1063,20 @@ Sort
 977. Squares of a Sorted Array
 4*. Median of Two Sorted Arrays | if k < m1 - l1 + 1 + m2 - l2 + 1: remove larger median arr's larger-half else: remove smaller median arr's smaller half
 
-SortedContainers (set like: add, remove, but has bisect_left, add-and-remove instead of modify)
-715*. Range Module | maintain sorted intervals. get_all_overlaps(start: int, end: int). when query time: (0, 2) (2, 3) can be merged
+SortedContainers
++ SortedList
+    + set like class, has add, remove, also has bisect_left.
+    + remove and add instead of modify
+    + to delete several indices. delete from the largest to the smallest to prevent index shifting
++ Disjoint set interval: A
+    + init: (float('-inf'), float('inf'), val)
+    + _get_boundary(l, r) -> bl: int, br: int
+    + _split_boundary(l, r, bl, br) -> bl: int, br: int. split the leftmost and the rightmost without modify value
+218*. The Skyline Problem | A | 
+715*. Range Module | A |
 729. My Calendar I
-731. My Calendar II | intersection=[], union=[]. get_all_overlaps(start: int, end: int) -> List[Tuple[int]].
-732*. My Calendar III | L=[]. get_all_overlaps(start: int, end: int). ...
-1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | start, L, ans = 0, SL(L[0]), 1. constant sliding window
+731. My Calendar II | A |
+732*. My Calendar III | A |
 2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
 2563. Count the Number of Fair Pairs | L, ans = SortedList(), 0. for x in nums: l = L.bisect_left(lower - x). r = L.bisect_right(upper - x). ans += r - l. L.add(x)
 
