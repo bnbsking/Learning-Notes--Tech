@@ -786,6 +786,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 795. Number of Subarrays with Bounded Maximum | start,larger_left_idx,ans=0,None,0. for i in range(len(L)): if L[i]>right: start,larger_left_idx=i+1,None. else: if nums[i]>=left:larger_left_idx=i. if larger_left_idx: ans+=larger_left_idx-start+1
 904. Fruit Into Baskets
 1004. Max Consecutive Ones III | ans,acc,start,k_=0,0,0,k. for i in range(len(L)): if L[i]: elif k>0: ... else: .... 
+1493. Longest Subarray of 1's After Deleting One Element
 1658. Minimum Operations to Reduce X to Zero | similar to 209, but initially target<=0 need return, because while acc>=target cause acc negative.
 <1695.> Maximum Erasure Value
 1838. Frequency of the Most Frequent Element | L.sort(). start,acc,ans=0,0,1. for i in range(1,len(L)): accum+=(L[i]-L[i-1])*(i-start). while acc>k: acc-=L[i]-L[start], start+=1. ans=max(ans,i-start+1). (while exclusive, update ans at last)
@@ -1022,6 +1023,8 @@ E precompute: E0 no, E1 yes
 955. Delete Columns to Make Sorted II | | irregular_idx(s1,s2)->idx. f(L)->None. for if idx!=-1: f([s[:idx]+s[idx+1:] for s in L])
 979. Distribute Coins in Binary Tree | | self.ans=0. f(T) -> exceed_or_lack coins. def f(T=root): if T: l,r=f(T.left),f(T.right). self.ans+=abs(l)+abs(r). return T.val-1+l+r. else: return 0.
 1008. Construct Binary Search Tree from Preorder Traversal | | Same as 105. 
+1048. Longest String Chain
+1049. Last Stone Weight II | | same as find min of "+-x1 +-x2 ... +- xn"
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1376. Time Needed to Inform All Employees | |
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
@@ -1086,6 +1089,7 @@ E precompute: E0 no, E1 yes
 232. Implement Queue using Stacks
 735. Asteroid Collision | L=[]. for x in asteroids: if L and L[-1]>0 and x<0: addx=True. while L and addx:..., else: L.append(x)
 844. Backspace String Compare
+1047. Remove All Adjacent Duplicates In String
 1544. Make The String Great
 
 [Stack]
