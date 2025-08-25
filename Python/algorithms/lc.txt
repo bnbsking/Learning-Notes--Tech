@@ -703,7 +703,9 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 2433. Find The Original Array of Prefix Xor | ^ has association
 2275. Largest Combination With Bitwise AND Greater Than Zero | return max count of certain digit
 2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
-3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x) 
+3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x)
+233*. Number of Digit One | iterate (prefix, suffix). compare prefix_lsb to 1.
+400. Nth Digit | digit_len=1, nums_in_digit_len=9, minv_in_digit_len=1. 1 locate the block -> find n, digit_len. 2 find i-th in num in the block. 3. find num. 4. find digit.
 
 [Iteration - FSM]
 <309.> Best Time to Buy and Sell Stock with Cooldown | emptycanbuy, hold, emptycannotbuy. initialization depends on first loop. (0,-p,-p)
