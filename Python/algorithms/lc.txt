@@ -527,6 +527,7 @@ D backtracking (get path)
 2942. Find Words Containing Character
 2966. Divide Array Into Arrays With Max Difference
 2971. Find Polygon With the Largest Perimeter
+3000. Maximum Area of Longest Diagonal Rectangle
 3011. Find if Array Can Be Sorted | general split
 3024. Type of Triangle
 3042. Count Prefix and Suffix Pairs I
@@ -626,6 +627,7 @@ D backtracking (get path)
 60*. Permutation Sequence | if n == 1: return "1". L, ans, k = list(range(1, n + 1)), [], k - 1
 68*. Text Justification
 149*. Max Points on a Line | use determinant, O(n^3)
+273*. Integer to English Words
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
 
 [Iteration - Arithmetic sort or Minimum swaps sort]
