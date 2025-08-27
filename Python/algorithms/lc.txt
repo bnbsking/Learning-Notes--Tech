@@ -75,6 +75,7 @@
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
 3202. Find the Maximum Length of Valid Subsequence II | A1 | longest interleaving subsequence: L[i][y] = L[y][i] + 1
 3363*. Find the Maximum Number of Fruits Collected | 3 routes are independent
+3459*. Length of Longest V-Shaped Diagonal Segment
 
 [Graph traversal] and cycle
 A record visit by
@@ -294,6 +295,7 @@ D backtracking (get path)
 703. Kth Largest Element in a Stream
 767. Reorganize String
 1046. Last Stone Weight
+1054. Distant Barcodes
 1792. Maximum Average Pass Ratio
 1845. Seat Reservation Manager
 1921. Eliminate Maximum Number of Monsters
@@ -450,6 +452,7 @@ D backtracking (get path)
 1037. Valid Boomerang
 1041. Robot Bounded In Circle
 1051. Height Checker
+1071. Greatest Common Divisor of Strings
 1122. Relative Sort Array
 1137. N-th Tribonacci Number
 1220*. Count Vowels Permutation
@@ -603,6 +606,7 @@ D backtracking (get path)
 1007. Minimum Domino Rotations For Equal Row | for a, b in zip(tops, bottoms): S &= {a, b}. for ele in S: ans = min(ans, sum(x!=ele for x in tops), sum(x!=ele for x in bottoms))
 1017. Convert to Base -2 | S = set() # digit_one_indices. while n!=0: power=get_pow(n). n-=(-2)**power. S.add(power). get_power consider positive and negative for abs(n).
 1023. Camelcase Matching | if same capital -> general splitting -> true if all is_subsequence
+1053. Previous Permutation With One Swap | first_inc, first_smaller, leftmost_eq
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
