@@ -104,6 +104,7 @@ D backtracking (get path)
 1971. Find if Path Exists in Graph | A1 |
 2101. Detonate the Maximum Bombs | A1B1 | bfs indegree==1, bfs remains
 3372. Maximize the Number of Target Nodes After Connecting Trees I | A1 | max_tree_2_nodes is independent from any query (compute once and add the const to query)
+3446. Sort Matrix by Diagonals
 127*. Word Ladder
 3373*. Maximize the Number of Target Nodes After Connecting Trees II | A1 | split to even nodes and odd nodes
 
@@ -263,6 +264,7 @@ D backtracking (get path)
 954. Array of Doubled Pairs | arr.sort(key=lambda x: abs(x)). for i, x in enumerate(arr): indices[x].add(i). in_arr_c = Counter(arr). iterate and update indices and in_arr_c
 962. Maximum Width Ramp | D val->idx, D_min, ans.
 1027. Longest Arithmetic Subsequence | O(n) * "set(O(n-1))/2"
+1072. Flip Columns For Maximum Number of Equal Rows | Counter, find sum of complement
 1915. Number of Wonderful Substrings | D,acc,ans={0:1},0,0. for c in word: acc^=2**(ord(c)-ord("a")). ans+=D.get(acc,0) diff0. ans+=D.get(acc^(1<<i),0) diff1. D[acc]=D.get(acc,0)+1. 
 1218. Longest Arithmetic Subsequence of Given Difference | D[x] = 1 if x-difference not in D else D[x-difference]+1
 1282. Group the People Given the Group Size They Belong To | D, ans = defaultdict(lambda :[]), []. for i,size in enumerate(groupSizes): D[size].append(i) if len(D[size])==size: ans.append(D[size]). D[size]=[]
