@@ -609,6 +609,7 @@ D backtracking (get path)
 1017. Convert to Base -2 | S = set() # digit_one_indices. while n!=0: power=get_pow(n). n-=(-2)**power. S.add(power). get_power consider positive and negative for abs(n).
 1023. Camelcase Matching | if same capital -> general splitting -> true if all is_subsequence
 1053. Previous Permutation With One Swap | first_inc, first_smaller, leftmost_eq
+1073. Adding Two Negabinary Numbers
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
@@ -625,6 +626,7 @@ D backtracking (get path)
 2929. Distribute Candies Among Children II | minc, maxc. for c in (minc, maxc + 1): ans += maxb = minb + 1 
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
+3021. Alice and Bob Playing Flower Game | ans += maxn - minn + 1
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3403. Find the Lexicographically Largest String From the Box I
@@ -982,6 +984,7 @@ E precompute: E0 no, E1 yes
 51*. N-Queens | backtracking + no need copy B since B is invariant
 52*. N-Queens II
 140*. Word Break II | similar as 40
+282*. Expression Add Operators
 
 [Recursion return]
 22. Generate Parentheses | | f(L=['('],l=1,r=0)->ans. if r==self.n: return L elif l==r: call l elif l<self.n: call l call r elif l==self.n: call r
