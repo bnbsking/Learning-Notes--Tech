@@ -291,6 +291,7 @@ D backtracking (get path)
 1171. Remove Zero Sum Consecutive Nodes from Linked List | Cut all -> all update | D,sumv,L={0:-1},0,[]. while head: L.append(x), sumv+=x, if sumv in D: for i in range(len(L)-D[sumv]-1): sumv-=L.pop(), D.pop(sumv). D[sumv]=len(L)-1.
 1371. Find the Longest Substring Containing Vowels in Even Counts | D,V,acc,ans={0:-1},"aeiou",0,0. for i in range(len(s)): flip ith bit if is vowel. if acc in D: ans=max(ans,i-D[acc]) else: D[acc]=i
 1590. Make Sum Divisible by P | target=sum(L)%p. if target==0: return 0. acc,D,ans=0,{0:-1},float('inf'). for i,x in enumerate(L): acc+=x. if (acc-target)%p in D: ans=min(ans,i-D[(acc-target)%p]). D[acc%p]=i
+1074*. Number of Submatrices That Sum to Target | for col_l, for col_r, for row. O(n^2 * m)
 
 [Heap 0]
 23*. Merge k Sorted Lists
@@ -1087,7 +1088,12 @@ E precompute: E0 no, E1 yes
     + init: (float('-inf'), float('inf'), val)
     + _get_boundary(l, r) -> bl: int, br: int
     + _split_boundary(l, r, bl, br) -> bl: int, br: int. split the leftmost and the rightmost without modify value
-218*. The Skyline Problem | A | 
++ sliding window medium
+    + way1: sortedcontainer
+    + way2: max-heap of smaller half + min-heap of larger half
+218*. The Skyline Problem | A |
+295*. Find Median from Data Stream
+480*. Sliding Window Median
 715*. Range Module | A |
 729. My Calendar I
 731. My Calendar II | A |
