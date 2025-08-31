@@ -871,6 +871,9 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 239*. Sliding Window Maximum | A |
 2561*. Rearranging Fruits | more1: Q, more2: Q, minv1: int, minv2: int. cost1 and cost2 -> swap max more and min more. cost3 and cost4 -> swap max more and minv + swap minv max 
 
+[Re]
+1078. Occurrences After Bigram | overlapping matching by (?=())
+
 [Recursion 0] (bottom-up or top-down)
 2. Add Two Numbers | ll
 21. Merge Two Sorted Lists | ll
@@ -986,6 +989,7 @@ E precompute: E0 no, E1 yes
 52*. N-Queens II
 140*. Word Break II | similar as 40
 282*. Expression Add Operators
+301*. Remove Invalid Parentheses
 
 [Recursion return]
 22. Generate Parentheses | | f(L=['('],l=1,r=0)->ans. if r==self.n: return L elif l==r: call l elif l<self.n: call l call r elif l==self.n: call r
