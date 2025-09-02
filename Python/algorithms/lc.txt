@@ -1046,6 +1046,7 @@ E precompute: E0 no, E1 yes
 1048. Longest String Chain
 1049. Last Stone Weight II | | same as find min of "+-x1 +-x2 ... +- xn"
 1079. Letter Tile Possibilities | D |
+1080. Insufficient Nodes in Root to Leaf Paths | | bottom up + top down
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1376. Time Needed to Inform All Employees | |
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
