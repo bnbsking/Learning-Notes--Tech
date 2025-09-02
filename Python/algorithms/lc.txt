@@ -628,6 +628,7 @@ D backtracking (get path)
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 3021. Alice and Bob Playing Flower Game | ans += maxn - minn + 1
+3025. Find the Number of Ways to Place People I | points.sort(key = lambda tup: (tup[0], -tup[1])). O(n^3)
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3403. Find the Lexicographically Largest String From the Box I
@@ -984,12 +985,13 @@ E precompute: E0 no, E1 yes
 2597. The Number of Beautiful Subsets | L.sort(). self.ans=0. def f(start=0, path=set()): self.ans+=1. for i in range(start, len(L)): if L[i]-k not in path: f(i+1, path|{nums[i]}).
 2641. Cousins in Binary Tree II | | f(T=root, level=0). g(p=root, sec_deg_val=0, level=0).
 --
-37*. Sudoku Solver | D1 | rows=[set() for _ in range(9)], cols, grid.
-51*. N-Queens | backtracking + no need copy B since B is invariant
-52*. N-Queens II
-140*. Word Break II | similar as 40
-282*. Expression Add Operators
-301*. Remove Invalid Parentheses
+37*. Sudoku Solver | D | rows=[set() for _ in range(9)], cols, grid.
+51*. N-Queens | D |
+52*. N-Queens II | D |
+140*. Word Break II | D | similar as 40
+282*. Expression Add Operators | D |
+301*. Remove Invalid Parentheses | D |
+312*. Burst Balloons | CD |
 
 [Recursion return]
 22. Generate Parentheses | | f(L=['('],l=1,r=0)->ans. if r==self.n: return L elif l==r: call l elif l<self.n: call l call r elif l==self.n: call r
@@ -1043,6 +1045,7 @@ E precompute: E0 no, E1 yes
 1008. Construct Binary Search Tree from Preorder Traversal | | Same as 105. 
 1048. Longest String Chain
 1049. Last Stone Weight II | | same as find min of "+-x1 +-x2 ... +- xn"
+1079. Letter Tile Possibilities | D |
 1325. Delete Leaves With a Given Value | | f(T)->T. simpler than 450. def f(T): if T: T.left,T.right=f(T.left),f(T.right). return None if T.left is None and T.right is None and T.val==target else T.
 1376. Time Needed to Inform All Employees | |
 1545. Find Kth Bit in Nth Binary String | | f(n=n, k=k-1). mid_idx = 2**(n-1)-1. Like 779.
