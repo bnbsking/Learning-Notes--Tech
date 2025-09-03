@@ -100,6 +100,7 @@ D backtracking (get path)
 909. Snakes and Ladders | A1 | Q, inQ=deque([(node=1, depth=0)]), {1}. ... for nextx in range(x+1, min(x+6, n*n)+1): a, b = idx2cor(nextx). finalx = nextx if board[a][b] == -1 else board[a][b]. if finalx not in inQ:
 994. Rotting Oranges | B1 | x,depth=Q.popleft().
 1030. Matrix Cells in Distance Order | B1 |
+1091. Shortest Path in Binary Matrix | B1 |
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1 |
 2101. Detonate the Maximum Bombs | A1B1 | bfs indegree==1, bfs remains
@@ -314,6 +315,7 @@ D backtracking (get path)
 355. Design Twitter | {userId:follower set}, {userId: queue(time,tweetID)}, heapq.heapify((time,posts)) while calling getNewsFeed
 373. Find K Pairs with Smallest Sums | heap(sumv,i,j), inH(i,j)
 659. Split Array into Consecutive Subsequences | H=[[1,nums[0]]] #(len, max). for i in range(1,len(nums)): L,find=[],False. while not find and H: length,maxv=heapq.heappop(H). if nums[i]-maxv>1:check, elif nums[i]-maxv==1:extend, else:collect L
+1090. Largest Values From Labels
 1353. Maximum Number of Events That Can Be Attended | add (end) if already start; pop (end) if already end
 1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
 1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
@@ -629,7 +631,7 @@ D backtracking (get path)
 2914. Minimum Number of Changes to Make Binary String Beautiful | return sum( int(s[2*i])^int(s[2*i+1]) for i in range(len(s)//2) )
 2918. Minimum Equal Sum of Two Arrays After Replacing Zeros
 3021. Alice and Bob Playing Flower Game | ans += maxn - minn + 1
-3025. Find the Number of Ways to Place People I | points.sort(key = lambda tup: (tup[0], -tup[1])). O(n^3)
+3025. Find the Number of Ways to Place People I | same as 3027.
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3403. Find the Lexicographically Largest String From the Box I
@@ -640,6 +642,7 @@ D backtracking (get path)
 149*. Max Points on a Line | use determinant, O(n^3)
 273*. Integer to English Words
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
+3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax 
 
 [Iteration - Arithmetic sort or Minimum swaps sort]
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
