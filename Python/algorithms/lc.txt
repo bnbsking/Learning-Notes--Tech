@@ -71,6 +71,7 @@
 583. Delete Operation for Two Strings | same as 1143.
 712. Minimum ASCII Delete Sum for Two Strings | same as 1143.
 1035. Uncrossed Lines | same as 1143
+1092*. Shortest Common Supersequence | clear prev row 
 <1143.> Longest Common Subsequence | if same: L[i][j]=upperleft+1 else: L[i][j]=max(up, left)
 1277. Count Square Submatrices with All Ones | similar as 221. ans is sum all
 3202. Find the Maximum Length of Valid Subsequence II | A1 | longest interleaving subsequence: L[i][y] = L[y][i] + 1
@@ -547,6 +548,7 @@ D backtracking (get path)
 3330. Find the Original Typed String I | general split
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
+3516. Find Closest Person
 
 [Iteration]
 17. Letter Combinations of a Phone Number
