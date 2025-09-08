@@ -465,6 +465,7 @@ D backtracking (get path)
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
 1290. Convert Binary Number in a Linked List to Integer | ll
+1304. Find N Unique Integers Sum up to Zero
 1318. Minimum Flips to Make a OR b Equal to c
 1331. Rank Transform of an Array
 1351. Count Negative Numbers in a Sorted Matrix
@@ -619,6 +620,7 @@ D backtracking (get path)
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
+1317. Convert Integer to the Sum of Two No-Zero Integers | a, b = 1, n - 1. a become larger if has has zero, b become smaller if has zero
 1432. Max Difference You Can Get From Changing an Integer | first_ne_9_i -> replace as 9, first_ge_2_i -> replace as 1 or 0 or no-replace (e.g. 333)
 1497. Check If Array Pairs Are Divisible by k | L=[0]*k. for x in arr: L[x%k] += 1.
 1503. Last Moment Before All Ants Fall Out of a Plank | max( max(left) if left else 0, n-min(right) if right else 0 ). (don't trace ant-i but switch id while collision)
@@ -644,6 +646,7 @@ D backtracking (get path)
 149*. Max Points on a Line | use determinant, O(n^3)
 273*. Integer to English Words
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
+3495. Minimum Operations to Make Array Elements Zero | precompute range of power of 4. iterate all range and add if has intersection.
 3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax 
 
 [Iteration - Arithmetic sort or Minimum swaps sort]
@@ -720,6 +723,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 1863. Sum of All Subset XOR Totals | complex than 477. for i in range(32): count 0s and 1s. for get_all in range(1,len(L)+1): for get_1 in range(1, get_all+1, 2): ....
 2433. Find The Original Array of Prefix Xor | ^ has association
 2275. Largest Combination With Bitwise AND Greater Than Zero | return max count of certain digit
+2749. Minimum Operations to Make the Integer Zero | consider lb and rb of sum over 2**i
 2997. Minimum Number of Operations to Make Array XOR Equal to K | XOR all. return count 1 of total^1
 3133. Minimum Array End | see hints. fill bin(n-1) into bin(x) where skip the i-th bit if it is 1 in bin(x)
 233*. Number of Digit One | iterate (prefix, suffix). compare prefix_lsb to 1.
