@@ -617,6 +617,7 @@ D backtracking (get path)
 1023. Camelcase Matching | if same capital -> general splitting -> true if all is_subsequence
 1053. Previous Permutation With One Swap | first_inc, first_smaller, leftmost_eq
 1073. Adding Two Negabinary Numbers
+1093. Statistics from a Large Sample
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
@@ -877,6 +878,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 649. Dota2 Senate | C,Q=Counter(senate),deque(senate). while C["R"]*C["D"]: ego,chance,max_chance=Q.popleft(),1,1. rival="D" if ego=="R" else "R". while chance*C[rival]:...
 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | A | add minQ
 1937. Maximum Number of Points with Cost | A | combine 396. and 239.
+2327. Number of People Aware of a Secret
 --
 220*. Contains Duplicate III | A | with Bucket like 1438.
 239*. Sliding Window Maximum | A |
