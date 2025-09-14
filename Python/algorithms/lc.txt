@@ -2,6 +2,7 @@
 1483*. Kth Ancestor of a Tree Node
 
 [Difference Array] range update, query at finally
+1109. Corporate Flight Bookings
 3355. Zero Array Transformation I | diff. compare acc_ops nums[i]
 3356. Zero Array Transformation II | simpler than 3362, no storage. not enough consume immediately. diff, k, acc_ops = [0] * (len(nums) + 1), 0, 0.
 3362. Zero Array Transformation III | queries.sort(reverse=True). H, diff, acc_ops = [], [0] * (len(L) + 1), 0. for: update acc_ops, store, consume, compare.
@@ -239,6 +240,7 @@ D backtracking (get path)
 3217. Delete Nodes From Linked List Present in Array | ll.
 3223. Minimum Length of String After Operations | sum((times + 1) % 2 + 1 for times in Counter(s).values())
 3487. Maximum Unique Subarray Sum After Deletion
+3541. Find Most Frequent Vowel and Consonant
 
 [Hash]
 3. Longest Substring Without Repeating Character | if s[i] not in D or accum<D[s[i]]: accum+=1, else accum=i-D[s[i]]
@@ -461,6 +463,7 @@ D backtracking (get path)
 1051. Height Checker
 1071. Greatest Common Divisor of Strings
 1089. Duplicate Zeros
+1108. Defanging an IP Address
 1122. Relative Sort Array
 1137. N-th Tribonacci Number
 1220*. Count Vowels Permutation
@@ -993,6 +996,7 @@ E precompute: E0 no, E1 yes
 869. Reordered Power of 2 | D | collect same digits Counter and compare same
 993. Cousins in Binary Tree | f(target, T, depth, parent)
 1039. Minimum Score Triangulation of Polygon | C |
+1110. Delete Nodes And Return Forest
 1361. Validate Binary Tree Nodes | | if all(ele<2 for ele in inL) and inL.count(0)==1: root, visitS = inL.index(0), set(range(n)). def g(i=root).
 1367. Linked List in Binary Tree | C | f(T=root,i=0). self.ans=False. if i == len(L): self.ans = True. ... f(T.left, i+1), f(T.right, i+1), f(T.left, 0), f(T.right, 0)
 1530. Number of Good Leaf Nodes Pairs | f(T) -> List[int] leaves distance
@@ -1192,6 +1196,7 @@ B. answer
 720. Longest Word in Dictionary
 820. Short Encoding of Words | Trie by reversed words. Use top-down recusion: def f(T=T, depth=0): if len(T)==1 and "end" in T: return depth+1 else: return sum(f(T[child], depth+1) for child in T if child!="end")
     (each node has unknown contributions, bottom-up recursion needs to return list instead of int)
+966. Vowel Spellchecker
 1233. Remove Sub-Folders from the Filesystem
 3043. Find the Length of the Longest Common Prefix
 *2416. Sum of Prefix Scores of Strings
