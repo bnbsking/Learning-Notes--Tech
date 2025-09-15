@@ -1,4 +1,7 @@
 [Binary Lifting] Use dfs with path (backtracking) to construct self.parent_level_dict = defaultdict(list). node i's 2**j parent
+236. Lowest Common Ancestor of a Binary Tree
+865. Smallest Subtree with all the Deepest Nodes
+1123. Lowest Common Ancestor of Deepest Leaves | same as 865.
 1483*. Kth Ancestor of a Tree Node
 
 [Concurrency]
@@ -233,6 +236,7 @@ D backtracking (get path)
 1481. Least Number of Unique Integers after K Removals
 1657. Determine if Two Strings Are Close | set(word1)==set(word2) and sorted(Counter(word1).values()) == sorted(Counter(word2).values())
 1920. Build Array from Permutation
+1935. Maximum Number of Words You Can Type
 2053. Kth Distinct String in an Array
 2196. Create Binary Tree From Descriptions
 2285. Maximum Total Importance of Roads
@@ -1064,7 +1068,6 @@ E precompute: E0 no, E1 yes
 808. Soup Servings | C | n->10000 p=1
 813. Largest Sum of Averages | C | f(start=0,k=k) with memeory
 814. Binary Tree Pruning | | f(T) -> return prunedTree, isEmpty
-865. Smallest Subtree with all the Deepest Nodes | | Collect deepest node id by f(T)->None. self.ans=None. g(T)->count_deepest_nodes_in_subtree (first acheive collection node is ans)
 889. Construct Binary Tree from Preorder and Postorder Traversal | | f(preorder,postorder)->tree. preorder[0] is root, DLR LRD find the cut.
 894. All Possible Full Binary Trees | | f(n)->List[Tree]. similar to 95.
 900. RLE Iterator | | f(n)->ans
