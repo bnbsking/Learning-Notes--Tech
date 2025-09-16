@@ -1028,6 +1028,7 @@ E precompute: E0 no, E1 yes
 282*. Expression Add Operators | D |
 301*. Remove Invalid Parentheses | D |
 312*. Burst Balloons | CD |
+1125*. Smallest Sufficient Team | CD | 
 
 [Recursion return]
 22. Generate Parentheses | | f(L=['('],l=1,r=0)->ans. if r==self.n: return L elif l==r: call l elif l<self.n: call l call r elif l==self.n: call r
