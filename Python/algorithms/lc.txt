@@ -303,6 +303,7 @@ D backtracking (get path)
 560. Subarray Sum Equals K | Counts -> all update | D,sumv,ans={0:1},0,0 (sumv->counts). for x: sumv=sumv+x, if sumv-k in D: sumv+=D[sumv-k], D[sumv]+=1
 930. Binary Subarrays With Sum | Counts -> all update | same as 560
 974. Subarray Sums Divisible by K | D,acc,ans={0:1},0,0 | same as 560
+1124. Longest Well-Performing Interval | update if acc - 1 in D
 1171. Remove Zero Sum Consecutive Nodes from Linked List | Cut all -> all update | D,sumv,L={0:-1},0,[]. while head: L.append(x), sumv+=x, if sumv in D: for i in range(len(L)-D[sumv]-1): sumv-=L.pop(), D.pop(sumv). D[sumv]=len(L)-1.
 1371. Find the Longest Substring Containing Vowels in Even Counts | D,V,acc,ans={0:-1},"aeiou",0,0. for i in range(len(s)): flip ith bit if is vowel. if acc in D: ans=max(ans,i-D[acc]) else: D[acc]=i
 1590. Make Sum Divisible by P | target=sum(L)%p. if target==0: return 0. acc,D,ans=0,{0:-1},float('inf'). for i,x in enumerate(L): acc+=x. if (acc-target)%p in D: ans=min(ans,i-D[(acc-target)%p]). D[acc%p]=i
@@ -665,6 +666,7 @@ D backtracking (get path)
 149*. Max Points on a Line | use determinant, O(n^3)
 273*. Integer to English Words
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
+2197*. Replace Non-Coprime Numbers in Array
 3495. Minimum Operations to Make Array Elements Zero | precompute range of power of 4. iterate all range and add if has intersection.
 3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax 
 
