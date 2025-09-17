@@ -112,6 +112,7 @@ D backtracking (get path)
 994. Rotting Oranges | B1 | x,depth=Q.popleft().
 1030. Matrix Cells in Distance Order | B1 |
 1091. Shortest Path in Binary Matrix | B1 |
+1129. Shortest Path with Alternating Colors | Use edge visited instead.
 1424. Diagonal Traverse II | simpler than 498. x=Q.popleft()
 1971. Find if Path Exists in Graph | A1 |
 2101. Detonate the Maximum Bombs | A1B1 | bfs indegree==1, bfs remains
@@ -476,6 +477,7 @@ D backtracking (get path)
 1089. Duplicate Zeros
 1108. Defanging an IP Address
 1122. Relative Sort Array
+1128. Number of Equivalent Domino Pairs
 1137. N-th Tribonacci Number
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
@@ -1133,17 +1135,19 @@ E precompute: E0 no, E1 yes
     + init: (float('-inf'), float('inf'), val)
     + _get_boundary(l, r) -> bl: int, br: int
     + _split_boundary(l, r, bl, br) -> bl: int, br: int. split the leftmost and the rightmost without modify value
-+ sliding window medium
++ sliding window medium: B
     + way1: sortedcontainer
     + way2: max-heap of smaller half + min-heap of larger half
 218*. The Skyline Problem | A |
-295*. Find Median from Data Stream
-480*. Sliding Window Median
+295*. Find Median from Data Stream | B |
+315*. Count of Smaller Numbers After Self | naive. other approach: merge sort of (val, idx). self.ans[L[li][1]] += ri
+480*. Sliding Window Median | B |
 715*. Range Module | A |
 729. My Calendar I
 731. My Calendar II | A |
 732*. My Calendar III | A |
-2353. Design a Food Rating System | functools.cmp_to_key, Dict[cusine]->SortedList(rate,food) & Dict[food] -> [cusine,rate]
+1130. Minimum Cost Tree From Leaf Values | maxv: List[int]. SortedDict (prod_nei, cid): (pid, nid, l, r, max_leaf).
+2353. Design a Food Rating System | cusine -> SortedList(-ratings, food).  food -> (cusine, -ratings)
 2563. Count the Number of Fair Pairs | L, ans = SortedList(), 0. for x in nums: l = L.bisect_left(lower - x). r = L.bisect_right(upper - x). ans += r - l. L.add(x)
 
 [Stack 0]
