@@ -340,6 +340,7 @@ D backtracking (get path)
 2462. Total Cost to Hire K Workers | heap(cost[i] or cost[-1-i],'l'or'r') with l, r pointers
 2594. Minimum Time to Repair Cars | H = [[r, r, 0] for r in ranks]  # [r * (n + 1) ** 2, r, n] = [next_time, r, curr_n]
 3170. Lexicographically Minimum String After Removing Stars | H(ele, -idx)
+3408. Design Task Manager | H: (-pri, -tid, uid). status[tid] = [uid, pri]. check exist -> uid -> pri
 1298*. Maximum Candies You Can Get from Boxes | H(-status, b). if H[0] cannot open renew H.
 
 [Iteration or naive 0]
@@ -638,6 +639,7 @@ D backtracking (get path)
 1093. Statistics from a Large Sample
 1104. Path In Zigzag Labelled Binary Tree
 1111. Maximum Nesting Depth of Two Valid Parentheses Strings
+1138. Alphabet Board Path
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
@@ -880,6 +882,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1015. Smallest Integer Divisible by K | for i in range(k)
 1025. Divisor Game | return n%2==0. since f(x)=not f(x-1) is always true.
 1103. Distribute Candies to People
+1131. Maximum of Absolute Value Expression | abs(x) + abs(y) = max(abs(x + y), abs(x - y))
 1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
 
