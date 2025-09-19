@@ -250,6 +250,7 @@ D backtracking (get path)
 3016. Minimum Number of Pushes to Type Word II
 3217. Delete Nodes From Linked List Present in Array | ll.
 3223. Minimum Length of String After Operations | sum((times + 1) % 2 + 1 for times in Counter(s).values())
+3484. Design Spreadsheet
 3487. Maximum Unique Subarray Sum After Deletion
 3541. Find Most Frequent Vowel and Consonant
 
@@ -480,6 +481,7 @@ D backtracking (get path)
 1122. Relative Sort Array
 1128. Number of Equivalent Domino Pairs
 1137. N-th Tribonacci Number
+1139. Largest 1-Bordered Square
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
 1290. Convert Binary Number in a Linked List to Integer | ll
@@ -640,6 +642,7 @@ D backtracking (get path)
 1104. Path In Zigzag Labelled Binary Tree
 1111. Maximum Nesting Depth of Two Valid Parentheses Strings
 1138. Alphabet Board Path
+1144. Decrease Elements To Make Array Zigzag
 1232. Check If It Is a Straight Line | use determinants instead of slopes
 1248. Count Number of Nice Subarrays | collect odd_indices. for i in range(len(odd_indices)-k+1): ans+=l*r. return ans
 1291. Sequential Digits | dl, dh = int(log(low)/log(10))+1, int(log(high)/log(10))+1. L, x, diff = [], int("".join( str(i) for i in range(1,1+dl) )), int("1"*dl). for di in range(dl, dh+1): for j in range(10-di):
