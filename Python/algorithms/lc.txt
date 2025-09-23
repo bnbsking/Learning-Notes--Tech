@@ -1208,10 +1208,11 @@ B. answer
 
 [String matching]
 + KMP
-+ Karp Rabin: 1 Double hashing to prevent collision 2 reuse "lead_pow" by "for loop" to prevent large power 
++ Karp Rabin: 1 Double hashing to prevent collision 2 reuse classmethod and self.lead_pow to prevent large power
 28. Find the Index of the First Occurrence in a String
 718. Maximum Length of Repeated Subarray | similar as 1044
 1044*. Longest Duplicate Substring | Binary search of find substr of length m
+1147*. Longest Chunked Palindrome Decomposition | append and append_reverse instead of update 
 
 [Trie]
 208. Implement Trie (Prefix Tree) | Dict, the end of inserting: p["*"]="". e.g. insert apple, insert app, search app
