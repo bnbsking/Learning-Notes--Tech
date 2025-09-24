@@ -88,6 +88,9 @@
 3363*. Find the Maximum Number of Fruits Collected | 3 routes are independent
 3459*. Length of Longest V-Shaped Diagonal Segment
 
+[DP Arr2d Forward]
+329*. Longest Increasing Path in a Matrix
+
 [Graph traversal] and cycle
 A record visit by
     A0 record itself or no cycle - ll, tree
@@ -1150,6 +1153,7 @@ E precompute: E0 no, E1 yes
 218*. The Skyline Problem | A |
 295*. Find Median from Data Stream | B |
 315*. Count of Smaller Numbers After Self | naive. other approach: merge sort of (val, idx). self.ans[L[li][1]] += ri
+327*. Count of Range Sum
 480*. Sliding Window Median | B |
 715*. Range Module | A |
 729. My Calendar I
