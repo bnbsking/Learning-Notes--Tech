@@ -489,6 +489,7 @@ D backtracking (get path)
 1128. Number of Equivalent Domino Pairs
 1137. N-th Tribonacci Number
 1139. Largest 1-Bordered Square
+1154. Day of the Year
 1220*. Count Vowels Permutation
 1266. Minimum Time Visiting All Points
 1290. Convert Binary Number in a Linked List to Integer | ll
