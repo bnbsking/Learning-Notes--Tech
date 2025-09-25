@@ -152,6 +152,9 @@ D backtracking (get path)
 2385. Amount of Time for Binary Tree to Be Infected | , | Same as 863.
 126*(TLE). Word Ladder II | build distance List[Set[str]] by BFS -> DFS to get all paths with backtracking
 
+[Graph Traversal postorder-dfs] find Euler path by Hierholzer’s algorithm
+332*. Reconstruct Itinerary
+
 [Graph - Topological sort] Kahn's: init inDeg, leaves when: undirected graph inDeg=1 or directed graph inDeg=0 are starting points / dfs and bfs duplicates traversal
 + Must be multi-sourced
 + E: leaves out of while loop (greedy remove nodes as DFS)
@@ -677,10 +680,11 @@ D backtracking (get path)
 68*. Text Justification
 149*. Max Points on a Line | use determinant, O(n^3)
 273*. Integer to English Words
+330*. Patching Array | raw: coverage 1~y; add x: coverage 1~y+x.
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
 2197*. Replace Non-Coprime Numbers in Array
 3495. Minimum Operations to Make Array Elements Zero | precompute range of power of 4. iterate all range and add if has intersection.
-3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax 
+3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax
 
 [Iteration - Arithmetic sort or Minimum swaps sort]
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
