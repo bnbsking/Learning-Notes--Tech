@@ -682,6 +682,7 @@ D backtracking (get path)
 149*. Max Points on a Line | use determinant, O(n^3)
 273*. Integer to English Words
 330*. Patching Array | raw: coverage 1~y; add x: coverage 1~y+x.
+335*. Self Crossing | get min & max and compare Q[-1] to Q[-4], Q[-5], Q[-6]
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
 2197*. Replace Non-Coprime Numbers in Array
 3495. Minimum Operations to Make Array Elements Zero | precompute range of power of 4. iterate all range and add if has intersection.
