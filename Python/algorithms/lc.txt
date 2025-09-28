@@ -40,11 +40,10 @@
 91. Decode Ways | init 2. 4 cases: 00, 01~09/27~, 10/20, 11~19/21~26
 198. House Robber | init 3. L.append( max(L[-3],L[-2])+nums[i] ), return max(L[-1],L[-2])
 213. House Robber II | same as 198 but exclude first and last respectively, return max(L[-1],M[-1])
-<279.> Perfect Squares | L = [0,1]; for i in range(2,n+1): L.append( min( L[i-x**2]+1 for x in squares if i-x**2 >=0 ) )
-300. Longest Increasing Subsequence | similar to 279
-338. Counting Bits | L=[0]*(n+1), i=1. L[i]=L[i//2]+i%2
-368. Largest Divisible Subset | init1. similar to 300. but each cell stores divisors
-646. Maximum Length of Pair Chain | init 1. similar to 300.
+300. Longest Increasing Subsequence | len_i_seq_tail_min=[]. O(nlogn)
+<338.> Counting Bits | L=[0]*(n+1), i=1. L[i]=L[i//2]+i%2
+368. Largest Divisible Subset | max_length=[1] * n. parent=[-1] * n. O(n^2) iterate all pairs and update them.
+===
 740. Delete and Earn | C,D=Counter(L),defaultdict(lambda :0). for x,times in sorted(C.items()): D[x]=max(D[y] for y in D if x-y>=2)+x*times. similar to 300.
 764. Largest Plus Sign | for way dp
 790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
@@ -106,7 +105,8 @@ C memorization (subproblem of main problem)
 D backtracking (get path)
     D0 no
     D1 yes
-[Graph Traversal bfs] init queue and visited) when: shortest distance (unweighted shortest path can be get by parent arr
+[Graph Traversal bfs] init queue and visited) when: shortest distance (unweighted shortest path can be get by parent arr)
+279. Perfect Squares | bfs
 433. Minimum Genetic Mutation | A1 | x,depth=Q.popleft() | memory is for is_neighbor NOT main problem
 498. Diagonal Traverse | x=Q.popleft(). add down when i=0 + add right always, use i+j to judge even or odd
 542. 01 Matrix | B1 | x,depth=Q.popleft(). one queue multi-source BFS start from all 0s (put into Q) update 1s (set -1 as unvisited initially)
@@ -804,6 +804,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 452. Minimum Number of Arrows to Burst Balloons | similar to 56. minv, maxv, ans = -inf, -inf, 0. for start, end in sorted(L): if maxv < start: ... else: ...
 581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
 624. Maximum Distance in Arrays | curr_min, curr_max, ans
+646. Maximum Length of Pair Chain | sort by tup[-1]. update cur_end.
 746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
 769. Max Chunks To Make Sorted | curr_chunk_max, ans = -1, 0. for i in range(len(L)): if curr_chunk_mask < idx: ... else ... 
 845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
