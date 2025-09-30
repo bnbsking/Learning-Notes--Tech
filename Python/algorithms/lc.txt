@@ -43,8 +43,7 @@
 300. Longest Increasing Subsequence | len_i_seq_tail_min=[]. O(nlogn)
 <338.> Counting Bits | L=[0]*(n+1), i=1. L[i]=L[i//2]+i%2
 368. Largest Divisible Subset | max_length=[1] * n. parent=[-1] * n. O(n^2) iterate all pairs and update them.
-===
-740. Delete and Earn | C,D=Counter(L),defaultdict(lambda :0). for x,times in sorted(C.items()): D[x]=max(D[y] for y in D if x-y>=2)+x*times. similar to 300.
+740. Delete and Earn | dp = [k * v for k, v in sorted(C.items())]. dp[i] = max(dp[i], dp[i] + p1, dp[i] + p2, dp[i] + p3). why needs p3: e.g. [1,1,1,2,4,5] -> 5 needs 1
 764. Largest Plus Sign | for way dp
 790. Domino and Tromino Tiling | full=[1,1], half=[0,0].  # new_full = full | + full 二 + half L; new_half = full L + full Γ + half -
 <823.> Binary Trees With Factors | init D[ele]->ans. D[arr[i]] += D[arr[j]] * D[arr[i] // arr[j]]. return sum(D.values()). O(n^2)
