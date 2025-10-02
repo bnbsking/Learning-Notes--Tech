@@ -52,6 +52,7 @@
 1043. Partition Array for Maximum Sum | O(Nk) backward_max, local_ans = arr[i], dp[-1] + arr[i]. slide to left
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 <2707.> Extra Characters in a String | O(nd)
+354*. Russian Doll Envelopes | sort by (w, -h) -> get h only -> use 300.
 
 [DP 1d Forward]
 139. Word Break | init [True]+[False]*len(s). for i if L[i] for word: if s[i:i+len(word)]==word: L[i+len(word)]=True
@@ -671,6 +672,7 @@ D backtracking (get path)
 3021. Alice and Bob Playing Flower Game | ans += maxn - minn + 1
 3025. Find the Number of Ways to Place People I | same as 3027.
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
+3100. Water Bottles II
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3227. Vowels Game in a String
 3403. Find the Lexicographically Largest String From the Box I
