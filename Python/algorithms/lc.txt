@@ -52,7 +52,7 @@
 1043. Partition Array for Maximum Sum | O(Nk) backward_max, local_ans = arr[i], dp[-1] + arr[i]. slide to left
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 <2707.> Extra Characters in a String | O(nd)
-354*. Russian Doll Envelopes | sort by (w, -h) -> get h only -> use 300.
+354*. Russian Doll Envelopes | sort by (w, -h) "asc-desc sort" -> get h only -> use 300.
 
 [DP 1d Forward]
 139. Word Break | init [True]+[False]*len(s). for i if L[i] for word: if s[i:i+len(word)]==word: L[i+len(word)]=True
@@ -602,7 +602,7 @@ D backtracking (get path)
 328. Odd Even Linked List | ll. interleaving points
 386. Lexicographical Numbers | sort in str or key=cmp_to_key(lex). def lex(x,y): compare if len(x)==len(y) else fill samllest element " " after the shorter one and compare (different from 179)
 405. Convert a Number to Hexadecimal | find -x of binary: get +x binary -> reverse bits -> +1 || get +x+1 binary -> reverse bits
-406. Queue Reconstruction by Height | sort by (-p[0],p[1]). then L.insert(p[1],p). (if all p[1]=0, tall first; if all p[0]=h, small p[1] first)
+406. Queue Reconstruction by Height | sort by (-p[0],p[1]) "asc-desc sort". then L.insert(p[1],p). (if all p[1]=0, tall first; if all p[0]=h, small p[1] first)
 442. Find All Duplicates in an Array | Use negative sign to save visited. ans = []. for i in range(len(L)): store_idx = abs(nums[i])-1 if nums[store_idx]<0: ans.append(abs(nums[i])). nums[store_idx]*=-1
 470. Implement Rand10() Using Rand7() | 7-carry while x>=40
 491. Non-decreasing Subsequences | similar as 78.
@@ -687,7 +687,7 @@ D backtracking (get path)
 679*. 24 Game | O(24 (permutation) * 4 ** 3 (operator) * 5 (stack permutation))
 2197*. Replace Non-Coprime Numbers in Array
 3495. Minimum Operations to Make Array Elements Zero | precompute range of power of 4. iterate all range and add if has intersection.
-3027*. Find the Number of Ways to Place People II | sort by (x, -y). O(n^2) with update xmin and ymax
+3027*. Find the Number of Ways to Place People II | sort by (x, -y) "asc-desc sort". O(n^2) with update xmin and ymax
 
 [Iteration - Arithmetic sort or Minimum swaps sort]
 <268.> Missing Number | while i<len(L): if L[i]<len(L) and L[i]!=L[L[i]]: L[L[i]], L[i] = L[i], L[L[i]] else i+=1 # CANNOT REVERSE
@@ -805,7 +805,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 452. Minimum Number of Arrows to Burst Balloons | similar to 56. minv, maxv, ans = -inf, -inf, 0. for start, end in sorted(L): if maxv < start: ... else: ...
 581. Shortest Unsorted Continuous Subarray | current_max,end=nums[0],None. for i in range(1,len(nums)): nums[i] vs cmax ... current_min,start=nums[-1],None. .... return end-start+1
 624. Maximum Distance in Arrays | curr_min, curr_max, ans
-646. Maximum Length of Pair Chain | sort by tup[-1]. update cur_end.
+646. Maximum Length of Pair Chain | sort by tup[-1] ("secondary sort"). update cur_end.
 746. Min Cost Climbing Stairs | a,b=cost[0],cost[1]. for i in range(2,len(L)): c=cost[i]+min(a,b), a=b, b=c. return min(a,b)
 769. Max Chunks To Make Sorted | curr_chunk_max, ans = -1, 0. for i in range(len(L)): if curr_chunk_mask < idx: ... else ... 
 845. Longest Mountain in Array | i,acc,trend,ans=1,1,-1,1  # trend -> -1:init, 0:up, 1:down. while i<len(L): compare=(same,up,down) x trend=(-1,0,1)
@@ -877,7 +877,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 
 [Iteration - Max overlapped interval]
 S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count and find max.
-435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1. like 646. sort way.
+435. Non-overlapping Intervals | sort by last key and greedy remove. L.sort(key=lambda x:x[-1]). for i in range(1,len(L)): if non-overlap with prev: prev=i else ans+=1. like 646. "secondary sort".
 1094. Car Pooling
 2054. Two Best Non-Overlapping Events | sort by (time, is_start, val). ans, finished_val_max = max(tup[2] for tup in events), 0. ...
 2779. Maximum Beauty of an Array After Applying Operation
