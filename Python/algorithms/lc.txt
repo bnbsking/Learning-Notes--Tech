@@ -1165,6 +1165,7 @@ E precompute: E0 no, E1 yes
 315*. Count of Smaller Numbers After Self | naive. other approach: merge sort of (val, idx). self.ans[L[li][1]] += ri
 327*. Count of Range Sum
 363*. Max Sum of Rectangle No Larger Than K | O(n**2*m). max_subarr_sum_no_more_than_k(arr: List[int], k: int). iterate all column -> flatten between to 1d -> call func
+381*. Insert Delete GetRandom O(1) - Duplicates allowed | self.L = []. self.D = defaultdict(SortedList)  # val -> [idx]
 480*. Sliding Window Median | B |
 715*. Range Module | A |
 729. My Calendar I
