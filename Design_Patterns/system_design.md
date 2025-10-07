@@ -235,4 +235,104 @@ Example
         + change to base62 (62=26 (chars) * 2 (Capital & Lower) + 10 (digits))
 
 9. Web crawler
-    + 
+    + Steps
+        + start - seed url
+        + recursive search
+            + url extractor
+            + BFS with queue to search all url
+            + url filter
+            + url seen
+        + html downloader
+            + multi-processing vs under rate limit
+            + can use priority queue to rank
+                + helpfulness
+                + freshness
+        + content
+            + content parser
+            + content seen
+                + hash checksum
+            + content storage
+                + distributed data
+                + cache by DNS
+            + content filter
+                + infinite looped url (spider trap)
+                + harmful or meaning less content
+
+10. App remote notification system
+    + scenario
+        + ios: app company -> APNs -> ios device
+            + APNS: Apple push notification service
+        + android: app company -> FCM -> android device
+            + FCM: Firebase cloud messaging
+        + text message: provider -> SMS -> device
+        + email: provider -> email server -> device
+    + why not send end2end directly
+        + safe concern: quality and frequency constraint
+        + prevent revealing IP address
+    + other problems
+        + prevent missing packet
+        + use notification id to prevent duplication
+
+11. Facebook (news feed, recommendation system of posts)
+    + functions
+        + post
+        + get
+    + post
+        + load balancer -> webserver -> fanout to cache
+            + fanout means notification to friends
+    + get
+        + load balancer -> webserver -> get friends posts from cache 
+
+12. chatting room system
+    + functions
+        + both 1-to-1 and multiple people
+        + send text message only
+        + need to save all history message for searching
+    + scenario
+        + sender -> message storage -> reciever
+    + methods
+        + polling (inefficient)
+        + web sockets (recommended)
+    + storage
+        + mysql - personal data
+        + nosql - message
+    + more problems
+        + synchronous of different devices (or users)
+        + is online: heart beat mechanism
+            + tell server is online per 10 second
+            + if server does not receive online -> status turns to offline
+
+13. autocomplete text when searching
+    + requirement
+        + top 5
+        + fast response
+    + method
+        + trie with limited depth
+        + search max visited frequency
+        + do not need to update trie frequently. can update daily
+
+14. Youtube
+    + requirements
+        + large storage
+        + upload
+        + on-demand streaming
+        + live streaming
+    + large storage
+        + space estimation
+        + BLOB: binary large object storage?
+        + distributed storage
+            + cut and replicate each segment and store in different nodes
+        + use with CDN
+    + upload -> transcoding -> load balancer -> storage
+        + transcoding: change to different resolution by varied compression algorithms
+    + other problem
+        + multi-processing
+        + check sum for complete check
+
+15. Google drive
+    + space estimation
+    + functions
+        + upload
+        + download
+        + fix
+        + sync by delta
