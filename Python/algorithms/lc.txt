@@ -52,6 +52,7 @@
 1043. Partition Array for Maximum Sum | O(Nk) backward_max, local_ans = arr[i], dp[-1] + arr[i]. slide to left
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 <2707.> Extra Characters in a String | O(nd)
+3186. Maximum Total Damage With Spell Casting
 354*. Russian Doll Envelopes | sort by (w, -h) "asc-desc sort" -> get h only -> use 300.
 
 [DP 1d Forward]
@@ -341,6 +342,7 @@ D backtracking (get path)
 659. Split Array into Consecutive Subsequences | H=[[1,nums[0]]] #(len, max). for i in range(1,len(nums)): L,find=[],False. while not find and H: length,maxv=heapq.heappop(H). if nums[i]-maxv>1:check, elif nums[i]-maxv==1:extend, else:collect L
 1090. Largest Values From Labels
 1353. Maximum Number of Events That Can Be Attended | add (end) if already start; pop (end) if already end
+1488. Avoid Flood in The City | defaultdict(deque) lake->next_full_idx. heap(idx, lake).
 1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
 1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
 2406. Divide Intervals Into Minimum Number of Groups | heap(end).
@@ -544,6 +546,7 @@ D backtracking (get path)
 2210. Count Hills and Valleys in an Array
 2264. Largest 3-Same-Digit Number in String
 2270. Number of Ways to Split Array
+2273. Find Resultant Array After Removing Anagrams
 2294. Partition Array Such That Maximum Difference Is K
 2279. Maximum Bags With Full Capacity of Rocks
 2785. Sort Vowels in a String
@@ -673,11 +676,13 @@ D backtracking (get path)
 3025. Find the Number of Ways to Place People I | same as 3027.
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3100. Water Bottles II
+3147. Taking Maximum Energy From the Mystic Dungeon
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3227. Vowels Game in a String
 3403. Find the Lexicographically Largest String From the Box I
 3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
+3494. Find the Minimum Amount of Time to Brew Potions
 60*. Permutation Sequence | if n == 1: return "1". L, ans, k = list(range(1, n + 1)), [], k - 1
 68*. Text Justification
 149*. Max Points on a Line | use determinant, O(n^3)
@@ -733,6 +738,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 2070. Most Beautiful Item for Each Query | sort+search.
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
 2226. Maximum Candies Allocated to K Children | l, r = 1, int(sum(candies) / k)
+2300. Successful Pairs of Spells and Potions
 2563. Count the Number of Fair Pairs | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
 2485. Find the Pivot Integer
 2616. Minimize the Maximum Difference of Pairs |
