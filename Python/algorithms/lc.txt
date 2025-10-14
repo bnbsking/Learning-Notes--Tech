@@ -930,6 +930,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | A | add minQ
 1937. Maximum Number of Points with Cost | A | combine 396. and 239.
 2327. Number of People Aware of a Secret
+3349. Adjacent Increasing Subarrays Detection I
 --
 220*. Contains Duplicate III | A | with Bucket like 1438.
 239*. Sliding Window Maximum | A |
