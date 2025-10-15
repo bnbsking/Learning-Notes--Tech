@@ -931,6 +931,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1937. Maximum Number of Points with Cost | A | combine 396. and 239.
 2327. Number of People Aware of a Secret
 3349. Adjacent Increasing Subarrays Detection I
+3350. Adjacent Increasing Subarrays Detection II | 3349. + binary search
 --
 220*. Contains Duplicate III | A | with Bucket like 1438.
 239*. Sliding Window Maximum | A |
