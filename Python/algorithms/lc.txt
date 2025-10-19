@@ -911,6 +911,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 
 [OrderedDict (dict+double linked list; change val does not change order by default, list-liked)]
 146. LRU Cache | O.popitem(last=False), O.move_to_end(key)
+460*. LFU Cache | self.cap = capacity; self.key2vf = {}  # key -> (val, freq); self.f2okeys = defaultdict(OrderedDict)  # freq -> OrderedDict[key, None]; self.min_freq = 0
 
 [Queue 0]
 622. Design Circular Queue
