@@ -267,6 +267,7 @@ D backtracking (get path)
 128. Longest Consecutive Sequence | S=set(L); while S: while x-l in S, while x+r in S
 138. Copy List with Random Pointer | ll. D[id(p)]=idx for raw ll, L=[Node(p.val)] for new ll
 380. Insert Delete GetRandom O(1) | dict+list, remove do nothing for list, remove from list while getRandom if needed
+388. Longest Absolute File Path | cur level -> cur depth. level = line.count('\t'). name = line.lstrip('\t')
 438. Find All Anagrams in a String | sliding window Counter
 447. Number of Boomerangs | for x1,y1 in points: defaultdict for x2,y2 in points: D[dist]+=1 ans += sum( cnt*(cnt-1) for dist,cnt in D.items() if cnt>1 )
 454. 4Sum II | O(n^2) Counter collect -x-y, O(n^2) find +x+y
@@ -528,6 +529,7 @@ D backtracking (get path)
 1903. Largest Odd Number in String
 1957. Delete Characters to Make Fancy String
 2000. Reverse Prefix of Word
+2011. Final Value of Variable After Performing Operations
 2022. Convert 1D Array Into 2D Array
 2037. Minimum Number of Moves to Seat Everyone
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
