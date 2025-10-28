@@ -532,6 +532,7 @@ D backtracking (get path)
 2011. Final Value of Variable After Performing Operations
 2022. Convert 1D Array Into 2D Array
 2037. Minimum Number of Moves to Seat Everyone
+2043. Simple Bank System
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
 2094. Finding 3-Digit Even Numbers
 2099. Find Subsequence of Length K With the Largest Sum
@@ -681,6 +682,7 @@ D backtracking (get path)
 3147. Taking Maximum Energy From the Mystic Dungeon
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3227. Vowels Game in a String
+3354. Make Array Elements Equal to Zero | prefix_sum, suffix_sum
 3403. Find the Lexicographically Largest String From the Box I
 3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
@@ -909,7 +911,9 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1103. Distribute Candies to People
 1131. Maximum of Absolute Value Expression | abs(x) + abs(y) = max(abs(x + y), abs(x - y))
 1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
+1716. Calculate Money in Leetcode Bank
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
+3461. Check If Digits Are Equal in String After Operations I
 
 [OrderedDict (dict+double linked list; change val does not change order by default, list-liked)]
 146. LRU Cache | O.popitem(last=False), O.move_to_end(key)
@@ -1048,6 +1052,7 @@ E precompute: E0 no, E1 yes
 1530. Number of Good Leaf Nodes Pairs | f(T) -> List[int] leaves distance
 <1593.> Split a String Into the Max Number of Unique Substrings | f(s=s,U=None) if s not in U: self.ans = max(self.ans, len(U)+1). for...
 2044. Count Number of Maximum Bitwise-OR Subsets | f(i=0, acc=0)
+2048. Next Greater Numerically Balanced Number
 2096. Step-By-Step Directions From a Binary Tree Node to Another | D | find two path and intersect.
 2305. Fair Distribution of Cookies | CD | backtracking and memorization. self.ans,visitS,_=float('inf'),set(),cookies.sort(). def f(L=[0]*k, start=0): key=(tuple(sorted(L)),start) if key not in visitS: ...
 2415. Reverse Odd Levels of Binary Tree | | Level-order. D[path] -> Tree.
