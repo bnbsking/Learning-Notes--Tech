@@ -582,6 +582,7 @@ D backtracking (get path)
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
 3195. Find the Minimum Area to Cover All Ones I
 3330. Find the Original Typed String I | general split
+3370. Smallest Number With All Set Bits
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
 3516. Find Closest Person
@@ -705,6 +706,7 @@ D backtracking (get path)
 565. Array Nesting | i, accum, start = 0, 1, 1
 645. Set Mismatch
 2471. Minimum Number of Operations to Sort a Binary Tree by Level
+3289. The Two Sneaky Numbers of Digitville
 41*. First Missing Positive
 
 [Iteration - Binary search]
@@ -913,7 +915,7 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
 1716. Calculate Money in Leetcode Bank
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
-3461. Check If Digits Are Equal in String After Operations I
+3461. Check If Digits Are Equal in String After Operations I | Pascal
 
 [OrderedDict (dict+double linked list; change val does not change order by default, list-liked)]
 146. LRU Cache | O.popitem(last=False), O.move_to_end(key)
