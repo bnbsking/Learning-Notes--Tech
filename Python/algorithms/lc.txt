@@ -52,6 +52,7 @@
 1043. Partition Array for Maximum Sum | O(Nk) backward_max, local_ans = arr[i], dp[-1] + arr[i]. slide to left
 1846. Maximum Element After Decreasing and Rearranging | L.sort(). L[0]=1. for i in range(1,len(L)): if L[i]-L[i-1]>1: L[i]=L[i-1]+1. return L[-1]
 <2707.> Extra Characters in a String | O(nd)
+3186. Maximum Total Damage With Spell Casting
 354*. Russian Doll Envelopes | sort by (w, -h) "asc-desc sort" -> get h only -> use 300.
 
 [DP 1d Forward]
@@ -266,6 +267,7 @@ D backtracking (get path)
 128. Longest Consecutive Sequence | S=set(L); while S: while x-l in S, while x+r in S
 138. Copy List with Random Pointer | ll. D[id(p)]=idx for raw ll, L=[Node(p.val)] for new ll
 380. Insert Delete GetRandom O(1) | dict+list, remove do nothing for list, remove from list while getRandom if needed
+388. Longest Absolute File Path | cur level -> cur depth. level = line.count('\t'). name = line.lstrip('\t')
 438. Find All Anagrams in a String | sliding window Counter
 447. Number of Boomerangs | for x1,y1 in points: defaultdict for x2,y2 in points: D[dist]+=1 ans += sum( cnt*(cnt-1) for dist,cnt in D.items() if cnt>1 )
 454. 4Sum II | O(n^2) Counter collect -x-y, O(n^2) find +x+y
@@ -341,6 +343,7 @@ D backtracking (get path)
 659. Split Array into Consecutive Subsequences | H=[[1,nums[0]]] #(len, max). for i in range(1,len(nums)): L,find=[],False. while not find and H: length,maxv=heapq.heappop(H). if nums[i]-maxv>1:check, elif nums[i]-maxv==1:extend, else:collect L
 1090. Largest Values From Labels
 1353. Maximum Number of Events That Can Be Attended | add (end) if already start; pop (end) if already end
+1488. Avoid Flood in The City | defaultdict(deque) lake->next_full_idx. heap(idx, lake).
 1642. Furthest Building You Can Reach | L=[(diff,idx)], heap=[] stores (-diff,idx). while L and bricks>0 or ladders>0: if bricks>=L[-1][0]: -bricks add heap, elif ladders>0: compare heap_top and L[-1] and replace either with ladder, else break. return L[-1][1]
 1942. The Number of the Smallest Unoccupied Chair | H=list(range(len(L))). events=sorted((time, (-1)**is_leave, idx) for i in range(len(L))). D[idx->seat].
 2406. Divide Intervals Into Minimum Number of Groups | heap(end).
@@ -526,8 +529,10 @@ D backtracking (get path)
 1903. Largest Odd Number in String
 1957. Delete Characters to Make Fancy String
 2000. Reverse Prefix of Word
+2011. Final Value of Variable After Performing Operations
 2022. Convert 1D Array Into 2D Array
 2037. Minimum Number of Moves to Seat Everyone
+2043. Simple Bank System
 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points | ll.
 2094. Finding 3-Digit Even Numbers
 2099. Find Subsequence of Length K With the Largest Sum
@@ -544,6 +549,7 @@ D backtracking (get path)
 2210. Count Hills and Valleys in an Array
 2264. Largest 3-Same-Digit Number in String
 2270. Number of Ways to Split Array
+2273. Find Resultant Array After Removing Anagrams
 2294. Partition Array Such That Maximum Difference Is K
 2279. Maximum Bags With Full Capacity of Rocks
 2785. Sort Vowels in a String
@@ -576,6 +582,7 @@ D backtracking (get path)
 3191. Minimum Operations to Make Binary Array Elements Equal to One I
 3195. Find the Minimum Area to Cover All Ones I
 3330. Find the Original Typed String I | general split
+3370. Smallest Number With All Set Bits
 3423. Maximum Difference Between Adjacent Elements in a Circular Array
 3442. Maximum Difference Between Even and Odd Frequency I
 3516. Find Closest Person
@@ -673,11 +680,14 @@ D backtracking (get path)
 3025. Find the Number of Ways to Place People I | same as 3027.
 3085. Minimum Deletions to Make String K-Special | O(26 * 26), greedy: alternating base
 3100. Water Bottles II
+3147. Taking Maximum Energy From the Mystic Dungeon
 3201. Find the Maximum Length of Valid Subsequence I | max(all_odd, all_evn, evn_odd, odd_evn)
 3227. Vowels Game in a String
+3354. Make Array Elements Equal to Zero | prefix_sum, suffix_sum
 3403. Find the Lexicographically Largest String From the Box I
 3439. Reschedule Meetings for Maximum Free Time I | const sliding window
 3443. Maximum Manhattan Distance After K Changes | traverse all 8 permutations
+3494. Find the Minimum Amount of Time to Brew Potions
 60*. Permutation Sequence | if n == 1: return "1". L, ans, k = list(range(1, n + 1)), [], k - 1
 68*. Text Justification
 149*. Max Points on a Line | use determinant, O(n^3)
@@ -696,6 +706,7 @@ D backtracking (get path)
 565. Array Nesting | i, accum, start = 0, 1, 1
 645. Set Mismatch
 2471. Minimum Number of Operations to Sort a Binary Tree by Level
+3289. The Two Sneaky Numbers of Digitville
 41*. First Missing Positive
 
 [Iteration - Binary search]
@@ -733,6 +744,7 @@ l, r = 0, len(L) - 1. while l<=r: m = (l + r) // 2. if L[m] </<= target: l = m +
 2070. Most Beautiful Item for Each Query | sort+search.
 2187. Minimum Time to Complete Trips | l,r,f=0,totalTrips*min(time),lambda m:sum(int(m/t) for t in time). while l<=r:
 2226. Maximum Candies Allocated to K Children | l, r = 1, int(sum(candies) / k)
+2300. Successful Pairs of Spells and Potions
 2563. Count the Number of Fair Pairs | sort+search. for i in range(len(L)-1): l=f(L,lower-L[i],i+1,"bisect_l"). r=f(L,upper-L[i],i+1,"bisect_r"). ans+=l-r
 2485. Find the Pivot Integer
 2616. Minimize the Maximum Difference of Pairs |
@@ -901,10 +913,13 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1103. Distribute Candies to People
 1131. Maximum of Absolute Value Expression | abs(x) + abs(y) = max(abs(x + y), abs(x - y))
 1359. Count All Valid Pickup and Delivery Options | suppose ans=f(i-1) has got, there are 2i-2 parentheses (2i-1 spaces). Insert possibilities: (2i-1)+(2i-2)+...+1=2i*(2i-1)/2=i*(2i-1). ans=ans*i*(2i-1)%m
+1716. Calculate Money in Leetcode Bank
 2601. Prime Subtraction Operation | sieve_of_eratosthenes(max(nums)). if prev<x-L[l-1]: prev=x-L[l-1]. elif prev<x: prev=x. else: return False
+3461. Check If Digits Are Equal in String After Operations I | Pascal
 
 [OrderedDict (dict+double linked list; change val does not change order by default, list-liked)]
 146. LRU Cache | O.popitem(last=False), O.move_to_end(key)
+460*. LFU Cache | self.cap = capacity; self.key2vf = {}  # key -> (val, freq); self.f2okeys = defaultdict(OrderedDict)  # freq -> OrderedDict[key, None]; self.min_freq = 0
 
 [Queue 0]
 622. Design Circular Queue
@@ -924,6 +939,8 @@ S1. Maximum overlap interval | sort (start,1) and (end,-1). Accumulation count a
 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit | A | add minQ
 1937. Maximum Number of Points with Cost | A | combine 396. and 239.
 2327. Number of People Aware of a Secret
+3349. Adjacent Increasing Subarrays Detection I
+3350. Adjacent Increasing Subarrays Detection II | 3349. + binary search
 --
 220*. Contains Duplicate III | A | with Bucket like 1438.
 239*. Sliding Window Maximum | A |
@@ -1037,6 +1054,7 @@ E precompute: E0 no, E1 yes
 1530. Number of Good Leaf Nodes Pairs | f(T) -> List[int] leaves distance
 <1593.> Split a String Into the Max Number of Unique Substrings | f(s=s,U=None) if s not in U: self.ans = max(self.ans, len(U)+1). for...
 2044. Count Number of Maximum Bitwise-OR Subsets | f(i=0, acc=0)
+2048. Next Greater Numerically Balanced Number
 2096. Step-By-Step Directions From a Binary Tree Node to Another | D | find two path and intersect.
 2305. Fair Distribution of Cookies | CD | backtracking and memorization. self.ans,visitS,_=float('inf'),set(),cookies.sort(). def f(L=[0]*k, start=0): key=(tuple(sorted(L)),start) if key not in visitS: ...
 2415. Reverse Odd Levels of Binary Tree | | Level-order. D[path] -> Tree.
