@@ -164,5 +164,6 @@ cython_debug/
 # ml and dl output ckpts
 **/output/**.pt
 **/dataset
+Database/relational_db_postgre/pgdata
 
 .DS_Store

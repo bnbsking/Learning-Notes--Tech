@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data   # <- 绑定到 Windows 文件夹
+
+  python:
+    image: python:3.13
+    container_name: python_env
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: tail -f /dev/null
+    depends_on:
+      - db
