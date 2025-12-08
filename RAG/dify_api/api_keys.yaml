@@ -1,0 +1,13 @@
+rag:
+  dataset_uuid: "1c0cbf19-2621-4b73-9617-0759cb1db8fc"
+  api_key: "dataset-CDSZA9KqFD3OGt2x6RXTo3WG"
+
+chatbot:
+  api_key: "app-B7rVQOfmLxGOTVGU0U4MpdM4"
+
+doc_reading:
+  api_key: "app-DFAWhRfw8Y0vPFBgMODH1rdX"
+
+img:
+  #api_key: "app-ayUpwl519xKdVO7pujbgAbAh"
+  api_key: "app-Yh8oMxKhYZSAKHIFm3ZcWU5V"
