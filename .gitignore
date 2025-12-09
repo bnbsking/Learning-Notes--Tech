@@ -165,6 +165,6 @@ cython_debug/
 **/output/**.pt
 **/dataset
 Database/relational_db_postgre/pgdata
-**/api_key.yaml
+**/api_keys.yaml
 
 .DS_Store
