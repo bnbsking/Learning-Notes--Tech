@@ -13,3 +13,6 @@ Most of them are for short-term requirement.
 + `DesignPatterns/*`
 + `Python/algorithms/lc.txt`
 + `Python/packages/list_file_structure_by_tree.py`
++ `OCR/*`
++ `RAG/*`
++ `Database/relational_db_postgre/*`
