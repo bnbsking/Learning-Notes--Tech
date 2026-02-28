@@ -167,4 +167,6 @@ cython_debug/
 Database/relational_db_postgre/pgdata
 **/api_keys.yaml
 
+RAG/Dify/dify/docker/volumes
+
 .DS_Store
