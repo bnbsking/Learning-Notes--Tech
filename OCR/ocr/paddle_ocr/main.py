@@ -2,6 +2,10 @@ from paddleocr import PaddleOCR
 from pdf2image import convert_from_path
 import os
 
+#os.environ["FLAGS_enable_pir_api"] = "0"
+#os.environ["PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"] = "1"
+os.makedirs("/app/.tmp", exist_ok=True)
+
 # Initialize PaddleOCR
 ocr = PaddleOCR(lang='en')  # English
 
@@ -15,7 +19,7 @@ for i, page in enumerate(pages):
     print(f"--- Page {i+1} ---")
     
     # Save PIL image temporarily as PNG
-    img_path = f"/tmp/page_{i+1}.png"
+    img_path = f"/app/.tmp/page_{i+1}.png"
     page.save(img_path)
     
     # Run OCR
@@ -30,8 +34,8 @@ for i, page in enumerate(pages):
         for text, score in zip(rec_texts, rec_scores):
             print(f"{text} (confidence: {score:.2f})")
 
-        # Remove temporary image
-        os.remove(img_path)
+    # Remove temporary image
+    os.remove(img_path)
 
 """
 STORE (confidence: 1.00)

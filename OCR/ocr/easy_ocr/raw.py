@@ -9,8 +9,12 @@ pdf_path = "/app/_data/receipt.pdf"
 pages = convert_from_path(pdf_path, dpi=300)
 
 # Initialize EasyOCR reader
-reader = easyocr.Reader(['en'])  # English OCR
+reader = easyocr.Reader(
+    ['ch_tra', 'en'],
+    model_storage_directory="/app/models/easy_ocr/.EasyOCR",
+)
 
+# Run
 for i, page in enumerate(pages):
     print(f"--- Page {i+1} ---")
     
@@ -22,6 +26,7 @@ for i, page in enumerate(pages):
     
     for (bbox, text, prob) in result:
         print(f"{text} (confidence: {prob:.2f})")
+    
 
 """
 STORE NAME (confidence: 1.00)
